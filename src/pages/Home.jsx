@@ -1,10 +1,22 @@
 import React from 'react'
-import Header from '../components/Header'
+import Footer from '../components/Footer'
+import Hero from '../components/Hero'
+import Section from '../components/Section'
 
-const Home = () => {
-  return (
-    <Header />
-  )
+class Home extends React.Component {
+  render() {
+    return (
+      <>
+        <Hero />
+        <Section />
+      </>
+    )
+  }
 }
+// const Home = () => {
+//   return (
+
+//   )
+// }
 
 export default Home

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/components/Navbar.sass'
 import cartIcon from '../assets/icons/cart.svg'
 
@@ -11,17 +12,17 @@ const Navbar = () => {
       <nav className='Navbar'>
         <ul className='Navbar-list'>
           <li className='Navbar-list_item'>
-            <a href='#'>
+            <a href='/contact'>
               Contact
             </a>
           </li>
           <li className='Navbar-list_item'>
-            <a href='#'>
+            <a href='/Products'>
               Products
             </a>
           </li>
           <li className='Navbar-list_item'>
-            <a href='#'>
+            <a href='/'>
               IDK
             </a>
           </li>
@@ -31,7 +32,7 @@ const Navbar = () => {
         <button type='button' className='cart'>
           <img src={cartIcon} alt='Cart icon' />
         </button>
-        <button type='button' className='signIn'>Ingresar</button>
+        <button type='button' className='btn signIn'>Ingresar</button>
       </div>
     </div>
   )

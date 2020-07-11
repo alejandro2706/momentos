@@ -5,7 +5,12 @@ const Hero = () => {
   return (
     <div className='Hero'>
       <div className='Hero-description'>
-        <h1>Find your unique special moment</h1>
+        <h1>
+          Find your special
+          {' '}
+          <span>Moment</span>
+        </h1>
+        <button type='button' className='btn btn-primary'>Start here</button>
       </div>
     </div>
   )

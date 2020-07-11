@@ -1,7 +1,17 @@
 import React from 'react'
+import ProductLayout from '../components/ProductLayout'
 
-const Products = () => {
-  return <h1>products</h1>
+class Products extends React.Component {
+  render() {
+    return (
+      <ProductLayout />
+    )
+  }
 }
+// const Products = () => {
+//   return (
+
+//   )
+// }
 
 export default Products

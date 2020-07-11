@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: './scripts/[name].[hash].js',
+    filename: './scripts/[name].js',
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

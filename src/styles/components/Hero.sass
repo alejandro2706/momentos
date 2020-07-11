@@ -1,21 +1,37 @@
 @import '../utils/Vars'
 .Hero
   height: 90vh
-  margin: 1.4em
+  margin: 1.2em
   background-image: url('https://images.pexels.com/photos/372851/pexels-photo-372851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
   background-repeat: no-repeat
   background-size: 100%
   background-position: right center
+  border-radius: 2em
+  overflow: hidden
   &-description
     height: 100%
     background: rgb(9,9,9);
-    background: linear-gradient(90deg, rgba(9,9,9,0.1292892156862745) 22%, rgba(43,43,43,0.6166841736694677) 43%, rgba(43,43,43,0.711922268907563) 100%);
+    background: linear-gradient(90deg, rgba(9,9,9,0.1) 22%, rgba(43,43,43,0.6) 43%, rgba(43,43,43,0.71) 100%);
     h1
+      width: 50%
       font-family: $title-font
       text-transform: capitalize
-      font-size: 5em
-      width: 50%
+      font-size: 5.5em
       position: absolute
       top: 25%
       margin-left: 1em
+      color: white
+      span
+        color: $brand-color
+        display: block
+        font-size: 1.1em
+        font-family: $brand-font
+    .btn-primary
+      width: 150px
+      position: absolute
+      top: 70%
+      left: 20%
+      padding: .7em
+      font-size: 1.4em
+      text-transform: capitalize
       color: white
