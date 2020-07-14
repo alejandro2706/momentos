@@ -9,9 +9,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: './scripts/[name].js',
   },
+  mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    port: 9000,
+    compress: true,
+    port: 8081,
     open: true,
     hot: true,
   },
