@@ -1,16 +1,36 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Contact from '../pages/Contact'
+import { BrowserRouter, Route } from 'react-router-dom'
+// import About from '../pages/About'
 import Products from '../pages/Products'
 import '../styles/components/App.sass'
 import Layout from '../components/Layout'
-import Home from '../pages/Home'
+// import Layout from '../components/Layout'
+// import Home from '../pages/Home'
+// import About from '../pages/About'
 //TODO: create browser route
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Layout>
+//         <Switch>
+//           <Route path='/'><Home /></Route>
+//           <Route exact path='/products'><Products /></Route>
+//           <Route exact path='/contact'><About /></Route>
+//         </Switch>
+//       </Layout>
+//     </BrowserRouter>
+//   )
+// }
+
 function App() {
   return (
-    <Layout>
-      <Home />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Route path='/'>
+          <Products />
+        </Route>
+      </Layout>
+    </BrowserRouter>
   )
 }
 

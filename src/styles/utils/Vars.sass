@@ -14,3 +14,11 @@ $paragraph-color: gray;
   display: flex
   justify-content: $justify
   align-items: $align
+
+@mixin button($radius, $color: $brand-color)
+  background-color: $color
+  color: white
+  border-radius: $radius
+  transition: .6s
+  &:hover
+    box-shadow: 1px 1px 10px 1px gray

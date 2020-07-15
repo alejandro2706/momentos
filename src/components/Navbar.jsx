@@ -7,24 +7,24 @@ const Navbar = () => {
   return (
     <div className='Navbar-container'>
       <div className='Navbar-container_brand'>
-        <a href='/'><h1>Momentos</h1></a>
+        <Link to='/products'><h1>Momentos</h1></Link>
       </div>
       <nav className='Navbar'>
         <ul className='Navbar-list'>
           <li className='Navbar-list_item'>
-            <a href='/contact'>
+            <Link to='/contact'>
               Contact
-            </a>
+            </Link>
           </li>
           <li className='Navbar-list_item'>
-            <a href='/Products'>
+            <Link to='/Products'>
               Products
-            </a>
+            </Link>
           </li>
           <li className='Navbar-list_item'>
-            <a href='/'>
+            <Link to='/'>
               IDK
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

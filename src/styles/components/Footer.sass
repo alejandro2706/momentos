@@ -1,0 +1,35 @@
+@import '../utils/Vars'
+
+img
+  width: 12px
+  heigth: 1em
+
+.Footer
+  background: #EAEAEA;
+  display: grid
+  grid-template-columns: 40% 30% 30%
+  padding: 1em
+  padding-bottom: 2.5em
+  &-main
+    width: 95%
+    padding-left: 1em
+  &-git
+    padding: 0 1em
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-template-rows: 1fr 1fr
+    h2
+      margin-top: 10px
+      grid-column-end: span 3
+  &-social
+    padding: 0 1em
+    &_icons
+      margin-top: 1em
+      display: flex
+      justify-content: space-around
+    img
+      width: 30px
+      height: 35px
+      filter: grayscale(100%)
+      &:hover
+        filter: grayscale(0)

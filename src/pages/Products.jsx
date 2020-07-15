@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductLayout from '../components/ProductLayout'
+import ProductLayout from '../components/Products/ProductLayout'
 
 class Products extends React.Component {
   render() {
@@ -8,10 +8,5 @@ class Products extends React.Component {
     )
   }
 }
-// const Products = () => {
-//   return (
-
-//   )
-// }
 
 export default Products
