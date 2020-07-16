@@ -4,7 +4,9 @@ import ProductLayout from '../components/Products/ProductLayout'
 class Products extends React.Component {
   render() {
     return (
-      <ProductLayout />
+      <ProductLayout
+        title='Cupcakes'
+      />
     )
   }
 }

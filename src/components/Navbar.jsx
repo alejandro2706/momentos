@@ -7,13 +7,13 @@ const Navbar = () => {
   return (
     <div className='Navbar-container'>
       <div className='Navbar-container_brand'>
-        <Link to='/products'><h1>Momentos</h1></Link>
+        <Link to='/'><h1>Momentos</h1></Link>
       </div>
       <nav className='Navbar'>
         <ul className='Navbar-list'>
           <li className='Navbar-list_item'>
             <Link to='/contact'>
-              Contact
+              About
             </Link>
           </li>
           <li className='Navbar-list_item'>

@@ -1,9 +1,12 @@
 import React from 'react'
+import '../styles/components/About.sass'
 
 class About extends React.Component {
   render() {
     return (
-      <h1>About section</h1>
+      <div className='About'>
+        <h1>About Us</h1>
+      </div>
     )
   }
 }

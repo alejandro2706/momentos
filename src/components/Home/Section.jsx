@@ -11,11 +11,15 @@ const Section = () => {
       <p>Each of them for a unique Present!</p>
       <SectionProduct
         image={cake}
+        title='Galletas'
+      />
+      <SectionProduct
+        image={cookies}
         title='Cupcakes'
       />
       <SectionProduct
         image={cookies}
-        title='Cookies'
+        title='Brownies'
       />
     </div>
   )
