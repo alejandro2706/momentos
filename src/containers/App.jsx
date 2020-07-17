@@ -5,6 +5,7 @@ import Products from '../pages/Products'
 import '../styles/components/App.sass'
 import Layout from '../components/Layout'
 import Home from '../pages/Home'
+import Session from '../pages/Session'
 // import About from '../pages/About'
 //TODO: create browser route
 // function App() {
@@ -25,14 +26,29 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Route exact path='/'>
+        {/* <Route exact path='/'>
           <Home />
-        </Route>
+        </Route> */}
         <Route path='/contact'>
           <About />
         </Route>
         <Route exact path='/products'>
-          <Products />
+          <Products title='Products' />
+        </Route>
+        <Route exact path='/products/brownies'>
+          <Products title='Brownies' />
+        </Route>
+        <Route exact path='/products/galletas'>
+          <Products title='Galletas' />
+        </Route>
+        <Route exact path='/products/cupcakes'>
+          <Products title='Cupcakes' />
+        </Route>
+        <Route exact path='/products/antojos'>
+          <Products title='Antojos' />
+        </Route>
+        <Route exact path='/'>
+          <Session />
         </Route>
       </Layout>
     </BrowserRouter>

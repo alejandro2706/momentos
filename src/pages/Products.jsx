@@ -1,14 +1,12 @@
 import React from 'react'
-import ProductLayout from '../components/Products/ProductLayout'
+import ItemLayout from '../components/Products/ItemLayout'
 
-class Products extends React.Component {
-  render() {
-    return (
-      <ProductLayout
-        title='Cupcakes'
-      />
-    )
-  }
+function Products({ title }) {
+  return (
+    <ItemLayout
+      title={title}
+    />
+  )
 }
 
 export default Products

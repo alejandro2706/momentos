@@ -2,12 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/components/Navbar.sass'
 import cartIcon from '../assets/icons/cart.svg'
+import logo from '../assets/brand/cupcake-logo.png'
 
 const Navbar = () => {
   return (
     <div className='Navbar-container'>
       <div className='Navbar-container_brand'>
-        <Link to='/'><h1>Momentos</h1></Link>
+        <Link to='/'>
+          <img src={logo} alt='logo' />
+          <span>Momentos</span>
+        </Link>
       </div>
       <nav className='Navbar'>
         <ul className='Navbar-list'>
@@ -32,7 +36,10 @@ const Navbar = () => {
         <button type='button' className='cart'>
           <img src={cartIcon} alt='Cart icon' />
         </button>
-        <button type='button' className='btn signIn'>Ingresar</button>
+        <button type='button' className='btn signIn'>
+          <Link to='/auth'>Iniciar Sesión</Link>
+          {' '}
+        </button>
       </div>
     </div>
   )

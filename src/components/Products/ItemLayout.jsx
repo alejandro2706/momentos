@@ -1,6 +1,6 @@
 import React from 'react'
-import ProductItem from './ProductItem'
-import '../../styles/components/ProductLayout.sass'
+import Item from './Item'
+import '../../styles/components/ItemLayout.sass'
 
 const images = {
   cupcake: 'https://images.pexels.com/photos/268364/pexels-photo-268364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
@@ -21,19 +21,19 @@ const ProductLayout = ({ title }) => {
         </button>
       </div>
       <div className='Layout-grid'>
-        <ProductItem
+        <Item
           name='Chocolate'
           image={images.cupcake}
         />
-        <ProductItem
+        <Item
           name='Vainilla'
           image={images.cookies}
         />
-        <ProductItem
+        <Item
           name='Almendra'
           image={images.cookies}
         />
-        <ProductItem
+        <Item
           name='Mandarina'
           image={images.cupcake}
         />

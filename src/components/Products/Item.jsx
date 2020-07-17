@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/components/ProductItem.sass'
+import '../../styles/components/Item.sass'
 import addButton from '../../assets/icons/add.svg'
 
 const ProductItem = ({ name, image }) => {

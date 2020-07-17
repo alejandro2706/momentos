@@ -1,5 +1,7 @@
 import React from 'react'
 import '../styles/components/About.sass'
+import { Link } from 'react-router-dom'
+// import logo from '../assets/brand/white-logo.png'
 
 class About extends React.Component {
   render() {
@@ -11,7 +13,10 @@ class About extends React.Component {
         <div className='About-main'>
           <h3>Entregando Momentos especiales</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla nam inventore tempora expedita eveniet iure! Fugit, delectus rerum suscipit, cum voluptates dolores maxime aut debitis, esse praesentium maiores velit!</p>
-          <button type='button' className='btn'>Descubre como</button>
+          <button type='button' className='btn'>
+            <Link to='/products'>Descubre Cómo</Link>
+            {' '}
+          </button>
         </div>
         <div className='About-history'>
           <div className='About-history_us'>

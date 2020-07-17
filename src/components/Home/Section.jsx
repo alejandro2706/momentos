@@ -1,7 +1,8 @@
 import React from 'react'
 import '../../styles/components/Section.sass'
-import cake from '../../assets/images/product.png'
-import cookies from '../../assets/images/galletas.png'
+import cake from '../../assets/images/brownie.svg'
+import cookies from '../../assets/images/cookies.svg'
+import cupcake from '../../assets/images/cupcake.svg'
 import SectionProduct from './SectionProduct'
 
 const Section = () => {
@@ -11,7 +12,7 @@ const Section = () => {
       <p>Each of them for a unique Present!</p>
       <div className='Section-grid'>
         <SectionProduct
-          image={cookies}
+          image={cupcake}
           title='Galletas'
         />
         <SectionProduct
@@ -23,8 +24,16 @@ const Section = () => {
           title='Brownies'
         />
         <SectionProduct
-          image={cake}
+          image={cupcake}
           title='Antojos'
+        />
+        <SectionProduct
+          image={cake}
+          title='Brownies'
+        />
+        <SectionProduct
+          image={cookies}
+          title='Brownies'
         />
       </div>
     </div>

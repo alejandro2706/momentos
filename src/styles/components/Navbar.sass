@@ -8,21 +8,37 @@
   font-family: 'sans-serif';
   &_brand
     grid-column: 1 / 3
-    padding-left: 1em
-    color: red
+    width: 100%
+    overflow: hidden
+    padding-left: 3em
+    a
+      @include flex(center, start)
+    span
+      font-size: 3em
+      margin-left: 5px
+      color: $brand-color
+      font-family: $brand-font
+    img
+      width: 45px
+      height: 50px
+      // width: 80%
+      // // filter: grayscale(.5)
+      // &:hover
+      //   filter: grayscale(0)
+      // // height: 50px
   &_tooltips
     display: grid
     grid-template-columns: 35% 55%
     gap: 10%
     align-items: center
     .cart
-      height: 80%
-      width: 45px
+      height: 30px
+      width: 40px
       justify-self: center
       background-color: transparent
       transition: .4s
       &:hover
-        transform: scale(1.2)
+        transform: scale(1.19)
       &:active
         transform: scale(.9) 
       img
@@ -30,9 +46,15 @@
         height: 90%
     .signIn
       @include button(20px)
-      height: 84%
+      height: 70%
+      a
+        color: white
+      &:hover
+        background-color: $brand-color-alt
   .Navbar
     grid-column: 3 / 6
+    display: grid
+    align-content: center
     &-list
       display: grid
       grid-template-columns: repeat(3, 1fr)
@@ -53,7 +75,7 @@
           height: 100%
         &::after
           content: ''
-          background-color: red
+          background-color: $brand-color-alt
           position: absolute
           transform: scaleY(0) 
           transform-origin: bottom
