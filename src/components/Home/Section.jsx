@@ -9,18 +9,24 @@ const Section = () => {
     <div className='Section'>
       <h2>Our Products</h2>
       <p>Each of them for a unique Present!</p>
-      <SectionProduct
-        image={cake}
-        title='Galletas'
-      />
-      <SectionProduct
-        image={cookies}
-        title='Cupcakes'
-      />
-      <SectionProduct
-        image={cookies}
-        title='Brownies'
-      />
+      <div className='Section-grid'>
+        <SectionProduct
+          image={cookies}
+          title='Galletas'
+        />
+        <SectionProduct
+          image={cookies}
+          title='Cupcakes'
+        />
+        <SectionProduct
+          image={cake}
+          title='Brownies'
+        />
+        <SectionProduct
+          image={cake}
+          title='Antojos'
+        />
+      </div>
     </div>
   )
 }

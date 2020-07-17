@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from '../components/Footer'
 import Hero from '../components/Home/Hero'
 import Section from '../components/Home/Section'
 import How from '../components/Home/How'

@@ -1,15 +1,13 @@
 @import '../utils/Vars'
 
-img
-  width: 12px
-  heigth: 1em
+
 
 .Footer
-  background: #EAEAEA;
+  background: $white-color
   display: grid
   grid-template-columns: 40% 30% 30%
   padding: 1em
-  padding-bottom: 2.5em
+  padding-bottom: 5em
   &-main
     width: 95%
     padding-left: 1em
@@ -18,8 +16,11 @@ img
     display: grid
     grid-template-columns: repeat(3, 1fr)
     grid-template-rows: 1fr 1fr
+    &_items
+      img
+        width: 12px
+        heigth: 1em
     h2
-      margin-top: 10px
       grid-column-end: span 3
   &-social
     padding: 0 1em

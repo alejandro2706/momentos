@@ -9,6 +9,7 @@ $brand-color: red;
 $brand-color-alt: blue;
 $title-color: black;
 $paragraph-color: gray;
+$white-color: #F4F4F4
 
 @mixin flex($align, $justify)
   display: flex
@@ -22,3 +23,8 @@ $paragraph-color: gray;
   transition: .6s
   &:hover
     box-shadow: 1px 1px 10px 1px gray
+
+@mixin flex($justify, $align)
+  display: flex
+  justify-content: $justify
+  align-items: $align

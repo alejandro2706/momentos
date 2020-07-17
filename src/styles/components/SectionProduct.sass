@@ -1,35 +1,49 @@
 @import ../utils/Vars
 
 .Section-products
-  width: 95%
+  width: 90%
+  margin: 2em auto
   position: relative
-  margin: 3em auto
-  background-color: #F4F4F4
-  &_grid
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-template-rows: 1fr
-    justify-items: start
+  overflow: hidden
   &_image
-    //TODO: fix image
-    width: 50%
-    height: 200px
+    // filter: blur(3px)
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    text-align: center
     img
-      width: 99%
+      width: 75%
       height: 100%
   &_desc
-    height: 75%
-    padding: 1em
-    margin: 1em
+    background-color: transparentize(black, .3)
+    padding: 1.5em
+    position: relative
+    z-index: 10
+    color: white
     h3
       font-size: 2.6em
-      margin-bottom: 1em
+      margin-bottom: 10px
+    p
+      color: white
   &_button
-    position: absolute
-    bottom: -15px
-    left: 30px
+    margin-top: 2em
     z-index: 100
     button
       height: 40px
       width: 120px
       @include button(10px)
+
+@media screen and ( max-width: 1030px )
+  .Section-products_image
+    img
+      width: 90%
+
+@media screen and ( max-width: 770px )
+  .Section-products
+    width: 95%
+  .Section-products_image
+    img
+      width: 110%
+      height: 90%

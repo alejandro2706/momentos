@@ -2,12 +2,13 @@ import React from 'react'
 import '../../styles/components/ProductItem.sass'
 import addButton from '../../assets/icons/add.svg'
 
-const ProductItem = ({ name }) => {
+const ProductItem = ({ name, image }) => {
   function handleClick() {
     alert('click')
   }
   return (
     <div className='Product'>
+      <img src={image} alt='product' />
       <div className='Product-desc'>
         <h3>{name}</h3>
         <button onClick={handleClick} type='button'>

@@ -1,10 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
-// import About from '../pages/About'
 import About from '../pages/About'
+import Products from '../pages/Products'
 import '../styles/components/App.sass'
 import Layout from '../components/Layout'
-// import Layout from '../components/Layout'
 import Home from '../pages/Home'
 // import About from '../pages/About'
 //TODO: create browser route
@@ -27,7 +26,13 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/contact'>
           <About />
+        </Route>
+        <Route exact path='/products'>
+          <Products />
         </Route>
       </Layout>
     </BrowserRouter>
