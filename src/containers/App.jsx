@@ -26,7 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Route exact path='/'>
+        <Route exact path='/auth'>
           <Home />
         </Route>
         <Route exact path='/products'>
@@ -47,7 +47,7 @@ function App() {
         <Route exact path='/contact'>
           <About />
         </Route>
-        <Route exact path='/auth'>
+        <Route exact path='/'>
           <Session />
         </Route>
       </Layout>

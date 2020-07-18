@@ -1,16 +1,15 @@
 @import '../utils/Vars'
 
-
-
 .Footer
   background: $white-color
   display: grid
   grid-template-columns: 40% 30% 30%
   padding: 1em
-  padding-bottom: 5em
   &-main
     width: 95%
     padding-left: 1em
+    img
+      width: 70%
   &-git
     padding: 0 1em
     display: grid
@@ -32,5 +31,7 @@
       width: 30px
       height: 35px
       filter: grayscale(100%)
+      will-change: transform, filter
       &:hover
         filter: grayscale(0)
+        transform: scale(1.1)

@@ -6,16 +6,18 @@ import mail from '../assets/icons/mail.svg'
 import facebook from '../assets/icons/facebook.svg'
 import instagram from '../assets/icons/instagram.svg'
 import maps from '../assets/icons/google-maps.svg'
+import logo from '../assets/brand/white-logo.png'
 
 const Footer = () => {
   return (
     <div className='Footer'>
       <div className='Footer-main'>
-        <h1>Momentos</h1>
+        {/* <h1>Momentos</h1>
         <p>
           A description about what we do, why we do, the benefits that make us unique from the rest of the others bakeries.
           We help you getting better your best Moments around your life with special presents to your loved ones.
-        </p>
+        </p> */}
+        <img src={logo} alt='logo' />
       </div>
       <div className='Footer-git'>
         <h2>Get In touch!</h2>

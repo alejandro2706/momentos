@@ -10,6 +10,8 @@ export default function Section() {
   function handelAnimation() {
     if (document.documentElement.scrollTop > 210) {
       setClassName('visible')
+    } else {
+      setClassName('hidden')
     }
   }
   window.onscroll = () => handelAnimation()
