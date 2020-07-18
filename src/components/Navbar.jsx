@@ -4,7 +4,7 @@ import '../styles/components/Navbar.sass'
 import cartIcon from '../assets/icons/cart.svg'
 import logo from '../assets/brand/cupcake-logo.png'
 
-const Navbar = () => {
+function Navbar() {
   return (
     <div className='Navbar-container'>
       <div className='Navbar-container_brand'>
@@ -38,7 +38,6 @@ const Navbar = () => {
         </button>
         <button type='button' className='btn signIn'>
           <Link to='/auth'>Iniciar Sesión</Link>
-          {' '}
         </button>
       </div>
     </div>

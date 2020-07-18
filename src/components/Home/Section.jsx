@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/components/Section.sass'
 import cake from '../../assets/images/brownie.svg'
 import cookies from '../../assets/images/cookies.svg'
 import cupcake from '../../assets/images/cupcake.svg'
 import SectionProduct from './SectionProduct'
 
-const Section = () => {
+export default function Section() {
+  const [className, setClassName] = useState('hidden')
+  function handelAnimation() {
+    if (document.documentElement.scrollTop > 210) {
+      setClassName('visible')
+    }
+  }
+  window.onscroll = () => handelAnimation()
   return (
     <div className='Section'>
       <h2>Our Products</h2>
@@ -14,30 +21,34 @@ const Section = () => {
         <SectionProduct
           image={cupcake}
           title='Galletas'
+          productClass={className}
         />
         <SectionProduct
           image={cookies}
           title='Cupcakes'
+          productClass={className}
         />
         <SectionProduct
           image={cake}
           title='Brownies'
+          productClass={className}
         />
         <SectionProduct
           image={cupcake}
           title='Antojos'
+          productClass={className}
         />
         <SectionProduct
           image={cake}
           title='Brownies'
+          productClass={className}
         />
         <SectionProduct
           image={cookies}
           title='Brownies'
+          productClass={className}
         />
       </div>
     </div>
   )
 }
-
-export default Section

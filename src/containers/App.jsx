@@ -26,11 +26,8 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        {/* <Route exact path='/'>
+        <Route exact path='/'>
           <Home />
-        </Route> */}
-        <Route path='/contact'>
-          <About />
         </Route>
         <Route exact path='/products'>
           <Products title='Products' />
@@ -47,7 +44,10 @@ function App() {
         <Route exact path='/products/antojos'>
           <Products title='Antojos' />
         </Route>
-        <Route exact path='/'>
+        <Route exact path='/contact'>
+          <About />
+        </Route>
+        <Route exact path='/auth'>
           <Session />
         </Route>
       </Layout>

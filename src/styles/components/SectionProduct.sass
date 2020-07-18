@@ -40,10 +40,26 @@
       @include button(10px)
       background-color: $brand-color-alt
 
-// @media screen and ( max-width: 1030px )
-//   .Section-products_image
-//     img
-//       width: 90%
+.hidden
+  display: none
+
+.visible
+  display: block
+  animation-name: visible;
+  animation-duration: .9s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+@keyframes visible
+  0%
+    opacity: 0.5
+    transform: scale(0) 
+  50%
+    opacity: 0.7
+    transform: scale(0.5) 
+  100%
+    opacity: 1
+    transform: scale(1) 
 
 @media screen and ( max-width: 770px )
   .Section-products
