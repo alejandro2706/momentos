@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Route exact path='/'>
-          <Home />
+          <Session />
         </Route>
         <Route exact path='/products'>
           <Products title='Products' />
@@ -33,7 +33,7 @@ function App() {
           <About />
         </Route>
         <Route exact path='/auth'>
-          <Session />
+          <Home />
         </Route>
       </Layout>
     </BrowserRouter>

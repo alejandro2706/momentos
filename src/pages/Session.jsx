@@ -4,22 +4,25 @@ import SignIn from '../components/auth/SignIn'
 
 function Session() {
   const [className, setClassName] = useState('SignIn')
-  const [title, setTitle] = useState('Log in')
-  const [register, setRegister] = useState('false')
+  const [title, setTitle] = useState('Iniciar Sesión')
+  const [register, setRegister] = useState(false)
   const [btnTitle, setBtnTitle] = useState('Regístrate')
   function handleSession() {
     if (className === 'SignIn') {
       setClassName('SignUp')
-      setTitle('Register')
+      setTitle('Regístrate')
       setRegister(true)
-      setBtnTitle('Inicia Sesión')
+      setBtnTitle('Iniciar sesión')
     } else {
       setClassName('SignIn')
-      setTitle('Log In')
+      setTitle('Inicia Sesión')
       setRegister(false)
       setBtnTitle('Regístrate')
     }
   }
+
+  //authentication whit firebase
+
   return (
     <div className='Session'>
       <div className={className}>
@@ -28,7 +31,6 @@ function Session() {
           className={className}
           title={title}
           register={register}
-          btnValue='Iniciar Sesión'
         />
       </div>
     </div>

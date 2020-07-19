@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../styles/components/Home/Section.sass'
 import cake from '../../assets/images/brownie.svg'
 import cookies from '../../assets/images/cookies.svg'
@@ -14,7 +14,10 @@ function Section() {
       setClassName('hidden')
     }
   }
-  window.onscroll = () => handelAnimation()
+  useEffect(() => {
+    window.onscroll = () => handelAnimation()
+    return () => window.onscroll = () => null
+  })
 
   return (
     <div className='Section'>

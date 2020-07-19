@@ -3,7 +3,7 @@ import '../../styles/components/auth/SignIn.sass'
 import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 
-const SignIn = ({ className, title, register, btnValue }) => {
+const SignIn = ({ className, title, register }) => {
   return (
     <div className={className}>
       <h3>{title}</h3>
@@ -11,29 +11,29 @@ const SignIn = ({ className, title, register, btnValue }) => {
         <form action='post'>
           {register === true && (
             <label htmlFor='name'>
-              Name
+              Nombre
               <div className='SignUp-form_input'>
                 <input type='text' name='name' id='name' />
               </div>
             </label>
           )}
           <label htmlFor='email'>
-            Email address
+            Email
             <div className='SignIn-form_input'>
-              <input type='email' name='email' id='email' />
+              <input type='email' name='email' id='email' autoComplete='username' />
             </div>
           </label>
           <label htmlFor='password'>
-            Password
+            Contraseña
             <div className='SignIn-form_input'>
-              <input type='password' name='password' id='password' />
+              <input type='password' name='password' id='password' autoComplete='current-password' />
             </div>
           </label>
-          <input type='button' name='submit' className='btn' value={btnValue} />
+          <button type='submit'>{title}</button>
         </form>
       </div>
       <hr />
-      <h4>Iniciar sesión con:</h4>
+      <h4>{`${title} con:`}</h4>
       <div className='SignIn-social'>
         <button type='button'>
           <img src={google} alt='Google' />

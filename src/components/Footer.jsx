@@ -49,7 +49,7 @@ const Footer = () => {
           <a href='https://www.facebook.com/momentos.ocasion' target='_blank' rel='noreferrer'>
             <img src={facebook} alt='facebook' />
           </a>
-          <a href='https://instagram.com' target='_blank' rel='noreferrer'>
+          <a href='https://www.instagram.com/momentosocasion/?hl=es-la' target='_blank' rel='noreferrer'>
             <img src={instagram} alt='instagram' />
           </a>
           <a href='https://goo.gl/maps/WwgW3gBkLc3Mwhcn7' target='_blank' rel='noreferrer'>
