@@ -1,20 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: path.resolve(__dirname, './src/index.js'),
+  },
+  mode: 'production',
+  devtool: 'none',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: './scripts/[name].js',
-  },
-  mode: 'development',
-  devServer: {
-    compress: true,
-    port: 8081,
-    open: true,
-    hot: true,
+    filename: './scripts/[name].[hash].js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -30,7 +28,6 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        exclude: /node_modules/,
         use: [
           {
             loader: 'html-loader',
@@ -39,6 +36,7 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -50,9 +48,10 @@ module.exports = {
       {
         test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
         use: {
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
-            outputPath: 'assets/',
+            limit: 1000,
+            outputPath: 'assets',
           },
         },
       },
@@ -60,12 +59,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html'),
+      template: './public/index.html',
       filename: './index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'styles/[name.].css',
+      filename: 'css/[name].[hash].css',
     }),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/app**'],
+    }),
+    new OptimizeCssAssetsPlugin(),
   ],
 };

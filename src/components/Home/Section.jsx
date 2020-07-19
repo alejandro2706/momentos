@@ -5,7 +5,7 @@ import cookies from '../../assets/images/cookies.svg'
 import cupcake from '../../assets/images/cupcake.svg'
 import SectionProduct from './SectionProduct'
 
-export default function Section() {
+function Section() {
   const [className, setClassName] = useState('hidden')
   function handelAnimation() {
     if (document.documentElement.scrollTop > 330) {
@@ -15,6 +15,7 @@ export default function Section() {
     }
   }
   window.onscroll = () => handelAnimation()
+
   return (
     <div className='Section'>
       <h2>Our Products</h2>
@@ -54,3 +55,5 @@ export default function Section() {
     </div>
   )
 }
+
+export default Section
