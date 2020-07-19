@@ -1,0 +1,43 @@
+@import '../../utils/Vars'
+
+.Product
+  width: 100%
+  height: 200px
+  border-radius: 30px
+  overflow: hidden
+  position: relative
+  img
+    width: 100%
+    height: 100%
+  &:hover .Product-desc
+    opacity: 1
+    transition: .6s
+  &-desc
+    height: 22%
+    width: 100%
+    padding: 0 1em
+    opacity: 0
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgb(23,23,23);
+    background: linear-gradient(0deg, rgba(23,23,23,0.85) 0%, rgba(0,0,0,0.72) 18%, rgba(0,0,0,0.54) 40%, rgba(0,0,0,0) 88%);
+    @include flex(space-between, center)
+    h3
+      font-size: 1.8em
+      color: white
+      margin-right: .7em
+    button
+      height: 25px
+      width: 12%
+      height: 48%
+      margin-right: .5em
+      border-radius: 10px
+      justify-self: flex-end
+      @include flex(center, center)
+      img
+        width: 75%
+        height: 75%
+
+
