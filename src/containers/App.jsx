@@ -6,27 +6,12 @@ import '../styles/components/App.sass'
 import Layout from '../components/Layout'
 import Home from '../pages/Home'
 import Session from '../pages/Session'
-// import About from '../pages/About'
-//TODO: create browser route
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Layout>
-//         <Switch>
-//           <Route path='/'><Home /></Route>
-//           <Route exact path='/products'><Products /></Route>
-//           <Route exact path='/contact'><About /></Route>
-//         </Switch>
-//       </Layout>
-//     </BrowserRouter>
-//   )
-// }
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Route exact path='/auth'>
+        <Route exact path='/'>
           <Home />
         </Route>
         <Route exact path='/products'>
@@ -47,7 +32,7 @@ function App() {
         <Route exact path='/contact'>
           <About />
         </Route>
-        <Route exact path='/'>
+        <Route exact path='/auth'>
           <Session />
         </Route>
       </Layout>

@@ -3,3 +3,14 @@
   display: grid
   grid-template-columns: repeat(2, 1fr) 
   height: 90vh
+  &-button
+    @include button(10px)
+    width: 150px
+    height: 30px
+    position: absolute
+    z-index: 100
+    top: 20%
+    left: 43%
+    font-size: 1.1em
+    &:hover
+      background-color: $brand-color-alt
