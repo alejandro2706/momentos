@@ -1,0 +1,20 @@
+@import '../../utils/Vars'
+
+.Footer-git
+  padding: 0 1em
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: .7fr repeat(3, 1fr)
+  &_items
+    // border: 1px solid red
+    grid-column: span 2
+    margin-bottom: 10px
+    height: 55px
+    img
+      width: 13px
+      heigth: 1em
+    span
+      margin-left: 10px
+      font-size: 1.2em
+  h2
+    grid-column-end: span 3
