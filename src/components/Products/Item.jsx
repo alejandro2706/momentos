@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../styles/components/Products/Item.sass'
-import addButton from '../../assets/icons/add.svg'
+import addButton from '../../assets/icons/add-white.svg'
 
 const ProductItem = ({ name, image }) => {
   function handleClick() {

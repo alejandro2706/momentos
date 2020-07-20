@@ -29,7 +29,7 @@ function App() {
         <Route exact path='/products/antojos'>
           <Products title='Antojos' />
         </Route>
-        <Route exact path='/contact'>
+        <Route exact path='/about'>
           <About />
         </Route>
         <Route exact path='/auth'>

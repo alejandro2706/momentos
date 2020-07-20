@@ -32,15 +32,15 @@ function Navbar() {
         <ul className='Navbar-list'>
           <NavbarItem
             title='About'
-            route='contact'
+            route='about'
           />
           <NavbarItem
             title='Products'
             route='products'
           />
           <NavbarItem
-            title='IDK'
-            route='IDK'
+            title='Contact'
+            route='contact'
           />
         </ul>
       </nav>
