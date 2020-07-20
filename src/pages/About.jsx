@@ -1,42 +1,40 @@
 import React from 'react'
-import '../styles/components/About.sass'
+import '../styles/components/About/About.sass'
 import { Link } from 'react-router-dom'
-// import logo from '../assets/brand/white-logo.png'
+import AboutImage from '../components/About/AboutImage'
+import AboutItem from '../components/About/AboutItem'
 
-class About extends React.Component {
-  render() {
-    return (
-      <div className='About'>
-        <div className='About-title'>
-          <h2>Nosotros</h2>
-        </div>
-        <div className='About-main'>
-          <h3>Entregando Momentos especiales</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla nam inventore tempora expedita eveniet iure! Fugit, delectus rerum suscipit, cum voluptates dolores maxime aut debitis, esse praesentium maiores velit!</p>
-          <button type='button' className='btn'>
-            <Link to='/products'>Descubre Cómo</Link>
-            {' '}
-          </button>
-        </div>
-        <div className='About-history'>
-          <div className='About-history_us'>
-            <h2>Nuestra historia</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo unde mollitia debitis eveniet rerum quisquam temporibus necessitatibus! Vitae modi vel adipisci, inventore repudiandae sint fuga ipsa enim, in repellendus consequuntur.</p>
-          </div>
-          <div className='About-history_image'>
-            <img src='https://images.pexels.com/photos/2696064/pexels-photo-2696064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='history' />
-          </div>
-          <div className='About-history_image'>
-            <img src='https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940' alt='vision' />
-          </div>
-          <div className='About-history_idea'>
-            <h2>Mision</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, consectetur doloribus! Hic itaque iusto voluptatum deserunt eaque quaerat fugiat ea impedit cupiditate, obcaecati molestias similique distinctio quidem soluta, quos fuga.</p>
-          </div>
-        </div>
+const images = {
+  history: 'https://images.pexels.com/photos/2696064/pexels-photo-2696064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  vision: 'https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+}
+
+function About() {
+  return (
+    <div className='About'>
+      <div className='About-title'>
+        <h2>Nosotros</h2>
       </div>
-    )
-  }
+      <div className='About-main'>
+        <h3>Entregando Momentos especiales</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nulla nam inventore tempora expedita eveniet iure! Fugit, delectus rerum suscipit, cum voluptates dolores maxime aut debitis, esse praesentium maiores velit!</p>
+        <button type='button' className='btn'>
+          <Link to='/products'>Descubre Cómo</Link>
+          {' '}
+        </button>
+      </div>
+      <div className='About-history'>
+        <AboutItem title='Nuestra Historia'>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis vitae quod voluptatem illo odit labore a sequi, cumque illum aliquam veritatis totam nostrum animi explicabo corporis natus, ab numquam quia?
+        </AboutItem>
+        <AboutImage image={images.history} />
+        <AboutImage image={images.vision} />
+        <AboutItem title='Mision'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolores quas molestiae recusandae numquam! Distinctio pariatur animi beatae tempora autem dolorem illum delectus vel necessitatibus. Alias iste laborum doloremque accusantium.
+        </AboutItem>
+      </div>
+    </div>
+  )
 }
 
 export default About

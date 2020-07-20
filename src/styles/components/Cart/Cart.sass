@@ -1,0 +1,39 @@
+@import '../../utils/Vars'
+.Cart
+  position: fixed
+  background-color: white
+  height: 100vh
+  top: 87px
+  right: 0
+  width: 40%
+  z-index: 200
+  will-change: transform, animation
+  h3
+    font-size: 2em
+    padding: 10px
+    margin-bottom: .8em
+  &-products
+    padding: 1em
+
+.hr_cart
+  margin-bottom: 15px
+
+.Cart.is-open
+  animation: showCart .6s ease forwards
+  transform-origin: right
+
+.Cart.is-closing
+  animation: hideCart .6s ease forwards
+  transform-origin: right
+
+@keyframes showCart
+  0%
+    transform: translateX(1000px)
+  100%
+    transform: translateX(0)
+
+@keyframes hideCart
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(1000px)

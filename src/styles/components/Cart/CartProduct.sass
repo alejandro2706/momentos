@@ -1,0 +1,48 @@
+@import '../../utils/Vars'
+.Cart-product
+  width: 100%
+  display: flex
+  position: relative
+  padding: 1em
+  &:hover
+    box-shadow: 1px 1px 10px 1px gray
+  &:hover .Cart-product_delete
+    transition: .5s
+    opacity: 1
+  &_image
+    width: 25%
+    @include flex(center, center)
+    img
+      width: 100%
+  &_desc
+    h4
+      font-size: 1.3em
+      margin-bottom: 5px
+    p
+      font-size: 1em
+    &-buttons
+      @include flex(center, center)
+      span
+        border: 1px solid gray
+        border-radius: 10px
+        margin: 10px 10px 0
+        padding: 0 10px
+        font-size: 1.1em
+        color: black
+      button[type="button"]
+        width: 25px
+        margin-top: 1em
+        img
+          width: 100%
+          &:hover
+            transform: scale(1.1)
+  &_delete
+    opacity: 0
+    button
+      background-color: white
+      width: 25px
+      position: absolute
+      right: 10px
+      top: 5px
+      img
+        width: 100%

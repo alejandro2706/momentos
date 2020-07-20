@@ -20,7 +20,6 @@ function Session() {
       setBtnTitle('Regístrate')
     }
   }
-
   //authentication whit firebase
 
   return (

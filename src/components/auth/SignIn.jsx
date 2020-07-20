@@ -32,7 +32,7 @@ const SignIn = ({ className, title, register }) => {
           <button type='submit'>{title}</button>
         </form>
       </div>
-      <hr />
+      <hr className='hr_sigin' />
       <h4>{`${title} con:`}</h4>
       <div className='SignIn-social'>
         <button type='button'>
