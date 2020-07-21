@@ -2,8 +2,12 @@ import React from 'react'
 import '../../styles/components/auth/SignIn.sass'
 import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
+import auth from '../../firebase/auth'
 
 const SignIn = ({ className, title, register }) => {
+  function onAuth() {
+    console.log(auth.AuthEmailPassword())
+  }
   return (
     <div className={className}>
       <h3>{title}</h3>
@@ -20,7 +24,7 @@ const SignIn = ({ className, title, register }) => {
           <label htmlFor='email'>
             Email
             <div className='SignIn-form_input'>
-              <input type='email' name='email' id='email' autoComplete='username' />
+              <input type='email' name='email' id='email' autoComplete='email' />
             </div>
           </label>
           <label htmlFor='password'>
@@ -29,7 +33,7 @@ const SignIn = ({ className, title, register }) => {
               <input type='password' name='password' id='password' autoComplete='current-password' />
             </div>
           </label>
-          <button type='submit'>{title}</button>
+          <button type='button' onClick={onAuth}>{title}</button>
         </form>
       </div>
       <hr className='hr_sigin' />
