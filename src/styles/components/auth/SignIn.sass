@@ -14,27 +14,12 @@
       flex-direction: column
       justify-content: center
       align-items: center
-    label
+    &_label
       font-size: 1.3em
       font-family: $title-font
       width: 60%
-    &_input
-      border-radius: 8px
-      margin: 10px 0
-      width: 100%
-      height: 40px
-      transition: .3s
-      overflow: hidden
-      background-color: white
-      &:hover
-        box-shadow: 1px 1px 6px gray
-        border: none
-      input
-        width: 100%
-        height: 90%
-        // font-size: .9em
-        background-color: none
-        padding: 0 1em
+      div
+        @include input(100%, 40px)
     button[type="button"]
       @include button(10px)
       margin-top: 10px
@@ -75,9 +60,9 @@
   grid-column: 2
   @extend .SignIn
   padding: 2.5em
+  &-form_input
+    @include input(100%, 40px)
   h3
     margin-bottom: 0
-  &-form_input
-    @extend .SignIn-form_input
   hr
     margin-top: 50px

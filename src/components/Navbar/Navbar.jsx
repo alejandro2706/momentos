@@ -53,7 +53,9 @@ function Navbar() {
           className={transition}
         />
         <button type='button' className='btn signIn'>
-          <Link to='/auth'>Iniciar Sesión</Link>
+          <Link to='/auth'>
+            Iniciar Sesión
+          </Link>
         </button>
       </div>
     </div>

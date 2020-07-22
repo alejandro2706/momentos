@@ -1,0 +1,36 @@
+@import '../utils/Vars'
+.Contact
+  @include flex(center, center)
+  flex-direction: column
+  border: 1px solid red
+  h2
+    margin: 1em auto
+    @include title(2.5em)
+  &-container
+    margin-bottom: 2.5em
+    width: 50%
+    box-shadow: 1px 1px 5px 1px gray
+    padding: 3em 2em
+    background-color: $white-color
+    form
+      display: grid
+      grid-template-columns: 1fr 1fr
+      gap: 1em
+      textarea
+        @include input(100%, 120px)
+        max-width: 610px
+        min-height: 120px
+        max-height: 120px
+        border: none
+        grid-column: span 2
+        padding: 5px
+        font-family: $paragraph-font
+    &_label
+      @include title(1.2em)
+      input
+        @include input(100%, 35px)
+    button
+      @include button(10px)
+      height: 35px
+      grid-column: span 2
+

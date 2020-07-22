@@ -6,6 +6,7 @@ import '../styles/components/App.sass'
 import Layout from '../components/Layout'
 import Home from '../pages/Home'
 import Session from '../pages/Session'
+import Contact from '../pages/Contact'
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route exact path='/about'>
           <About />
+        </Route>
+        <Route exact path='/contact'>
+          <Contact />
         </Route>
         <Route exact path='/auth'>
           <Session />
