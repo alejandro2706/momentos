@@ -7,7 +7,25 @@
   padding: 1em
   &-main
     width: 100%
-    margin-top: 1em
+    margin: 1em 0
     padding-left: 3em
     img
       width: 70%
+
+@media screen and ( max-width: 1030px )
+  .Footer
+    &-main
+      @include flex(center, center)
+      padding-left: 0
+      img
+        width: 80%
+
+@media screen and ( max-width: 770px )
+  .Footer
+    grid-template-columns: 1fr 1fr
+
+@media screen and ( max-width: 550px )
+  .Footer
+    grid-template-columns: 1fr
+    &-main img
+      width: 60%

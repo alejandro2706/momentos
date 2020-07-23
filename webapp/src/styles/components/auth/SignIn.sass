@@ -2,13 +2,13 @@
 .SignIn
   background-color: $white-color
   padding: 3em
-  height: 100%
   h3
     font-size: 3em
     text-transform: uppercase
-    margin-bottom: 1em
+    margin-bottom: 1.3em
+    text-align: center
   &-form
-    height: 50%
+    padding: 1em 0
     form
       display: flex
       flex-direction: column
@@ -46,7 +46,7 @@
   border-top: 1px solid gray
   text-align: center
   overflow: visible
-  margin-top: 10px
+  margin-top: 1.5em
   &::after
     content: 'O también'
     display: inline-block
@@ -64,5 +64,20 @@
     @include input(100%, 40px)
   h3
     margin-bottom: 0
-  hr
-    margin-top: 50px
+
+@media screen and ( max-width: 1030px )
+  .SignIn
+    padding: 2em
+    h3
+      font-size: 2.4em
+
+@media screen and ( max-width: 770px )
+  .SignIn-form form
+    display: block
+
+@media screen and ( max-width: 550px )
+  .SignUp
+    grid-column: 1
+  .SignIn-form
+    button[type="button"]
+      width: 100%

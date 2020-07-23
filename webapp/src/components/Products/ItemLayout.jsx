@@ -1,42 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Item from './Item'
 import '../../styles/components/Products/ItemLayout.sass'
 
-const images = {
-  cupcake: 'https://images.pexels.com/photos/268364/pexels-photo-268364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  cookies: 'https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-}
-
-const ProductLayout = ({ title }) => {
+const ProductLayout = ({ title, products }) => {
   return (
     <div className='Layout'>
       <h2>{title}</h2>
       <p>You will love It!</p>
       <div className='Toggle-products'>
         <button type='button'>
-          Decorados
-        </button>
-        <button type='button'>
-          No decorados
+          <Link to='/products/decorados'>
+            Decorados
+          </Link>
         </button>
       </div>
       <div className='Layout-grid'>
-        <Item
-          name='Chocolate'
-          image={images.cupcake}
-        />
-        <Item
-          name='Vainilla'
-          image={images.cookies}
-        />
-        <Item
-          name='Almendra'
-          image={images.cookies}
-        />
-        <Item
-          name='Mandarina'
-          image={images.cupcake}
-        />
+        {products.map((item) => (
+          <Item
+            key={item.id}
+            name={item.name}
+            image={item.image}
+            decorado={item.decorated}
+          />
+        ))}
       </div>
     </div>
   )

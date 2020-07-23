@@ -15,12 +15,12 @@ function Session() {
       setBtnTitle('Iniciar sesión')
     } else {
       setClassName('SignIn')
-      setTitle('Inicia Sesión')
+      setTitle('Iniciar Sesión')
       setRegister(false)
       setBtnTitle('Regístrate')
     }
   }
-  //authentication whit firebase
+  //authentication with firebase
 
   return (
     <div className='Session'>

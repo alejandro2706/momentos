@@ -63,10 +63,16 @@
     opacity: 1
     transform: scale(1) 
 
+@media screen and ( max-width: 1030px )
+  .Section-products
+    width: 94%
+
+
 @media screen and ( max-width: 770px )
   .Section-products
     width: 95%
-  .Section-products_image
-    img
-      width: 110%
-      height: 90%
+    &_image
+      img
+        width: 50%
+    &_desc
+      opacity: 1

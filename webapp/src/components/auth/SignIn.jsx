@@ -6,7 +6,7 @@ import Input from './Input'
 
 const SignIn = ({ className, title, register }) => {
   return (
-    <div className={className}>
+    <div>
       <h3>{title}</h3>
       <div className='SignIn-form'>
         <form action='post'>

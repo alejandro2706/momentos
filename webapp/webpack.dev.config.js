@@ -16,6 +16,8 @@ module.exports = {
     port: 8081,
     open: true,
     hot: true,
+    historyApiFallback: true,
+    contentBase: 'dist',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -74,7 +76,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'styles/[name.].css',
+      filename: 'styles/[name].css',
     }),
   ],
 };

@@ -19,3 +19,16 @@
     background-color: gray
     padding: 1em
     margin-left: 1em
+    text-transform: capitalize
+
+@media screen and ( max-width: 1030px )
+  .Layout-grid
+    grid-template-columns: repeat(3, 1fr)
+
+@media screen and ( max-width: 770px )
+  .Layout-grid
+    grid-template-columns: repeat(2, 1fr)
+
+@media screen and ( max-width: 550px )
+  .Layout-grid
+    grid-template-columns: 1fr

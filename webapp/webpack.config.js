@@ -11,7 +11,7 @@ module.exports = {
   mode: 'production',
   devtool: 'none',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: './scripts/[name].[hash].js',
   },
   resolve: {
@@ -60,6 +60,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      minify: {
+        removeComments: true,
+        removeRedundantAttributes: true,
+        collapseWhitespace: true,
+        useShortDoctype: true,
+      },
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({

@@ -15,7 +15,7 @@
     background-color: $white-color
     width: 43%
     position: relative
-    left: 28%
+    margin: 0 auto
     top: -80px
     text-align: center
     padding: 1em 2em
@@ -42,3 +42,23 @@
     grid-template-columns: repeat(2, 1fr)
     grid-template-rows: repeat(2, 1fr)
     gap: 20px
+
+@media screen and ( max-width: 1030px )
+  .About
+    font-size: 14px
+    &-main
+      width: 50%
+
+@media screen and ( max-width: 770px )
+  .About-main
+    width: 65%
+
+@media screen and ( max-width: 550px )
+  .About-main
+    width: 85%
+    button
+      width: 60%
+  .About-history
+    grid-template-columns: 1fr
+    &_section:first-of-type
+      grid-row: 2
