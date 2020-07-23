@@ -4,7 +4,7 @@ import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
 
-const SignIn = ({ className, title, register }) => {
+const SignIn = ({ title, register }) => {
   return (
     <div>
       <h3>{title}</h3>
