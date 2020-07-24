@@ -1,36 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/components/auth/SignIn.sass'
+import swal from 'sweetalert'
 import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
+import { signUpEmailPass, signInEmailPass } from '../../db/Controller'
 
-const SignIn = ({ title, register }) => {
+function SignIn({ title, register }) {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+  })
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (form.password.length < 6) {
+      swal({
+        text: 'Tu contraseña debe ser mayor a 6 caracteres',
+        timer: 2000,
+        buttons: false,
+      })
+      return false
+    }
+    console.log(form)
+    if (register) {
+      console.log('register:', register)
+      return signUpEmailPass(form)
+    }
+    return signInEmailPass(form)
+  }
+  function handleChange(e) {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
   return (
     <div>
       <h3>{title}</h3>
       <div className='SignIn-form'>
-        <form action='post'>
+        <form action='post' onChange={handleChange}>
           {register === true && (
             <Input
               className='SignIn-form_label'
-              name='Nombre'
+              name='name'
               type='text'
-              labelFor='name'
+              // onChange={handleChange}
+              // value={state.name}
             />
           )}
           <Input
             className='SignIn-form_label'
-            name='Email'
+            name='email'
             type='email'
-            labelFor='email'
+            // onChange={handleChange}
+            // value={state.email}
           />
           <Input
             className='SignIn-form_label'
-            name='Contraseña'
+            name='password'
             type='password'
-            labelFor='password'
+            // onChange={handleChange}
+            // value={state.password}
           />
-          <button type='button'>{title}</button>
+          <button type='submit' onClick={handleSubmit}>{title}</button>
         </form>
       </div>
       <hr className='hr_sigin' />
