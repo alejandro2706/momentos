@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Section
   padding: 1.5em
@@ -19,3 +20,7 @@
 @media screen and ( max-width: 550px )
   .Section-grid
     grid-template-columns: 1fr
+
+@include media (desktop-x)
+  .Section
+    font-size: 1.4em

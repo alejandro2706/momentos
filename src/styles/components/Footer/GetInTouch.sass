@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Footer-git
   padding: 0 1em
@@ -37,6 +38,14 @@
       img
         display: none
 
-@media screen and ( min-width: 2000px ) and ( max-width: 2800px )
-  .Footer-git_items img
-    width: 45px
+@include media (desktop-xl)
+  .Footer-git_items
+    height: auto
+    img
+      width: 45px
+
+@include media (desktop-x)
+  .Footer-git_items
+    height: auto
+    img
+      width: 40px

@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Cart
   position: fixed
   background-color: white
@@ -54,7 +56,7 @@
   .Cart
     width: 100%
 
-@media screen and ( min-width: 2400px ) and ( max-width: 2800px )
+@include media (desktop-xl)
   .Cart
     top: 215px
     width: 48%

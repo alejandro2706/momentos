@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .SignIn
   background-color: $white-color
   padding: 3em
@@ -82,7 +84,7 @@
     button[type="button"]
       width: 100%
 
-@media screen and ( min-width: 2500px ) and ( max-width: 2800px )
+@include media (desktop-xl)
   .SignIn 
     h4
       font-size: 1.6em

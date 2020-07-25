@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Footer-social
   padding: 0 1em
@@ -26,8 +27,13 @@
     grid-column: 1
     grid-row: 2 
 
-@media screen and ( min-width: 2000px ) and ( max-width: 2800px )
+@include media (desktop-xl)
   .Footer-social_icons a
     img
       width: 70px
       height: 75px
+
+@include media (desktop-x)
+  .Footer-social img
+    width: 65px
+    height: 70px

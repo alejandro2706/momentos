@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .How
   padding: 2em
   h2
@@ -19,3 +21,7 @@
 @media screen and ( max-width: 550px )
   .How-container
     grid-template-columns: 1fr
+
+@include media (desktop-x)
+  .How
+    font-size: 1.3em

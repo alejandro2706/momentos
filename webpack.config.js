@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -11,8 +12,17 @@ module.exports = {
   mode: 'production',
   devtool: 'none',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: './scripts/[name].[hash].js',
+  },
+  optimization: {
+    minimizer: [
+      new TerserJSPlugin(),
+      new OptimizeCssAssetsPlugin(),
+    ],
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -52,6 +62,7 @@ module.exports = {
           options: {
             limit: 1000,
             outputPath: 'assets',
+            name: '[hash].[ext]',
           },
         },
       },
@@ -69,11 +80,11 @@ module.exports = {
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash].css',
+      filename: 'css/[name]-[hash].css',
+      chunkFilename: 'css/[name]-[hash].css',
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['**/app**'],
     }),
-    new OptimizeCssAssetsPlugin(),
   ],
 };

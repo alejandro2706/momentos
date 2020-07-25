@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Navbar-list_item
   width: 90%
   padding: .5em
@@ -22,3 +24,7 @@
     z-index: -1
   &:hover::after
     transform: scaleY(1)
+
+@include media (desktop-x)
+  .Navbar-list_item
+    font-size: 1.1em

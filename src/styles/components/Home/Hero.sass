@@ -1,6 +1,8 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Hero
-  height: 600px
+  height: 650px
   margin: 1em
   background-image: url('https://images.pexels.com/photos/372851/pexels-photo-372851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
   background-repeat: no-repeat
@@ -12,13 +14,14 @@
     height: 100%
     background: rgb(9,9,9);
     background: linear-gradient(90deg, rgba(9,9,9,0.1) 22%, rgba(43,43,43,0.6) 43%, rgba(43,43,43,0.71) 100%);
+    position: relative
     h1
       width: 50%
       font-family: $title-font
       text-transform: capitalize
       font-size: 5.5em
       position: absolute
-      top: 25%
+      top: 18%
       margin-left: 1em
       color: white
       span
@@ -28,10 +31,10 @@
         font-family: $brand-font
     button
       @include button(20px)
-      width: 190px
+      width: 210px
       position: absolute
       bottom: 100px
-      left: 9%
+      left: 100px
       padding: .7em
       font-size: 1.4em
       text-transform: capitalize
@@ -80,7 +83,7 @@
       button
         left: 185px
 
-@media screen and ( min-width: 2000px ) and ( max-width: 2800px )
+@include media (desktop-xl)
   body
     font-size: 28px
   .Hero
@@ -92,3 +95,14 @@
       button
         width: 20%
         border-radius: 30px
+
+@include media (desktop-x)
+  .Hero
+    height: 900px
+    font-size: 1.4em
+    &-description 
+      h1
+        width: 80%
+      button
+        width: 270px
+        left: 150px

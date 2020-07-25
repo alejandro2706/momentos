@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Layout
   padding: 2em
@@ -33,6 +34,10 @@
   .Layout-grid
     grid-template-columns: 1fr
 
-@media screen and ( min-width: 2000px ) and ( max-width: 2800px )
+@include media (desktop-xl)
   .Layout
     font-size: 1.6em
+
+@include media (desktop-x)
+  .Layout
+    font-size: 1.5em

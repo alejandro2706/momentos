@@ -1,4 +1,5 @@
 @import '../../utils/Vars.sass'
+@import '../../utils/breakpoints.sass'
 
 .Navbar-container
   box-shadow: 0px 1px 10px 1px gray
@@ -85,16 +86,30 @@
 //       &-list
 //         display: block
 
-@media screen and ( min-width: 2000px ) and ( max-width: 2800px )
+@include media (desktop-xl)
   .Navbar-container
     font-size: 1.4em
     &_brand a
       img
         width: 80px
-        height: 80px
+        height: 90px
     &_tooltips 
       .cart
         width: 80px
       .signIn
         font-size: 28px
         border-radius: 30px
+
+@include media (desktop-x)
+  .Navbar-container
+    font-size: 1.7em
+    &_brand a img
+      width: 70px
+      height: 70px
+    &_tooltips
+      .cart
+        width: 65px
+      .signIn
+        font-size: .8em
+
+
