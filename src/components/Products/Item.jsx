@@ -13,7 +13,6 @@ const Item = ({ name, image }) => {
         <img src={image} alt='product' />
         <div className='Product-desc'>
           <h3>{name}</h3>
-          <p>decorado</p>
           <button onClick={handleClick} type='button'>
             <img src={addButton} alt='add to cart' />
           </button>

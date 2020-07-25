@@ -81,3 +81,24 @@
   .SignIn-form
     button[type="button"]
       width: 100%
+
+@media screen and ( min-width: 2500px ) and ( max-width: 2800px )
+  .SignIn 
+    h4
+      font-size: 1.6em
+    &-form
+      font-size: 1.5em
+      &_label div
+        margin: .6em 0
+        height: 90px
+        @include flex(center, flex-start)
+        input
+          font-size: .6em
+      button[type="button"]
+        height: 60px
+    .hr_sigin::after
+      font-size: 1.4em
+      top: -30px
+    &-social button
+      width: 90px
+
