@@ -15,3 +15,20 @@
     cursor: pointer
     &:hover
       background-color: $brand-color-alt
+
+
+@include media ( tablet-l )
+  .Session-button
+    top: 100px
+
+@include media ( tablet-s )
+  .Session
+    display: block
+    &-button
+      left: 11em
+      width: 13em
+      height: 2.4em
+
+@include media ( mobile-m )
+  .Session-button
+    left: 9em

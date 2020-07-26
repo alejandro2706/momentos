@@ -66,3 +66,32 @@
     @include input(100%, 40px)
   h3
     margin-bottom: 0
+
+
+@include media ( tablet-l )
+  .SignIn
+    h3
+      margin-bottom: .7em
+
+
+@include media ( tablet-s )
+  .SignIn
+    padding-top: 8em
+    h4
+      font-size: 1.4em
+    &-form
+      button[type="button"]
+        font-size: 1.4em
+      &_label
+        font-size: 1.6em
+        div
+          height: 2em
+
+@include media ( mobile-l )
+  .SignIn-form
+    button[type="button"]
+      width: 100%
+    &_label
+      width: 100%
+  .hr_sigin::after
+    font-size: 1.7em

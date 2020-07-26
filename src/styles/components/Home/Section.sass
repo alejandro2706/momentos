@@ -10,3 +10,12 @@
     font-size: 4em
   p
     font-size: 1.3em
+
+
+@include media ( tablet-m )
+  .Section-grid
+    grid-template-columns: repeat(2, 1fr)
+
+@include media ( tablet-s )
+  .Section-grid
+    grid-template-columns: 1fr

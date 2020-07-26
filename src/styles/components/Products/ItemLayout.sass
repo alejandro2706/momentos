@@ -21,3 +21,19 @@
     padding: 1em
     margin-left: 1em
     text-transform: capitalize
+
+
+@include media ( tablet-l )
+  .Layout-grid
+    grid-template-columns: repeat(3, 1fr)
+
+@include media ( tablet-m )
+  .Layout-grid
+    grid-template-columns: repeat(2, 1fr)
+
+@include media ( tablet-s )
+.Layout
+  padding: 1em
+  &-grid
+    grid-template-columns: 1fr
+    gap: 0

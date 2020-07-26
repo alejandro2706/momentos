@@ -73,3 +73,32 @@
       opacity: 0
     100%
       opacity: 1
+
+
+@include media ( tablet-l )
+  .Navbar-container
+    grid-template-columns: 30% 16% 16% 16% 9% 12%
+    &_brand
+      padding-left: 0
+      grid-column: 1
+      img
+        width: 2.8em
+        height: 3.3em
+    &_tooltips
+      grid-column: span 2
+    .Navbar
+      grid-column: 2 / 5
+
+@include media ( tablet-s )
+  .Navbar-container
+    grid-template-columns: 60% 25% 15%
+    &_tooltips
+      grid-column-start: 2
+      grid-row: 1
+      .signIn
+        width: 85%
+        background-color: wheat 
+        img
+          width: 60%
+    .Navbar-list
+      display: none

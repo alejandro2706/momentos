@@ -48,3 +48,33 @@
       top: .6em
       img
         width: 100%
+
+
+
+@include media ( desktop-m )
+  .Cart-product_desc-buttons span
+    margin: .6em .9em 0
+
+@include media ( tablet-l )
+  .Cart-product_image
+    width: 34%
+    align-items: flex-start
+
+@include media ( tablet-s )
+  .Cart-product
+    padding-left: 0
+    box-shadow: 1px 1px 10px 1px gray
+    &_image
+      width: 50%
+      align-items: center
+    &_desc
+      font-size: 1.5em
+      &-buttons
+        justify-content: start
+        button[type="button"]
+          width: 2.1ems
+    &_delete
+      opacity: 1
+      button
+        top: 1em
+        right: 1em

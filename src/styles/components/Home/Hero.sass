@@ -40,3 +40,40 @@
       text-transform: capitalize
       a
         color: white
+
+
+@include media ( desktop-s )
+  .Hero
+    height: 38em
+    &-description h1
+      width: 70%
+      font-size: 5.3em
+
+@include media ( tablet-l )
+  .Hero
+    height: 36em
+    &-description h1
+      font-size: 5.1em
+
+@include media ( tablet-m )
+  .Hero
+    height: 34em
+    &-description h1
+      font-size: 4.8em
+
+@include media ( tablet-s )
+  .Hero
+    height: 24em
+    &-description
+      h1
+        width: 90%
+        font-size: 3.6em
+      button
+        left: 2em
+        padding: .5em
+
+@include media ( mobile-l )
+  .Hero
+    height: 21em
+    &-description button
+      bottom: 1em

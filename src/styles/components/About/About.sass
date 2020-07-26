@@ -43,3 +43,36 @@
     grid-template-columns: repeat(2, 1fr)
     grid-template-rows: repeat(2, 1fr)
     gap: 2.5em
+
+
+@include media ( desktop-m )
+  .About-main
+    width: 48%
+
+@include media ( desktop-s )
+  .About-main
+    width: 53%
+
+@include media ( tablet-l )
+  .About-main
+    width: 55%
+
+@include media ( tablet-m )
+  .About
+    font-size: .9em
+
+@include media ( tablet-s )
+  .About-main
+    width: 85%
+  .About-history
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr .6fr 1fr .6fr
+    &_section:first-of-type
+      grid-row-start: 2
+
+@include media ( mobile-m )
+  .About-main
+    font-size: 1.1em
+    button
+      width: 50%
+

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
 import logo from '../../assets/brand/cupcake-logo.png'
 import Cart from '../Cart/CartContainer'
 import NavbarItem from './NavbarItem'
+import userIcon from '../../assets/icons/user.svg'
 
 function Navbar() {
   const [openModal, setOpenModal] = useState(false)
   const [transition, setTransition] = useState(null)
+  const [buttonIcon, setButtonIcon] = useState(false)
   function openCart() {
     if (!openModal) {
       setOpenModal(true)
@@ -20,6 +22,15 @@ function Navbar() {
       setTransition('is-closing')
     }
   }
+
+  const mediaQuery = window.matchMedia('(max-width: 500px)')
+  useEffect(() => {
+    if (mediaQuery.matches) {
+      setButtonIcon(true)
+      // console.log(mediaQuery)
+    }
+  }, [buttonIcon])
+
   return (
     <div className='Navbar-container'>
       <div className='Navbar-container_brand'>
@@ -54,7 +65,12 @@ function Navbar() {
         />
         <button type='button' className='btn signIn'>
           <Link to='/auth'>
-            Iniciar Sesión
+            {buttonIcon && (
+              <img src={userIcon} alt='user' />
+            )}
+            {!buttonIcon && (
+              <p>Iniciar Sesión</p>
+            )}
           </Link>
         </button>
       </div>
