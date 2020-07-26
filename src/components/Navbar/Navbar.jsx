@@ -27,7 +27,6 @@ function Navbar() {
   useEffect(() => {
     if (mediaQuery.matches) {
       setButtonIcon(true)
-      // console.log(mediaQuery)
     }
   }, [buttonIcon])
 

@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
+const MediaQueryPlugin = require('media-query-plugin')
 
 module.exports = {
   entry: {
@@ -12,13 +13,14 @@ module.exports = {
   mode: 'production',
   devtool: 'none',
   output: {
+    filename: './scripts/[name].[contenthash].js',
+    chunkFilename: './scripts/[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    filename: './scripts/[name].[hash].js',
   },
   optimization: {
     minimizer: [
-      new TerserJSPlugin(),
-      new OptimizeCssAssetsPlugin(),
+      new TerserJSPlugin({}),
+      new OptimizeCssAssetsPlugin({}),
     ],
     splitChunks: {
       chunks: 'all',
@@ -50,8 +52,12 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+            },
           },
           'css-loader',
+          MediaQueryPlugin.loader,
           'sass-loader',
         ],
       },
@@ -62,7 +68,7 @@ module.exports = {
           options: {
             limit: 1000,
             outputPath: 'assets',
-            name: '[hash].[ext]',
+            name: '[contenthash].[ext]',
           },
         },
       },
@@ -80,11 +86,12 @@ module.exports = {
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name]-[hash].css',
-      chunkFilename: 'css/[name]-[hash].css',
+      filename: 'css/[name]-[contenthash].css',
+      chunkFilename: 'css/[name]-[contenthash].css',
     }),
+    new MediaQueryPlugin({}),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/app**'],
+      cleanOnceBeforeBuildPatterns: ['***'],
     }),
   ],
 };

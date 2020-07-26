@@ -45,6 +45,9 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              reloadAll: true,
+            },
           },
           {
             loader: 'css-loader',
@@ -64,6 +67,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             outputPath: 'assets/',
+            name: '[name].[ext]',
           },
         },
       },
