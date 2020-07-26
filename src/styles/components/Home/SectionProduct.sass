@@ -37,9 +37,9 @@
     margin-top: 2em
     z-index: 100
     button
-      height: 40px
-      width: 120px
-      @include button(10px)
+      height: 3em
+      width: 8em
+      @include button(.7em)
       background-color: $brand-color-alt
 
 .hidden
@@ -59,43 +59,4 @@
     transform: scale(0) 
   100%
     opacity: 1
-    transform: scale(1) 
-
-@media screen and ( max-width: 1030px )
-  .Section-products
-    width: 94%
-
-
-@media screen and ( max-width: 770px )
-  .Section-products
-    width: 95%
-    &_image
-      img
-        width: 50%
-    &_desc
-      opacity: 1
-
-
-@include media (desktop-xl)
-  .Section-products
-    width: 90%
-    h3
-      font-size: 3em
-    p
-      font-size: 1.6em
-    &_button a
-      button
-        height: 80px
-        width: 190px
-        font-size: 1.2em
-
-@include media (desktop-x)
-  .Section-products
-    width: 90%
-    &_desc
-      font-size: 1.1em
-    &_button a button
-      height: 60px
-      width: 160px
-      border-radius: 20px
-      font-size: 1.1em
+    transform: scale(1)

@@ -12,31 +12,3 @@
     padding-left: 3em
     img
       width: 70%
-
-@include media (desktop-s)
-  .Footer
-    &-main
-      @include flex(center, center)
-      padding-left: 0
-      img
-        width: 80%
-
-@include media (tablet-m)
-  .Footer
-    grid-template-columns: 1fr 1fr
-
-@include media (mobile-only)
-  .Footer
-    grid-template-columns: 1fr
-    &-main img
-      width: 60%
-
-@include media (desktop-xl)
-  .Footer
-    font-size: 1.4em
-
-@include media (desktop-x)
-  .Footer
-    font-size: 1.8em
-    &-main img
-      width: 86%

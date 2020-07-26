@@ -19,20 +19,20 @@
   &_desc
     h4
       font-size: 1.3em
-      margin-bottom: 5px
+      margin-bottom: .5em
     p
       font-size: 1em
     &-buttons
       @include flex(center, center)
       span
         border: 1px solid gray
-        border-radius: 10px
-        margin: 10px 10px 0
-        padding: 0 10px
+        border-radius: .9em
+        margin: .9em .9em 0
+        padding: 0 .9em
         font-size: 1.1em
         color: black
       button[type="button"]
-        width: 25px
+        width: 1.9em
         margin-top: 1em
         img
           width: 100%
@@ -42,25 +42,9 @@
     opacity: 0
     button
       background-color: white
-      width: 25px
+      width: 1.9em
       position: absolute
-      right: 10px
-      top: 5px
+      right: .9em
+      top: .6em
       img
         width: 100%
-
-@include media (desktop-xl)
-  .Cart-product
-    &_delete button
-      width: 60px
-    &_image
-      width: 35%
-    &_desc
-      font-size: 1.2em
-      &-buttons
-        margin-top: 15px
-        span
-          margin: 20px 20px 0
-          font-size: 1.2em
-        button[type="button"]
-          width: 65px

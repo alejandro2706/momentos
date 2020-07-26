@@ -6,7 +6,7 @@ import Input from './Input'
 
 const SignIn = ({ title, register }) => {
   return (
-    <div>
+    <>
       <h3>{title}</h3>
       <div className='SignIn-form'>
         <form action='post'>
@@ -43,7 +43,7 @@ const SignIn = ({ title, register }) => {
           <img src={facebook} alt='Facebook' />
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

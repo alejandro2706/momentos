@@ -3,34 +3,13 @@
 
 .How-container_step
   background-color: $white-color
-  height: 300px
-  padding: 1em
+  padding: 2.5em
   text-align: center
   h3
     font-size: 2.3em
-    margin-bottom: 15px
+    margin-bottom: 1em
   &:nth-of-type(2)
     grid-row-end: 3
     grid-column-end: 3
   &:nth-of-type(3)
     grid-row-end: 4
-
-@include media (tablet-m)
-  .How-container_step
-    font-size: 14px
-
-@include media (mobile-only)
-  .How-container_step:nth-of-type(2)
-    grid-column-end: 1
-
-@include media (desktop-xl)
-  .How
-    font-size: 1.3em
-    &-container_step
-      height: auto
-      padding: 1.4em
-
-@include media (desktop-x)
-  .How-container_step
-    font-size: 1.1em
-    height: auto

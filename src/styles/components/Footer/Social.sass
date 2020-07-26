@@ -8,32 +8,10 @@
     display: flex
     justify-content: space-around
   img
-    width: 30px
-    height: 35px
+    width: 1.7em
+    height: 1.9em
     filter: grayscale(100%)
     will-change: transform, filter
     &:hover
       filter: grayscale(0)
       transform: scale(1.1)
-
-@media screen and ( max-width: 770px )
-  .Footer-social
-    grid-column: 2
-    grid-row: 1
-
-@media screen and ( max-width: 550px )
-  .Footer-social
-    margin: 1.4em 0 
-    grid-column: 1
-    grid-row: 2 
-
-@include media (desktop-xl)
-  .Footer-social_icons a
-    img
-      width: 70px
-      height: 75px
-
-@include media (desktop-x)
-  .Footer-social img
-    width: 65px
-    height: 70px

@@ -8,44 +8,12 @@
   grid-template-rows: .7fr repeat(3, 1fr)
   &_items
     grid-column: span 2
-    margin-bottom: 10px
-    height: 55px
+    margin-bottom: .8em
     img
-      width: 13px
+      width: .9em
       height: 1em
     span
-      margin-left: 10px
+      margin-left: .8em
       font-size: 1.2em
   h2
     grid-column-end: span 3
-
-@media screen and ( max-width: 770px )
-  .Footer-git
-    grid-column: span 2
-    grid-template-columns: repeat(3, 1fr)
-    grid-template-rows: 1fr
-    gap: 10px
-    &_items
-      grid-column: initial
-
-@media screen and ( max-width: 550px )
-  .Footer-git
-    gap: 5px
-    &_items
-      font-size: 14px
-      span
-        margin-left: 0
-      img
-        display: none
-
-@include media (desktop-xl)
-  .Footer-git_items
-    height: auto
-    img
-      width: 45px
-
-@include media (desktop-x)
-  .Footer-git_items
-    height: auto
-    img
-      width: 40px

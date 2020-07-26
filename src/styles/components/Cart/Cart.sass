@@ -5,20 +5,20 @@
   position: fixed
   background-color: white
   height: 100vh
-  top: 87px
+  top: 5.47em
   right: 0
-  width: 40%
+  width: 45%
   z-index: 200
   will-change: transform, animation
   h3
     font-size: 2em
-    padding: 10px
+    padding: .9em
     margin-bottom: .8em
   &-products
     padding: 1em
 
 .hr_cart
-  margin-bottom: 15px
+  margin-bottom: 1em
 
 .Cart.is-open
   animation: showCart .6s ease forwards
@@ -39,25 +39,3 @@
     transform: translateX(0)
   100%
     transform: translateX(1000px)
-
-@media screen and ( max-width: 1030px )
-  .Cart
-    width: 46%
-
-@media screen and ( max-width: 770px )
-  .Cart
-    width: 55%
-
-@media screen and ( max-width: 705px )
-  .Cart
-    width: 65%
-
-@media screen and ( max-width: 550px )
-  .Cart
-    width: 100%
-
-@include media (desktop-xl)
-  .Cart
-    top: 215px
-    width: 48%
-    font-size: 1.3em

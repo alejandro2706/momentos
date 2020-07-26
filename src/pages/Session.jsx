@@ -24,8 +24,8 @@ function Session() {
 
   return (
     <div className='Session'>
+      <button onClick={handleSession} type='button' className='Session-button'>{btnTitle}</button>
       <div className={className}>
-        <button onClick={handleSession} type='button' className='Session-button'>{btnTitle}</button>
         <SignIn
           className={className}
           title={title}

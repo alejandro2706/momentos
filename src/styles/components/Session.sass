@@ -6,8 +6,8 @@
   grid-template-columns: repeat(2, 1fr)
   &-button
     @include button(10px)
-    width: 150px
-    height: 30px
+    width: 9em
+    height: 2em
     position: absolute
     top: 150px
     left: 43%
@@ -15,25 +15,3 @@
     cursor: pointer
     &:hover
       background-color: $brand-color-alt
-
-@media screen and ( max-width: 770px )
-  .Session-button
-    width: 120px
-
-@media screen and ( max-width: 550px )
-  .Session
-    grid-template-columns: 1fr
-    &-button
-      position: relative
-      margin: 1em auto
-      top: -15px
-      left: 170px
-      width: 180px
-
-@include media (desktop-xl)
-  .Session-button
-    top: 290px
-    height: 80px
-    width: 240px
-    border-radius: 25px
-    left: 45%
