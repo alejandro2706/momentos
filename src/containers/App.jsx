@@ -22,18 +22,6 @@ function App() {
             <Route exact path='/products'>
               <Products title='Products' />
             </Route>
-            <Route exact path='/products/brownies'>
-              <Products title='Brownies' />
-            </Route>
-            <Route exact path='/products/galletas'>
-              <Products title='Galletas' />
-            </Route>
-            <Route exact path='/products/cupcakes'>
-              <Products title='Cupcakes' />
-            </Route>
-            <Route exact path='/products/antojos'>
-              <Products title='Antojos' />
-            </Route>
             <Route exact path='/about'>
               <About />
             </Route>
