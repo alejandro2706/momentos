@@ -3,12 +3,11 @@
 
 .Hero
   height: 40em
-  margin: 1em
   background-image: url('https://images.pexels.com/photos/372851/pexels-photo-372851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
   background-repeat: no-repeat
   background-size: cover
   background-position: right center
-  border-radius: 2em
+  background-attachment: fixed
   overflow: hidden
   &-description
     height: 100%
@@ -16,30 +15,37 @@
     background: linear-gradient(90deg, rgba(9,9,9,0.1) 22%, rgba(43,43,43,0.6) 43%, rgba(43,43,43,0.71) 100%);
     position: relative
     h1
-      width: 60%
       font-family: $title-font
+      width: 90%
       text-transform: capitalize
-      font-size: 5.5em
-      position: absolute
-      top: 1em
-      margin-left: 1em
+      font-size: 6em
+      margin: 0 auto
+      padding: 1em 0
       color: white
+      text-align: center
       span
         color: $brand-color
         display: block
         font-size: 1.1em
         font-family: $brand-font
-    button
-      @include button(1.8em)
-      width: 8em
-      position: absolute
-      bottom: 4em
-      left: 4em
-      padding: .7em
-      font-size: 1.4em
-      text-transform: capitalize
-      a
-        color: white
+    &_buttons
+      margin: 0 auto
+      width: 70%
+      @include flex(center, center)
+      button
+        @include button(10px, $brand-color)
+        width: 8em
+        height: 2em
+        font-size: 1.4em
+        margin: 0 1em
+        text-transform: capitalize
+        a
+          color: white
+        &:last-of-type
+          @include button(10px, transparent)
+          border: 1px solid $brand-color-alt
+          &:hover
+            background-color: $brand-color-alt
 
 
 @include media ( desktop-s )
@@ -63,18 +69,21 @@
 
 @include media ( tablet-s )
   .Hero
-    height: 30em
+    height: 40em
     &-description
+      background-color: transparentize(black, .5)
       h1
         width: 90%
-        font-size: 3.6em
+        margin-top: 1em
       button
         left: 2em
         padding: .5em
+        height: auto
 
 @include media ( mobile-l )
   .Hero
-    height: 28em
+    height: 40em
+    background-position: 87% center
     &-description button
       bottom: 2.4em
 
@@ -82,7 +91,10 @@
   .Hero-description
     h1
       width: 100%
-      margin-left: 5px
     button
       bottom: 4em
       left: 5em
+
+@include media ( mobile-m )
+  .Hero-description_buttons
+    width: 90%

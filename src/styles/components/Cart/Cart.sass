@@ -5,7 +5,7 @@
   position: fixed
   background-color: white
   height: 100vh
-  top: 5.47em
+  top: 4.6em
   right: 0
   width: 45%
   z-index: 200
@@ -40,6 +40,9 @@
   100%
     transform: translateX(1000px)
 
+@include media ( desktop-s )
+  .Cart
+    top: 4.7em
 
 @include media ( tablet-l )
   .Cart
@@ -48,4 +51,12 @@
 @include media ( tablet-s )
   .Cart
     width: 100%
-    top: 5.3em
+    top: 4.9em
+
+@include media ( mobile-l )
+  .Cart
+    top: 5.1em
+
+@include media ( mobile-m )
+  .Cart
+    top: 5.4em

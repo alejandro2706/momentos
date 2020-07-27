@@ -1,24 +1,78 @@
 @import '../../utils/Vars'
 @import '../../utils/breakpoints'
 
-.Mobile-list
+.Mobile
   position: fixed
   width: 100%
-  top: 0
-  height: 100vh
-  background-color: wheat
-  transform: translateY(-1000px)
+  top: 5em
+  height: 90vh
+  background-color: black
+  display: grid
+  grid-template-rows: 30% 70%
+  overflow: hidden
+  &-user
+    @include flex(center, center)
+    opacity: 0
+    button
+      @include button(10px)
+      width: 70%
+      height: 30px
+      a
+        color: white
+  &-list
+    margin-top: 1em
+    padding: 0 1.4em
+    &_item
+      padding: 10px 0
+      margin: 1em 0
+      border-bottom: 1px solid gray
+      font-family: $paragraph-font
+      opacity: 0
+      will-change: opacity
+      button
+        color: white
+        font-size: 1.5em
 
 
-.Mobile-list.is-open
-  animation: openCart 1s ease forwards
+
+.Mobile.is-open
+  animation: openCart .8s ease forwards
   transition-timing-function: cubic-bezier(0.9, 0.03, 0.77, 1.14)
+  transform-origin: top
+  .Mobile-list_item, .Mobile-user
+    animation: viewItem 1s forwards
+    animation-delay: .1s
 
+
+.Mobile.is-closing
+  animation: closeCart .8s ease forwards
+  transition-timing-function: cubic-bezier(0.9, 0.03, 0.77, 1.14)
+  transform-origin: top
+  .Mobile-list_item, .Mobile-user
+    animation: hideItem 1s forwards
+
+
+
+@keyframes viewItem
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes hideItem
+  0%
+    opacity: 1
+  100%
+    opacity: 0
 
 @keyframes openCart
   0%
-    transform: scale(.5)
-    transform: translateY(-1000px)
+    height: 0
   100%
-    transform: scale(1)
-    transform: translateY(0px)
+    height: 100vh
+
+@keyframes closeCart
+  0%
+    height: 100vh
+  100%
+    height: 0

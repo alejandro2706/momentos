@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
-import menuIcon from '../../assets/icons/menu.svg'
 import logo from '../../assets/brand/cupcake-logo.png'
 import Cart from '../Cart/CartContainer'
 import NavbarItem from './NavbarItem'
@@ -28,7 +27,7 @@ function Navbar() {
 
   function onOpenNav() {
     if (!openModal.navbar) {
-      setOpenModal({ navbar: true })
+      setOpenModal({ navbar: { open: true, transition: 'is-open' } })
       setTransition('is-open')
     } else {
       setTimeout(() => {
@@ -52,6 +51,7 @@ function Navbar() {
             title='About'
             route='about'
             className='Navbar-list_item'
+            onClick={() => setOpenModal({ navbar: false })}
           />
           <NavbarItem
             title='Products'
@@ -79,11 +79,12 @@ function Navbar() {
           </Link>
         </button>
         <button type='button' className='menu' onClick={onOpenNav}>
-          <img src={menuIcon} alt='menu' />
+          <div className='menu-icon' />
         </button>
         <NavbarMobile
           isOpen={openModal.navbar}
           className={transition}
+          closeNav={onOpenNav}
         />
       </div>
     </div>
