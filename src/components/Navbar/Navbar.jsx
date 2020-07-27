@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
+import menuIcon from '../../assets/icons/menu.svg'
 import logo from '../../assets/brand/cupcake-logo.png'
 import Cart from '../Cart/CartContainer'
 import NavbarItem from './NavbarItem'
-import userIcon from '../../assets/icons/user.svg'
+import NavbarMobile from './NavbarMobile'
 
 function Navbar() {
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState({
+    cart: false,
+    navbar: false,
+  })
   const [transition, setTransition] = useState(null)
-  const [buttonIcon, setButtonIcon] = useState(false)
-  function openCart() {
-    if (!openModal) {
-      setOpenModal(true)
+  function handleOpen() {
+    if (!openModal.cart) {
+      setOpenModal({ cart: true })
       setTransition('is-open')
     } else {
       setTimeout(() => {
@@ -23,12 +26,17 @@ function Navbar() {
     }
   }
 
-  const mediaQuery = window.matchMedia('(max-width: 500px)')
-  useEffect(() => {
-    if (mediaQuery.matches) {
-      setButtonIcon(true)
+  function onOpenNav() {
+    if (!openModal.navbar) {
+      setOpenModal({ navbar: true })
+      setTransition('is-open')
+    } else {
+      setTimeout(() => {
+        setOpenModal(false)
+      }, 450);
+      setTransition('is-closing')
     }
-  }, [buttonIcon])
+  }
 
   return (
     <div className='Navbar-container'>
@@ -43,35 +51,40 @@ function Navbar() {
           <NavbarItem
             title='About'
             route='about'
+            className='Navbar-list_item'
           />
           <NavbarItem
             title='Products'
             route='products'
+            className='Navbar-list_item'
           />
           <NavbarItem
             title='Contact'
             route='contact'
+            className='Navbar-list_item'
           />
         </ul>
       </nav>
       <div className='Navbar-container_tooltips'>
-        <button type='button' onClick={openCart} className='cart'>
+        <button type='button' onClick={() => handleOpen()} className='cart'>
           <img src={cartIcon} alt='Cart icon' />
         </button>
         <Cart
-          isOpen={openModal}
+          isOpen={openModal.cart}
           className={transition}
         />
         <button type='button' className='btn signIn'>
           <Link to='/auth'>
-            {buttonIcon && (
-              <img src={userIcon} alt='user' />
-            )}
-            {!buttonIcon && (
-              <p>Iniciar Sesión</p>
-            )}
+            <p>Iniciar Sesión</p>
           </Link>
         </button>
+        <button type='button' className='menu' onClick={onOpenNav}>
+          <img src={menuIcon} alt='menu' />
+        </button>
+        <NavbarMobile
+          isOpen={openModal.navbar}
+          className={transition}
+        />
       </div>
     </div>
   )

@@ -6,7 +6,7 @@
   margin: 1em
   background-image: url('https://images.pexels.com/photos/372851/pexels-photo-372851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
   background-repeat: no-repeat
-  background-size: 100%
+  background-size: cover
   background-position: right center
   border-radius: 2em
   overflow: hidden
@@ -63,7 +63,7 @@
 
 @include media ( tablet-s )
   .Hero
-    height: 24em
+    height: 30em
     &-description
       h1
         width: 90%
@@ -74,6 +74,15 @@
 
 @include media ( mobile-l )
   .Hero
-    height: 21em
+    height: 28em
     &-description button
-      bottom: 1em
+      bottom: 2.4em
+
+@include media ( mobile-s )
+  .Hero-description
+    h1
+      width: 100%
+      margin-left: 5px
+    button
+      bottom: 4em
+      left: 5em

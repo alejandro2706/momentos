@@ -21,6 +21,10 @@
     @media only screen and ( max-width: 768px )
       @content
 
+  @else if $breakpoint == tablet-m-only
+    @media only screen and ( min-width: 501px ) and ( max-width: 730px )
+      @content
+
   @else if $breakpoint == tablet-l
     @media only screen and ( max-width: 850px )
       @content

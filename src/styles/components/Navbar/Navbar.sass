@@ -35,6 +35,8 @@
     grid-template-columns: 35% 55%
     gap: 10%
     align-items: center
+    .menu
+      display: none
     .cart
       width: 38px
       justify-self: center
@@ -80,7 +82,7 @@
 
 @include media ( tablet-l )
   .Navbar-container
-    grid-template-columns: 30% 16% 16% 16% 9% 12%
+    grid-template-columns: 33% 15% 15% 15% 9% 12%
     &_brand
       padding-left: 0
       grid-column: 1
@@ -94,15 +96,38 @@
 
 @include media ( tablet-s )
   .Navbar-container
-    grid-template-columns: 60% 25% 15%
+    grid-template-columns: 50% 50%
     &_tooltips
+      grid-template-columns: 25% 50% 25%
+      gap: 5px
       grid-column-start: 2
       grid-row: 1
+      .menu
+        display: inline-block
+        width: 90%
+        img
+          width: 30px
+          height: 30px
       .signIn
-        width: 85%
-        background-color: wheat 
+        width: 100%
         img
           display: inline-block
           width: 60%
-    .Navbar-list
+    .Navbar
       display: none
+
+@include media ( mobile-m )
+  .Navbar-container
+    grid-template-columns: 20% 25% 35% 20%
+    &_brand
+      img
+        width: 3.1em
+        height: 3.4em
+      span
+        display: none
+    &_tooltips
+      grid-column: 2 / span 3
+      .cart img
+        width: 99%
+      .signIn
+        width: 85%
