@@ -30,10 +30,7 @@ function Navbar() {
       setOpenModal({ navbar: { open: true, transition: 'is-open' } })
       setTransition('is-open')
     } else {
-      setTimeout(() => {
-        setOpenModal(false)
-      }, 450);
-      setTransition('is-closing')
+      setOpenModal(false)
     }
   }
 
@@ -51,7 +48,6 @@ function Navbar() {
             title='About'
             route='about'
             className='Navbar-list_item'
-            onClick={() => setOpenModal({ navbar: false })}
           />
           <NavbarItem
             title='Products'

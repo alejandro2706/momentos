@@ -14,7 +14,7 @@ function Section() {
   }
   useEffect(() => {
     window.onscroll = () => handelAnimation()
-    return () => window.onscroll = () => null
+    return () => window.onscroll = null
   })
 
   return (
