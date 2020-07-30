@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
-import logo from '../../assets/brand/cupcake-logo.png'
 import Cart from '../Cart/CartContainer'
 import NavbarItem from './NavbarItem'
+import { app } from '../../db/config'
+import BrandContainer from './BrandContainer'
 
 function Navbar() {
+  const [user, setUser] = useState(null)
   const [openModal, setOpenModal] = useState(false)
   const [transition, setTransition] = useState(null)
+  useEffect(() => {
+    app.auth().onAuthStateChanged((user) => {
+      if (user) setUser(user.displayName)
+      else console.log('no hay usuario')
+    })
+  })
   function openCart() {
     if (!openModal) {
       setOpenModal(true)
@@ -22,12 +30,7 @@ function Navbar() {
   }
   return (
     <div className='Navbar-container'>
-      <div className='Navbar-container_brand'>
-        <Link to='/'>
-          <img src={logo} alt='logo' />
-          <span>Momentos</span>
-        </Link>
-      </div>
+      <BrandContainer />
       <nav className='Navbar'>
         <ul className='Navbar-list'>
           <NavbarItem
@@ -54,7 +57,8 @@ function Navbar() {
         />
         <button type='button' className='btn signIn'>
           <Link to='/auth'>
-            Iniciar Sesión
+            {user && 'cerrar Sesión'}
+            {!user && 'iniciar Sesión'}
           </Link>
         </button>
       </div>

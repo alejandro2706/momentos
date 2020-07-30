@@ -1,67 +1,51 @@
 import React, { useState } from 'react'
 import '../../styles/components/auth/SignIn.sass'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
-import { signUpEmailPass, signInEmailPass } from '../../db/Controller'
+import auth from '../../db/authController'
 
 function SignIn({ title, register }) {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-  })
-  function handleSubmit(e) {
-    e.preventDefault()
-    if (form.password.length < 6) {
-      swal({
-        text: 'Tu contraseña debe ser mayor a 6 caracteres',
-        timer: 2000,
-        buttons: false,
-      })
-      return false
-    }
-    console.log(form)
-    if (register) {
-      console.log('register:', register)
-      return signUpEmailPass(form)
-    }
-    return signInEmailPass(form)
-  }
-  function handleChange(e) {
+  const [form, setForm] = useState(null)
+  function handleFormChange(e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     })
   }
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (register) {
+      if (form.name === undefined) {
+        return Swal.fire('Por favor ingresa tu nombre')
+      }
+      return auth.signUpEmailPass(form)
+    }
+    return auth.signInEmailPass(form)
+  }
+
   return (
     <div>
       <h3>{title}</h3>
       <div className='SignIn-form'>
-        <form action='post' onChange={handleChange}>
+        <form onChange={handleFormChange}>
           {register === true && (
             <Input
               className='SignIn-form_label'
               name='name'
               type='text'
-              // onChange={handleChange}
-              // value={state.name}
             />
           )}
           <Input
             className='SignIn-form_label'
             name='email'
             type='email'
-            // onChange={handleChange}
-            // value={state.email}
           />
           <Input
             className='SignIn-form_label'
             name='password'
             type='password'
-            // onChange={handleChange}
-            // value={state.password}
           />
           <button type='submit' onClick={handleSubmit}>{title}</button>
         </form>
@@ -69,10 +53,10 @@ function SignIn({ title, register }) {
       <hr className='hr_sigin' />
       <h4>{`${title} con:`}</h4>
       <div className='SignIn-social'>
-        <button type='button'>
+        <button type='button' onClick={() => auth.authWithGoogle()}>
           <img src={google} alt='Google' />
         </button>
-        <button type='button'>
+        <button type='button' onClick={() => auth.authWithFacebook()}>
           <img src={facebook} alt='Facebook' />
         </button>
       </div>
