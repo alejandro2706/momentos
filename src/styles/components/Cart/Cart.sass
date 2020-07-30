@@ -1,22 +1,24 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Cart
   position: fixed
   background-color: white
   height: 100vh
-  top: 87px
+  top: 4.6em
   right: 0
-  width: 40%
+  width: 45%
   z-index: 200
   will-change: transform, animation
   h3
     font-size: 2em
-    padding: 10px
+    padding: .9em
     margin-bottom: .8em
   &-products
     padding: 1em
 
 .hr_cart
-  margin-bottom: 15px
+  margin-bottom: 1em
 
 .Cart.is-open
   animation: showCart .6s ease forwards
@@ -38,18 +40,23 @@
   100%
     transform: translateX(1000px)
 
-@media screen and ( max-width: 1030px )
+@include media ( desktop-s )
   .Cart
-    width: 46%
+    top: 4.7em
 
-@media screen and ( max-width: 770px )
+@include media ( tablet-l )
   .Cart
-    width: 55%
+    width: 52%
 
-@media screen and ( max-width: 705px )
-  .Cart
-    width: 65%
-
-@media screen and ( max-width: 550px )
+@include media ( tablet-s )
   .Cart
     width: 100%
+    top: 4.9em
+
+@include media ( mobile-l )
+  .Cart
+    top: 5.1em
+
+@include media ( mobile-m )
+  .Cart
+    top: 5.4em

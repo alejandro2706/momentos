@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Footer-git
   padding: 0 1em
@@ -7,32 +8,30 @@
   grid-template-rows: .7fr repeat(3, 1fr)
   &_items
     grid-column: span 2
-    margin-bottom: 10px
-    height: 55px
+    margin-bottom: .8em
     img
-      width: 13px
-      heigth: 1em
+      width: .9em
+      height: 1em
     span
-      margin-left: 10px
+      margin-left: .8em
       font-size: 1.2em
   h2
     grid-column-end: span 3
 
-@media screen and ( max-width: 770px )
+
+@include media ( tablet-s )
   .Footer-git
-    grid-column: span 2
     grid-template-columns: repeat(3, 1fr)
     grid-template-rows: 1fr
-    gap: 10px
+    h2
+      margin-bottom: 1em
+      font-size: 2em
     &_items
-      grid-column: initial
-
-@media screen and ( max-width: 550px )
-  .Footer-git
-    gap: 5px
-    &_items
-      font-size: 14px
-      span
-        margin-left: 0
+      grid-column: auto
+      h3
+        font-size: 1.6em
       img
         display: none
+      span
+        margin-left: 0
+        font-size: 1.1em

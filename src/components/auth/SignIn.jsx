@@ -26,7 +26,7 @@ function SignIn({ title, register }) {
   }
 
   return (
-    <div>
+    <>
       <h3>{title}</h3>
       <div className='SignIn-form'>
         <form onChange={handleFormChange}>
@@ -60,7 +60,7 @@ function SignIn({ title, register }) {
           <img src={facebook} alt='Facebook' />
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

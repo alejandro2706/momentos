@@ -8,16 +8,13 @@ const Item = ({ name, image }) => {
     alert('click')
   }
   return (
-    <div className='Product-container'>
-      <div className='Product'>
-        <img src={image} alt='product' />
-        <div className='Product-desc'>
-          <h3>{name}</h3>
-          <p>decorado</p>
-          <button onClick={handleClick} type='button'>
-            <img src={addButton} alt='add to cart' />
-          </button>
-        </div>
+    <div className='Product'>
+      <img src={image} alt='product' />
+      <div className='Product-desc'>
+        <h3>{name}</h3>
+        <button onClick={handleClick} type='button'>
+          <img src={addButton} alt='add to cart' />
+        </button>
       </div>
     </div>
   )

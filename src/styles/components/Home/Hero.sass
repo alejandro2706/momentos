@@ -1,81 +1,100 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Hero
-  height: 90vh
-  margin: 1em
+  height: 40em
   background-image: url('https://images.pexels.com/photos/372851/pexels-photo-372851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
   background-repeat: no-repeat
-  background-size: 100%
+  background-size: cover
   background-position: right center
-  border-radius: 2em
+  background-attachment: fixed
   overflow: hidden
   &-description
     height: 100%
     background: rgb(9,9,9);
     background: linear-gradient(90deg, rgba(9,9,9,0.1) 22%, rgba(43,43,43,0.6) 43%, rgba(43,43,43,0.71) 100%);
+    position: relative
     h1
-      width: 50%
       font-family: $title-font
+      width: 90%
       text-transform: capitalize
-      font-size: 5.5em
-      position: absolute
-      top: 25%
-      margin-left: 1em
+      font-size: 6em
+      margin: 0 auto
+      padding: 1em 0
       color: white
+      text-align: center
       span
         color: $brand-color
         display: block
         font-size: 1.1em
         font-family: $brand-font
-    button
-      @include button(20px)
-      width: 190px
-      position: absolute
-      bottom: 100px
-      left: 9%
-      padding: .7em
-      font-size: 1.4em
-      text-transform: capitalize
-      a
-        color: white
-
-
-@media screen and ( max-width: 1030px )
-  .Hero-description
-    h1
-      font-size: 4.5em
-      width: 60%
-
-@media screen and ( max-width: 770px )
-  .Hero
-    height: 85vh
-    &-description
-      h1
-        width: 69%
-        margin-left: .5em
+    &_buttons
+      margin: 0 auto
+      width: 70%
+      @include flex(center, center)
       button
-        left: 6%
+        @include button(10px, $brand-color)
+        width: 8em
+        height: 2em
+        font-size: 1.4em
+        margin: 0 1em
+        text-transform: capitalize
+        a
+          color: white
+        &:last-of-type
+          @include button(10px, transparent)
+          border: 1px solid $brand-color-alt
+          &:hover
+            background-color: $brand-color-alt
 
-@media screen and ( max-width: 705px )
-  .Hero
-    background-size: cover
-    &-description
-      font-size: 14px
 
-@media screen and ( max-width: 550px )
+@include media ( desktop-s )
   .Hero
-    height: 450px
+    height: 38em
+    &-description h1
+      width: 70%
+      font-size: 5.3em
+
+@include media ( tablet-l )
+  .Hero
+    height: 36em
+    &-description h1
+      font-size: 5.1em
+
+@include media ( tablet-m )
+  .Hero
+    height: 34em
+    &-description h1
+      font-size: 4.8em
+
+@include media ( tablet-s )
+  .Hero
+    height: 40em
     &-description
-      font-size: 14px
-      background: transparentize(black, .5)
+      background-color: transparentize(black, .5)
       h1
         width: 90%
-        top: 100px
-        position: initial
-        padding-top: 20px
-        margin-left: 0
-        margin: 0 auto
-        span
-          text-align: center
-          font-size: 1.5em
+        margin-top: 1em
       button
-        left: 185px
+        left: 2em
+        padding: .5em
+        height: auto
+
+@include media ( mobile-l )
+  .Hero
+    height: 40em
+    background-position: 87% center
+    &-description button
+      bottom: 2.4em
+
+@include media ( mobile-s )
+  .Hero-description
+    h1
+      width: 100%
+    button
+      bottom: 4em
+      left: 5em
+
+@include media ( mobile-m )
+  .Hero-description_buttons
+    width: 90%

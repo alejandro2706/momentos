@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 .About
   margin-bottom: 2em
   &-title
@@ -7,20 +8,20 @@
     background-position: center
     background-repeat: no-repeat
     background-size: cover
-    height: 450px
+    height: 9em
     font-size: 3em
     @include flex(center, center)
     color: white
   &-main
     background-color: $white-color
-    width: 43%
+    width: 45%
     position: relative
     margin: 0 auto
-    top: -80px
+    top: -6em
     text-align: center
     padding: 1em 2em
     box-shadow: 0px 8px 8px -5px gray
-    border-radius: 10px
+    border-radius: .9em
     h3
       font-size: 2.2em
       margin-bottom: .7em
@@ -30,7 +31,7 @@
     button
       @include button(15px)
       width: 30%
-      height: 40px
+      height: 3em
       margin: 1.5em auto
       position: relative
       bottom: 0
@@ -41,24 +42,37 @@
     display: grid
     grid-template-columns: repeat(2, 1fr)
     grid-template-rows: repeat(2, 1fr)
-    gap: 20px
+    gap: 2.5em
 
-@media screen and ( max-width: 1030px )
-  .About
-    font-size: 14px
-    &-main
-      width: 50%
 
-@media screen and ( max-width: 770px )
+@include media ( desktop-m )
   .About-main
-    width: 65%
+    width: 48%
 
-@media screen and ( max-width: 550px )
+@include media ( desktop-s )
+  .About-main
+    width: 53%
+
+@include media ( tablet-l )
+  .About-main
+    width: 55%
+
+@include media ( tablet-m )
+  .About
+    font-size: .9em
+
+@include media ( tablet-s )
   .About-main
     width: 85%
-    button
-      width: 60%
   .About-history
     grid-template-columns: 1fr
+    grid-template-rows: 1fr .6fr 1fr .6fr
     &_section:first-of-type
-      grid-row: 2
+      grid-row-start: 2
+
+@include media ( mobile-m )
+  .About-main
+    font-size: 1.1em
+    button
+      width: 50%
+

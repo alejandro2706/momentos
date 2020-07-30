@@ -10,13 +10,11 @@ function Section() {
   function handelAnimation() {
     if (document.documentElement.scrollTop > 330) {
       setClassName('visible')
-    } else {
-      setClassName('hidden')
     }
   }
   useEffect(() => {
     window.onscroll = () => handelAnimation()
-    return () => window.onscroll = () => null
+    return () => window.onscroll = null
   })
 
   return (

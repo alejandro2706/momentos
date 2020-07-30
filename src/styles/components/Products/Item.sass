@@ -1,9 +1,10 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Product
   width: 100%
-  height: 200px
-  border-radius: 30px
+  height: auto
+  border-radius: 2.1em
   overflow: hidden
   position: relative
   margin-bottom: 2em
@@ -31,7 +32,7 @@
       margin-right: .7em
     button
       cursor: pointer
-      height: 25px
+      height: 1.9em
       width: 12%
       height: 48%
       margin-right: .5em
@@ -42,12 +43,22 @@
         height: 100%
 
 
-@media screen and ( max-width: 770px )
-  .Product-desc
-    opacity: 1
+@include media ( desktop-m)
+  .Product
+    height: 10em
 
-@media screen and ( max-width: 550px )
+@include media ( tablet-l )
+  .Product
+    height: 11em
+    &-desc
+      bottom: 1px
+
+@include media ( tablet-m )
   .Product
     height: auto
-    &-desc
-      bottom: 3px
+
+@include media ( tablet-s )
+  .Product-desc
+    font-size: 2em
+    opacity: 1
+    transition: 0

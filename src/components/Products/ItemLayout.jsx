@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Item from './Item'
 import '../../styles/components/Products/ItemLayout.sass'
 
@@ -8,13 +8,13 @@ const ProductLayout = ({ title, products }) => {
     <div className='Layout'>
       <h2>{title}</h2>
       <p>You will love It!</p>
-      <div className='Toggle-products'>
+      {/* <div className='Toggle-products'>
         <button type='button'>
           <Link to='/products/decorados'>
             Decorados
           </Link>
         </button>
-      </div>
+      </div> */}
       <div className='Layout-grid'>
         {products.map((item) => (
           <Item

@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .How
   padding: 2em
   h2
@@ -10,12 +12,9 @@
     grid-template-columns: repeat(2, 1fr)
     grid-template-rows: repeat(3, 1fr)
     margin-top: 2em
-    gap: 10px
+    gap: .7em
 
-@media screen and ( max-width: 770px )
-  .How
-    font-size: 14px
 
-@media screen and ( max-width: 550px )
+@include media ( tablet-s )
   .How-container
     grid-template-columns: 1fr

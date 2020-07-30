@@ -1,4 +1,5 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
 
 .Footer
   background: $white-color
@@ -12,20 +13,13 @@
     img
       width: 70%
 
-@media screen and ( max-width: 1030px )
-  .Footer
-    &-main
-      @include flex(center, center)
-      padding-left: 0
-      img
-        width: 80%
 
-@media screen and ( max-width: 770px )
-  .Footer
-    grid-template-columns: 1fr 1fr
+@include media ( tablet-l )
+  .Footer-main
+    padding-left: 2.4em
+    img
+      width: 90%
 
-@media screen and ( max-width: 550px )
+@include media ( tablet-s )
   .Footer
     grid-template-columns: 1fr
-    &-main img
-      width: 60%

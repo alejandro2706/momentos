@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .SignIn
   background-color: $white-color
   padding: 3em
@@ -19,12 +21,12 @@
       font-family: $title-font
       width: 60%
       div
-        @include input(100%, 40px)
+        @include input(100%, 1.5em)
     button[type="submit"]
-      @include button(10px)
-      margin-top: 10px
+      @include button(.9em)
+      margin-top: .9em
       width: 60%
-      height: 30px
+      height: 1.9em
       font-size: 1em
       cursor: pointer
   h4
@@ -36,7 +38,7 @@
     padding-left: 1em
     button
       margin-right: 2em
-      width: 40px
+      width: 3em
       cursor: pointer
       img
         width: 100%
@@ -51,8 +53,8 @@
     content: 'O también'
     display: inline-block
     position: relative
-    top: -10px
-    padding: 0 16px
+    top: -.8em
+    padding: 0 1em
     font-family: $title-font
     background: $white-color
 
@@ -65,19 +67,31 @@
   h3
     margin-bottom: 0
 
-@media screen and ( max-width: 1030px )
+
+@include media ( tablet-l )
   .SignIn
-    padding: 2em
     h3
-      font-size: 2.4em
+      margin-bottom: .7em
 
-@media screen and ( max-width: 770px )
-  .SignIn-form form
-    display: block
 
-@media screen and ( max-width: 550px )
-  .SignUp
-    grid-column: 1
+@include media ( tablet-s )
+  .SignIn
+    padding-top: 8em
+    h4
+      font-size: 1.4em
+    &-form
+      button[type="button"]
+        font-size: 1.4em
+      &_label
+        font-size: 1.6em
+        div
+          height: 2em
+
+@include media ( mobile-l )
   .SignIn-form
     button[type="button"]
       width: 100%
+    &_label
+      width: 100%
+  .hr_sigin::after
+    font-size: 1.7em

@@ -1,13 +1,18 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Navbar-list_item
   width: 90%
   padding: .5em
   text-align: center
   position: relative
-  a
+  button
+    font-size: 1em
     display: inline-block
     width: 100%
     height: 100%
+    color: white
+    cursor: pointer
   &::after
     content: ''
     background-color: $brand-color-alt

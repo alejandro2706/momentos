@@ -1,4 +1,6 @@
 @import '../../utils/Vars'
+@import '../../utils/breakpoints'
+
 .Cart-product
   width: 100%
   display: flex
@@ -10,27 +12,28 @@
     transition: .5s
     opacity: 1
   &_image
-    width: 25%
+    width: 20%
     @include flex(center, center)
     img
       width: 100%
   &_desc
+    margin-left: .5em
     h4
       font-size: 1.3em
-      margin-bottom: 5px
+      margin-bottom: .5em
     p
       font-size: 1em
     &-buttons
       @include flex(center, center)
       span
         border: 1px solid gray
-        border-radius: 10px
-        margin: 10px 10px 0
-        padding: 0 10px
+        border-radius: .9em
+        margin: .9em .9em 0
+        padding: 0 .9em
         font-size: 1.1em
         color: black
       button[type="button"]
-        width: 25px
+        width: 1.9em
         margin-top: 1em
         img
           width: 100%
@@ -40,9 +43,39 @@
     opacity: 0
     button
       background-color: white
-      width: 25px
+      width: 1.9em
       position: absolute
-      right: 10px
-      top: 5px
+      right: .9em
+      top: .6em
       img
         width: 100%
+
+
+
+@include media ( desktop-m )
+  .Cart-product_desc-buttons span
+    margin: .6em .9em 0
+
+@include media ( tablet-l )
+  .Cart-product_image
+    width: 25%
+    align-items: flex-start
+
+@include media ( tablet-s )
+  .Cart-product
+    padding-left: 0
+    box-shadow: 1px 1px 10px 1px gray
+    &_image
+      width: 35%
+      align-items: center
+    &_desc
+      font-size: 1.5em
+      &-buttons
+        justify-content: start
+        button[type="button"]
+          width: 2.1ems
+    &_delete
+      opacity: 1
+      button
+        top: 1em
+        right: 1em
