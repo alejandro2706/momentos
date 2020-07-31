@@ -14,15 +14,18 @@ function SignIn({ title, register }) {
       [e.target.name]: e.target.value,
     })
   }
-  function handleSubmit(e) {
+  function onSubmitForm(e) {
     e.preventDefault()
-    if (register) {
-      if (form.name === undefined) {
-        return Swal.fire('Por favor ingresa tu nombre')
+    if (form !== null) {
+      if (register) {
+        if (form.name === undefined) {
+          return Swal.fire('Por favor ingresa tu nombre')
+        }
+        return auth.signUpEmailPass(form)
       }
-      return auth.signUpEmailPass(form)
+      return auth.signInEmailPass(form)
     }
-    return auth.signInEmailPass(form)
+    return Swal.fire('Llena los campos')
   }
 
   return (
@@ -47,7 +50,7 @@ function SignIn({ title, register }) {
             name='password'
             type='password'
           />
-          <button type='submit' onClick={handleSubmit}>{title}</button>
+          <button type='submit' onClick={onSubmitForm}>{title}</button>
         </form>
       </div>
       <hr className='hr_sigin' />

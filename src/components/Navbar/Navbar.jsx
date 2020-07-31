@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../styles/components/Navbar/Navbar.sass'
+import Swal from 'sweetalert2'
 import cartIcon from '../../assets/icons/cart.svg'
 import Cart from '../Cart/CartContainer'
 import NavbarItem from './NavbarItem'
@@ -44,6 +45,19 @@ function Navbar() {
     }
   }
 
+  function signOut() {
+    if (user) {
+      console.log(user)
+      app.auth().signOut()
+        .then(Swal.fire({
+          title: 'Saliste',
+          showConfirmButton: false,
+          timer: 500,
+        }))
+      window.location.reload(true)
+    }
+  }
+
   return (
     <div className='Navbar-container'>
       <BrandContainer />
@@ -74,12 +88,20 @@ function Navbar() {
           isOpen={openModal.cart}
           className={transition}
         />
-        <button type='button' className='btn signIn'>
-          <Link to='/auth'>
-            {user && 'cerrar Sesión'}
-            {!user && 'iniciar Sesión'}
-          </Link>
-        </button>
+        {user && (
+          <button type='button' className='btn signIn' onClick={signOut}>
+            {/* <Link to='/user'> */}
+            {user}
+            {/* </Link> */}
+          </button>
+        )}
+        {!user && (
+          <button type='button' className='btn signIn'>
+            <Link to='/auth'>
+              Iniciar Sesión
+            </Link>
+          </button>
+        )}
         <button type='button' className='menu' onClick={onOpenNav}>
           <div className='menu-icon' />
         </button>
