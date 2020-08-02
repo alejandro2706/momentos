@@ -1,8 +1,8 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Layout from '../components/Layout'
 import Loading from '../components/Loading'
-import '../styles/components/App.sass'
+import '../styles/App.sass'
 
 const Home = lazy(() => import('../pages/Home'))
 const Session = lazy(() => import('../pages/Session'))
@@ -10,7 +10,12 @@ const About = lazy(() => import('../pages/About'))
 const Contact = lazy(() => import('../pages/Contact'))
 const Products = lazy(() => import('../pages/Products'))
 
+const UserContext = React.createContext({})
+console.log('UserContext:', UserContext)
+
 function App() {
+  const [user, setUser] = useState(null)
+
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>

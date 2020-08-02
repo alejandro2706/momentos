@@ -34,7 +34,7 @@ class Auth {
           })
         } else if (err.code === 'auth/weak-password') {
           Swal.fire({
-            title: 'Contraseña invalida',
+            title: 'Tu contraseña debe ser mayor a 6 caracteres',
             showConfirmButton: false,
             timer: 1600,
             timerProgressBar: true,
@@ -54,7 +54,7 @@ class Auth {
       .then((result) => {
         if (result.user.emailVerified) {
           Swal.fire({
-            title: `Bienvenido ${user.name}`,
+            title: `Bienvenido ${result.user.displayName}`,
             icon: 'success',
             timer: 1500,
             showConfirmButton: false,
@@ -78,6 +78,8 @@ class Auth {
           Swal.fire('Contraseña invalida')
         } else if (err.code === 'auth/user-not-found') {
           Swal.fire('Usuario no encontrado')
+        } else if (err.code === 'auth/argument-error') {
+          Swal.fire('Datos incorrectos')
         } else {
           Swal.fire('Error al autenticarse')
         }

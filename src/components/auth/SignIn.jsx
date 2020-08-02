@@ -38,17 +38,20 @@ function SignIn({ title, register }) {
               className='SignIn-form_label'
               name='name'
               type='text'
+              title='nombre'
             />
           )}
           <Input
             className='SignIn-form_label'
             name='email'
-            type='email'
+            type='Email'
+            title='Correo'
           />
           <Input
             className='SignIn-form_label'
             name='password'
             type='password'
+            title='Contraseña'
           />
           <button type='submit' onClick={onSubmitForm}>{title}</button>
         </form>

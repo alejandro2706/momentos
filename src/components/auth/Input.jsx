@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Input = ({ name, type, className, onchange }) => (
+const Input = ({ name, title, type, className, onchange }) => (
   <label htmlFor={name} className={className}>
-    {name}
+    {title}
     <div>
       <input type={type} name={name} autoComplete='on' onChange={onchange} required />
     </div>

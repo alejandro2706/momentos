@@ -12,10 +12,7 @@ import BrandContainer from './BrandContainer'
 function Navbar() {
   const [user, setUser] = useState(null)
   const [transition, setTransition] = useState(null)
-  const [openModal, setOpenModal] = useState({
-    cart: false,
-    navbar: false,
-  })
+  const [openModal, setOpenModal] = useState({ cart: false, navbar: false })
 
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
@@ -90,9 +87,8 @@ function Navbar() {
         />
         {user && (
           <button type='button' className='btn signIn' onClick={signOut}>
-            {/* <Link to='/user'> */}
             {user}
-            {/* </Link> */}
+            cerrar Sesión
           </button>
         )}
         {!user && (
