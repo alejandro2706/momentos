@@ -8,7 +8,7 @@ import auth from '../../db/authController'
 
 function SignIn({ title, register }) {
   const [form, setForm] = useState(null)
-  function handleFormChange(e) {
+  function onFormChange(e) {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -32,7 +32,7 @@ function SignIn({ title, register }) {
     <>
       <h3>{title}</h3>
       <div className='SignIn-form'>
-        <form onChange={handleFormChange}>
+        <form onChange={onFormChange}>
           {register === true && (
             <Input
               className='SignIn-form_label'

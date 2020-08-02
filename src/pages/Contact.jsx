@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import Swal from 'sweetalert2'
 import Input from '../components/auth/Input'
 import '../styles/components/Contact.sass'
 import formController from '../db/formController'
 
 function Contact() {
   const [formState, setFormState] = useState(undefined)
+  const emailFormRef = useRef(null)
   function onChangeForm(e) {
     setFormState({
       ...formState,
@@ -15,8 +17,15 @@ function Contact() {
   function onSubmitForm(e) {
     e.preventDefault()
     if (formState) {
-      formController.createForm(formState)
+      if (emailFormRef.current.validationMessage === '') {
+        return formController.createForm(formState)
+      }
+      return Swal.fire({
+        title: 'Correo invalido',
+        text: emailFormRef.current.validationMessage,
+      })
     }
+    return Swal.fire('Llena los campos')
   }
   return (
     <div className='Contact'>
@@ -43,13 +52,14 @@ function Contact() {
             type='Email'
             labelFor='email'
             title='Correo Electrónico'
+            reference={emailFormRef}
           />
           <Input
             className='Contact-container_label'
             name='phone'
             type='number'
             labelFor='number'
-            title='Telefono'
+            title='Teléfono'
           />
           <textarea name='message' placeholder='Escribe tu mensaje...' />
           <button type='submit' onClick={onSubmitForm}>Enviar</button>
