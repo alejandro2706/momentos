@@ -56,7 +56,6 @@ module.exports = {
             },
           },
           'css-loader',
-          MediaQueryPlugin.loader,
           'sass-loader',
         ],
       },
