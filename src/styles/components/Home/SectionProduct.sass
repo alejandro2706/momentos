@@ -47,19 +47,33 @@
 
 .visible
   display: block
-  animation-name: visible;
-  animation-duration: .6s;
-  animation-timing-function: linear;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.84,-0.04, 0.59, 1.18)
   animation-fill-mode: forwards;
   will-change: opacity, transform
 
-@keyframes visible
+@keyframes bounce
   0%
+    transform: translateY(-40px)
+    opacity: 0.1
+  15%
+    transform: translateY(0px)
+    opacity: 0.3
+  30%
+    transform: translateY(-25px)
     opacity: 0.5
-    transform: scale(0.5) 
+  55%
+    transform: translateY(0px)
+    opacity: 0.7
+  70%
+    transform: translateY(-15px)
+    opacity: 1
+  85%
+    transform: translateY(-8px)
   100%
     opacity: 1
-    transform: scale(1)
+    transform: translateY(0px)
 
 
 @include media ( desktop-s )
