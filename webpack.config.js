@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
-const MediaQueryPlugin = require('media-query-plugin')
 
 module.exports = {
   entry: {
@@ -76,19 +75,18 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      filename: './index.html',
       minify: {
         removeComments: true,
         removeRedundantAttributes: true,
         collapseWhitespace: true,
         useShortDoctype: true,
       },
-      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name]-[contenthash].css',
       chunkFilename: 'css/[name]-[contenthash].css',
     }),
-    new MediaQueryPlugin({}),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['***'],
     }),
