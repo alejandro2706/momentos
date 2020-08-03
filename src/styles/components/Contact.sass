@@ -36,6 +36,52 @@
       height: 2.2em
       grid-column: span 2
 
+@include media ( desktop-xxl )
+  .Contact-container
+    &_label input
+      height: 2em
+      font-size: .8em
+    button
+      font-size: .8em
+      height: 2em
+    form textarea
+      max-width: 1200px
+      height: 180px
+      min-height: 180px
+      font-size: .8em
+
+@include media ( desktop-xl )
+  .Contact-container
+    &_label input
+      height: 1.9em
+      font-size: .7em
+    button
+      font-size: .8em
+      height: 2em
+    form textarea
+      max-width: 1000px
+      height: 150px
+      min-height: 150px
+      font-size: .7em
+
+
+@include media ( desktop-xs )
+  .Contact-container
+    width: 55%
+    &_label
+      font-size: 1.5em
+      input
+        height: 3em
+        font-size: .6em
+    form textarea
+      max-width: 860px
+      height: 190px
+      max-height: 200px
+      font-size: 1em
+    button
+      height: 3em
+      font-size: .9em
+
 
 @include media ( tablet-l )
   .Contact-container

@@ -86,6 +86,39 @@
     100%
       opacity: 1
 
+@include media ( desktop-xxl )
+  .Navbar-container
+    font-size: 1.2em
+    &_tooltips
+      .cart
+        width: 55px
+      .signIn
+        font-size: .9em
+
+@include media ( desktop-xl )
+  .Navbar-container
+    font-size: 1.1em
+    &_brand
+      padding-left: 2em
+    &_tooltips
+      grid-template-columns: 35% 65%
+      gap: 0%
+      .cart
+        width: 50px
+      .signIn
+        font-size: .8em
+
+@include media ( desktop-xs )
+  .Navbar-container
+    &_tooltips
+      .signIn
+        font-size: 1em
+      .cart
+        width: 46px
+
+@include media ( tablet-l-only )
+  .Navbar-container
+    grid-template-columns: 1fr 1fr .8fr .8fr .8fr 1fr
 
 @include media ( tablet-l )
   .Navbar-container
@@ -100,6 +133,18 @@
       grid-column: span 2
     .Navbar
       grid-column: 2 / 5
+
+@include media ( tablet-s-only )
+  .Navbar-container
+    font-size: .9em
+    grid-template-columns: 36% 13% 13% 13% 9% 15%;
+    &_tooltips
+      .cart
+        width: 34px
+      .signIn
+        font-size: .9em
+    .Navbar-list
+      gap: 0
 
 @include media ( tablet-s )
   .Navbar-container
