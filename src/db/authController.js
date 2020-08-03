@@ -26,25 +26,38 @@ class Auth {
         })
       })
       .catch((err) => {
-        if (err.code === 'auth/invalid-email') {
-          Swal.fire({
-            title: 'Correo invalido',
-            showConfirmButton: false,
-            timer: 1600,
-          })
-        } else if (err.code === 'auth/weak-password') {
-          Swal.fire({
-            title: 'Tu contraseña debe ser mayor a 6 caracteres',
-            showConfirmButton: false,
-            timer: 1600,
-            timerProgressBar: true,
-          })
-        } else if (err.code === 'auth/email-already-in-use') {
-          Swal.fire({
-            title: 'Este correo ya esta registrado',
-            timer: 1600,
-            timerProgressBar: true,
-          })
+        switch (err.code) {
+          case 'auth/invalid-email':
+            Swal.fire({
+              title: 'Correo invalido',
+              showConfirmButton: false,
+              timer: 1600,
+              timerProgressBar: true,
+            })
+            break;
+          case 'auth/weak-password':
+            Swal.fire({
+              title: 'Tu contraseña debe ser mayor a 6 caracteres',
+              showConfirmButton: false,
+              timer: 1600,
+              timerProgressBar: true,
+            })
+            break
+          case 'auth/email-already-in-use':
+            Swal.fire({
+              title: 'Este correo ya esta registrado',
+              showConfirmButton: false,
+              timer: 1600,
+              timerProgressBar: true,
+            })
+            break
+          default:
+            Swal.fire({
+              title: 'Error al crear tu cuenta',
+              timer: 1600,
+              timerProgressBar: true,
+            })
+            break;
         }
       })
   }
@@ -74,14 +87,19 @@ class Auth {
         }
       })
       .catch((err) => {
-        if (err.code === 'auth/wrong-password') {
-          Swal.fire('Contraseña invalida')
-        } else if (err.code === 'auth/user-not-found') {
-          Swal.fire('Usuario no encontrado')
-        } else if (err.code === 'auth/argument-error') {
-          Swal.fire('Datos incorrectos')
-        } else {
-          Swal.fire('Error al autenticarse')
+        switch (err.code) {
+          case 'auth/wrong-password':
+            Swal.fire('Contraseña invalida')
+            break
+          case 'auth/user-not-found':
+            Swal.fire('Usuario no encontrado')
+            break
+          case 'auth/argument-error':
+            Swal.fire('Datos incorrectos')
+            break
+          default:
+            Swal.fire('Error al autenticarse')
+            break;
         }
       })
   }

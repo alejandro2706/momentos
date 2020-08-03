@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Layout from '../components/Layout'
 import Loading from '../components/Loading'
@@ -14,7 +14,7 @@ const UserContext = React.createContext({})
 console.log('UserContext:', UserContext)
 
 function App() {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
   return (
     <BrowserRouter>
@@ -37,6 +37,7 @@ function App() {
               <Session />
             </Route>
           </Layout>
+          <Route><h3>404 Not found</h3></Route>
         </Switch>
       </Suspense>
     </BrowserRouter>
