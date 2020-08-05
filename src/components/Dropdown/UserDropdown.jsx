@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/components/Navbar/UserDropdown.sass'
+import '../../styles/components/Dropdown/UserDropdown.sass'
 import DropdownItem from './DropdownItem'
 import settingsIcon from '../../assets/icons/gear.svg'
 import chartIcon from '../../assets/icons/chart.svg'

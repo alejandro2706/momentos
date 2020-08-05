@@ -1,0 +1,35 @@
+@import '../../utils/Vars.sass'
+@import '../../utils/breakpoints.sass'
+
+.Navbar-container_brand
+    grid-column: 1 / 3
+    width: 100%
+    overflow: hidden
+    padding-left: 3em
+    a
+      @include flex(center, start)
+    span
+      font-size: 3em
+      margin-left: 5px
+      color: $brand-color
+      font-family: $brand-font
+    img
+      width: 3em
+      height: 3.5em
+      filter: grayscale(.3)
+      &:hover
+        filter: grayscale(0)
+
+@include media ( tablet-l )
+  .Navbar-container_brand
+    padding-left: 0
+    grid-column: 1
+    img
+      width: 2.8em
+      height: 3.3em
+
+@include media ( mobile-m )
+  .Navbar-container_brand
+    img
+      width: 3.1em
+      height: 3.4em

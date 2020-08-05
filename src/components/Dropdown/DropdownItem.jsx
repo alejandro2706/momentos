@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/components/Navbar/DropdownItem.sass'
+import '../../styles/components/Dropdown/DropdownItem.sass'
 import { Link } from 'react-router-dom'
 
 const DropdownItem = ({ title, img, action, closeModal }) => {

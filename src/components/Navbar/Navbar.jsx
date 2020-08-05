@@ -5,11 +5,11 @@ import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
 import Cart from '../../containers/CartContainer'
-import NavbarItem from './NavbarItem'
 import { app } from '../../db/config'
 import BrandContainer from './BrandContainer'
-import UserDropdown from './UserDropdown'
+import UserDropdown from '../Dropdown/UserDropdown'
 import NavbarMobileContainer from '../../containers/NavbarMobileContainer'
+import NavbarList from './NavbarList'
 
 function Navbar() {
   const [user, setUser] = useState(null)
@@ -67,23 +67,7 @@ function Navbar() {
     <div className='Navbar-container'>
       <BrandContainer />
       <nav className='Navbar'>
-        <ul className='Navbar-list'>
-          <NavbarItem
-            title='Nosotros'
-            route='about'
-            className='Navbar-list_item'
-          />
-          <NavbarItem
-            title='Productos'
-            route='products'
-            className='Navbar-list_item'
-          />
-          <NavbarItem
-            title='Contacto'
-            route='contact'
-            className='Navbar-list_item'
-          />
-        </ul>
+        <NavbarList />
       </nav>
       <div className='Navbar-container_tooltips'>
         <button type='button' onClick={() => onOpenCart()} className='cart'>

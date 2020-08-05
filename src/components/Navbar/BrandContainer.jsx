@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../../styles/components/Navbar/BrandContainer.sass'
 import logo from '../../assets/brand/cupcake-logo.png'
 
 const BrandContainer = () => (
