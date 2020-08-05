@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
-import Cart from '../Cart/CartContainer'
+import Cart from '../../containers/CartContainer'
 import NavbarItem from './NavbarItem'
-import NavbarMobile from './NavbarMobile'
 import { app } from '../../db/config'
 import BrandContainer from './BrandContainer'
 import UserDropdown from './UserDropdown'
-
-import('../../styles/components/Navbar/Navbar.sass')
+import NavbarMobileContainer from '../../containers/NavbarMobileContainer'
 
 function Navbar() {
   const [user, setUser] = useState(null)
@@ -24,7 +23,7 @@ function Navbar() {
     })
   })
 
-  function onOpenCart() {
+  const onOpenCart = () => {
     if (!openModal.cart) {
       setOpenModal({ cart: true })
       setTransition('is-open')
@@ -36,7 +35,7 @@ function Navbar() {
     }
   }
 
-  function onOpenNav() {
+  const onOpenNav = () => {
     if (!openModal.navbar) {
       setOpenModal({ navbar: true })
       setTransition('is-open')
@@ -45,16 +44,15 @@ function Navbar() {
     }
   }
 
-  function onOpenDropdown() {
+  const onOpenDropdown = () => {
     if (!openModal.dropdown) {
       setOpenModal({ dropdown: true })
-      setTransition('is-open')
     } else {
       setOpenModal(false)
     }
   }
 
-  function signOut() {
+  const signOut = () => {
     if (user) {
       app.auth().signOut()
         .then(Swal.fire({
@@ -113,7 +111,7 @@ function Navbar() {
         <button type='button' className='menu' onClick={onOpenNav}>
           <div className='menu-icon' />
         </button>
-        <NavbarMobile
+        <NavbarMobileContainer
           isOpen={openModal.navbar}
           className={transition}
           closeNav={onOpenNav}

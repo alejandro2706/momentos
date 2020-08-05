@@ -7,14 +7,15 @@ import formController from '../db/formController'
 function Contact() {
   const [formState, setFormState] = useState(undefined)
   const emailFormRef = useRef(null)
-  function onChangeForm(e) {
+
+  const onChangeForm = (e) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     })
   }
 
-  function onSubmitForm(e) {
+  const onSubmitForm = (e) => {
     e.preventDefault()
     if (formState) {
       if (emailFormRef.current.validationMessage === '') {
@@ -27,6 +28,7 @@ function Contact() {
     }
     return Swal.fire('Llena los campos')
   }
+
   return (
     <div className='Contact'>
       <h2>Contact us</h2>

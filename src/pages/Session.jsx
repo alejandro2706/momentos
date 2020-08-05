@@ -9,8 +9,9 @@ function Session() {
     register: false,
     btnTitle: 'Regístrate',
   })
-  function handleSession() {
-    if (sessionState.className === 'SignIn') {
+
+  const handleSession = () => {
+    if (!sessionState.register) {
       setSessionState({
         className: 'SignUp',
         title: 'Regístrate',

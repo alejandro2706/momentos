@@ -8,13 +8,13 @@ import auth from '../../db/authController'
 
 function SignIn({ title, register }) {
   const [form, setForm] = useState(null)
-  function onFormChange(e) {
+  const onFormChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     })
   }
-  function onSubmitForm(e) {
+  const onSubmitForm = (e) => {
     e.preventDefault()
     if (form !== null) {
       if (register) {
@@ -33,7 +33,7 @@ function SignIn({ title, register }) {
       <h3>{title}</h3>
       <div className='SignIn-form'>
         <form onChange={onFormChange}>
-          {register === true && (
+          {register && (
             <Input
               className='SignIn-form_label'
               name='name'
