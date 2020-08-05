@@ -1,4 +1,4 @@
-import Swal from 'sweetalert2'
+import { SwalWithNoButton } from '../utils/SwalModals'
 import { app } from './config'
 import 'firebase/firebase-firestore'
 
@@ -21,7 +21,7 @@ class Form {
           date: new Date(),
         })
         .then(() => {
-          Swal.fire({
+          SwalWithNoButton.fire({
             icon: 'success',
             title: 'Tu mensaje fue enviado correctamente',
           })
@@ -30,7 +30,7 @@ class Form {
           console.error(err)
         })
     }
-    return Swal.fire('Por favor llena los campos')
+    return SwalWithNoButton.fire('Por favor llena los campos')
   }
 }
 

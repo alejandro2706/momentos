@@ -1,149 +1,119 @@
-import Swal from 'sweetalert2'
+import { SwalWithBtn, SwalWithNoButton } from '../utils/SwalModals'
 import { app, GoogleProvider, FacebookProvider } from './config'
 
-class Auth {
-  constructor() {
-    this.firebase = app
-    this.googleProvider = GoogleProvider
-    this.facebookProvider = FacebookProvider
-  }
-
-  signUpEmailPass(user) {
-    this.firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-      .then((result) => {
-        console.log('[firebase controller]', result)
-        result.user.updateProfile({ displayName: user.name })
-        result.user.sendEmailVerification({ url: 'https://momentos-30bd0.web.app/' })
-          .catch((err) => {
-            console.error(err)
-            Swal.fire('Error al enviar el correo de verificación')
-          })
-        this.firebase.auth().signOut()
-        Swal.fire({
-          icon: 'success',
-          title: 'correo de verificación enviado',
-          text: 'Revisa tu correo!',
-        })
-      })
-      .catch((err) => {
-        switch (err.code) {
-          case 'auth/invalid-email':
-            Swal.fire({
-              title: 'Correo invalido',
-              showConfirmButton: false,
-              timer: 1600,
-              timerProgressBar: true,
-            })
-            break;
-          case 'auth/weak-password':
-            Swal.fire({
-              title: 'Tu contraseña debe ser mayor a 6 caracteres',
-              showConfirmButton: false,
-              timer: 1600,
-              timerProgressBar: true,
-            })
-            break
-          case 'auth/email-already-in-use':
-            Swal.fire({
-              title: 'Este correo ya esta registrado',
-              showConfirmButton: false,
-              timer: 1600,
-              timerProgressBar: true,
-            })
-            break
-          default:
-            Swal.fire({
-              title: 'Error al crear tu cuenta',
-              timer: 1600,
-              timerProgressBar: true,
-            })
-            break;
-        }
-      })
-  }
-
-  signInEmailPass(user) {
-    this.firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-      .then((result) => {
-        if (result.user.emailVerified) {
-          Swal.fire({
-            title: `Bienvenido ${result.user.displayName}`,
-            icon: 'success',
-            timer: 1500,
-            showConfirmButton: false,
-            timerProgressBar: true,
-          })
-        } else {
-          this.firebase.auth().signOut()
-          Swal.fire({
-            title: 'Verifica tu correo',
-            text: 'Por favor verifica tu correo antes de ingresar',
+function signUpEmailPass(user) {
+  app.auth().createUserWithEmailAndPassword(user.email, user.password)
+    .then((result) => {
+      result.user.updateProfile({ displayName: user.name })
+      result.user.sendEmailVerification({ url: 'https://momentos-30bd0.web.app/' })
+        .catch((err) => {
+          console.error(err)
+          return SwalWithBtn.fire({
             icon: 'error',
+            title: 'Error al enviar el correo de verificación',
           })
-            .then(() => {
-              window.location.reload(true)
-            })
-        }
-      })
-      .catch((err) => {
-        switch (err.code) {
-          case 'auth/wrong-password':
-            Swal.fire('Contraseña invalida')
-            break
-          case 'auth/user-not-found':
-            Swal.fire('Usuario no encontrado')
-            break
-          case 'auth/argument-error':
-            Swal.fire('Datos incorrectos')
-            break
-          default:
-            Swal.fire('Error al autenticarse')
-            break;
-        }
-      })
-  }
-
-  authWithGoogle() {
-    const provider = this.googleProvider
-    this.firebase.auth().signInWithPopup(provider)
-      .catch((err) => {
-        Swal.fire({
-          title: 'Error al autenticarse con Google',
-          text: err,
         })
+      app.auth().signOut()
+      SwalWithBtn.fire({
+        icon: 'success',
+        title: 'correo de verificación enviado',
+        text: 'Revisa tu correo!',
       })
-      .then((result) => {
-        console.log(result.user)
-        Swal.fire({
-          text: `Bienvenido ${result.user.displayName}`,
-          imageUrl: result.user.photoURL,
-        })
-      })
-  }
-
-  authWithFacebook() {
-    const provider = this.facebookProvider
-    this.firebase.auth().signInWithPopup(provider)
-      .catch((err) => {
-        if (err.code === 'auth/account-exists-with-different-credential') {
-          Swal.fire({
-            title: 'Ya existe una cuenta con este Email',
-          })
-        } else {
-          Swal.fire('Error al autenticarse con Facebook')
-        }
-      })
-      .then((result) => {
-        console.log(result.user)
-        Swal.fire({
-          text: `Bienvenido ${result.user.displayName}`,
-          imageUrl: result.user.photoURL,
-        })
-      })
-  }
+    })
+    .catch((err) => {
+      switch (err.code) {
+        case 'auth/invalid-email':
+          SwalWithNoButton.fire('Correo invalido')
+          break;
+        case 'auth/weak-password':
+          SwalWithNoButton.fire('Tu contraseña debe ser mayor a 6 caracteres')
+          break
+        case 'auth/email-already-in-use':
+          SwalWithNoButton.fire('Este correo ya esta registrado')
+          break
+        default:
+          SwalWithNoButton.fire('Error al crear tu cuenta')
+          break;
+      }
+    })
 }
 
-const auth = new Auth()
+function signInEmailPass(user) {
+  app.auth().signInWithEmailAndPassword(user.email, user.password)
+    .then((result) => {
+      if (result.user.emailVerified) {
+        SwalWithNoButton.fire({
+          icon: 'success',
+          title: `Bienvenido ${result.user.displayName}`,
+        })
+      } else {
+        app.auth().signOut()
+        SwalWithBtn.fire({
+          icon: 'error',
+          title: 'Verifica tu correo',
+          text: 'Por favor verifica tu correo antes de ingresar',
+        })
+          .then(() => {
+            window.location.reload(true)
+          })
+      }
+    })
+    .catch((err) => {
+      switch (err.code) {
+        case 'auth/wrong-password':
+          SwalWithNoButton.fire('Contraseña invalida')
+          break
+        case 'auth/user-not-found':
+          SwalWithNoButton.fire('Usuario no encontrado')
+          break
+        case 'auth/argument-error':
+          SwalWithNoButton.fire('Datos incorrectos')
+          break
+        default:
+          SwalWithNoButton.fire('Error al autenticarse')
+          break;
+      }
+    })
+}
 
-export default auth
+function authWithGoogle() {
+  const provider = GoogleProvider
+  app.auth().signInWithPopup(provider)
+    .catch((err) => {
+      SwalWithNoButton.fire('Error al autenticarse con Google')
+      console.error(err)
+    })
+    .then((result) => {
+      SwalWithNoButton.fire({
+        icon: 'success',
+        text: `Bienvenido ${result.user.displayName}`,
+      })
+    })
+}
+
+function authWithFacebook() {
+  const provider = FacebookProvider
+  app.auth().signInWithPopup(provider)
+    .catch((err) => {
+      if (err.code === 'auth/account-exists-with-different-credential') {
+        SwalWithNoBtn.fire('Ya existe una cuenta con este Email')
+      } else {
+        SwalWithNoBtn.fire('Error al autenticarse con Facebook')
+      }
+    })
+    .then((result) => {
+      console.log(result.user)
+      SwalWithNoButton.fire({
+        icon: 'success',
+        title: `Bienvenido ${result.user.displayName}`,
+      })
+    })
+}
+
+export {
+  signUpEmailPass,
+  signInEmailPass,
+  authWithGoogle,
+  authWithFacebook,
+}
 

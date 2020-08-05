@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import Swal from 'sweetalert2'
+import { SwalWithNoButton } from '../utils/SwalModals'
 import Input from '../components/auth/Input'
 import '../styles/components/Contact.sass'
 import formController from '../db/formController'
@@ -18,15 +18,15 @@ function Contact() {
   const onSubmitForm = (e) => {
     e.preventDefault()
     if (formState) {
-      if (emailFormRef.current.validationMessage === '') {
+      if (!emailFormRef.current.validationMessage) {
         return formController.createForm(formState)
       }
-      return Swal.fire({
+      return SwalWithNoButton.fire({
         title: 'Correo invalido',
         text: emailFormRef.current.validationMessage,
       })
     }
-    return Swal.fire('Llena los campos')
+    return SwalWithNoButton.fire('Llena los campos')
   }
 
   return (

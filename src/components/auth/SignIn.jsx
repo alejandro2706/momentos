@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import '../../styles/components/auth/SignIn.sass'
-import Swal from 'sweetalert2'
+import { SwalWithNoButton } from '../../utils/SwalModals'
 import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
-import auth from '../../db/authController'
+import { signUpEmailPass, signInEmailPass, authWithGoogle, authWithFacebook } from '../../db/authController'
 
 function SignIn({ title, register }) {
   const [form, setForm] = useState(null)
@@ -16,16 +16,16 @@ function SignIn({ title, register }) {
   }
   const onSubmitForm = (e) => {
     e.preventDefault()
-    if (form !== null) {
+    if (form) {
       if (register) {
-        if (form.name === undefined) {
-          return Swal.fire('Por favor ingresa tu nombre')
+        if (!form.name) {
+          return SwalWithNoButton.fire('Por favor ingresa tu nombre')
         }
-        return auth.signUpEmailPass(form)
+        return signUpEmailPass(form)
       }
-      return auth.signInEmailPass(form)
+      return signInEmailPass(form)
     }
-    return Swal.fire('Llena los campos')
+    return SwalWithNoButton.fire('Llena los campos')
   }
 
   return (
@@ -59,10 +59,10 @@ function SignIn({ title, register }) {
       <hr className='hr_sigin' />
       <h4>{`${title} con:`}</h4>
       <div className='SignIn-social'>
-        <button type='button' onClick={() => auth.authWithGoogle()}>
+        <button type='button' onClick={() => authWithGoogle()}>
           <img src={google} alt='Google' />
         </button>
-        <button type='button' onClick={() => auth.authWithFacebook()}>
+        <button type='button' onClick={() => authWithFacebook()}>
           <img src={facebook} alt='Facebook' />
         </button>
       </div>

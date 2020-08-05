@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import { Toast } from '../../utils/SwalModals'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
@@ -55,10 +55,9 @@ function Navbar() {
   const signOut = () => {
     if (user) {
       app.auth().signOut()
-        .then(Swal.fire({
+        .then(Toast.fire({
+          icon: 'success',
           title: 'Saliste',
-          showConfirmButton: false,
-          timer: 500,
         }))
       window.location.reload(true)
     }
