@@ -26,10 +26,23 @@ input, button
   outline: none
   border: none
   background: inherit
+  font-size: .8em
+
 a
   color: black
   text-decoration: none
 
+@include media ( desktop-xxl )
+  body
+    font-size: 27px
+
+@include media ( desktop-xl )
+  body
+    font-size: 24px
+
+@include media ( desktop-xs )
+  body
+    font-size: 20px
 
 @include media ( desktop-l )
   body

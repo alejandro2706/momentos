@@ -1,0 +1,30 @@
+language: node_js
+cache:
+  directories:
+  - node_modules
+  - ~/.npm
+node_js:
+  - '14'
+git:
+  depth: 3
+script:
+  - yarn test
+  - yarn build
+notifications:
+  email:
+    recipients:
+      - alejandro27062@gmail.com
+    on_success: always
+    on_failure: always
+deploy:
+  provider: firebase
+  token:
+    secure: "fGhMGaoL/TC/VwV1bBo+WUBpndOfcQ+xhsYsh8QQkEfftRg/q69hnbYiovILwQ+mNJhEq2f2eQD6+99FR4Xs9EfuTcYE3meakFg3hWx1bMzPGPehQIaPRXeD6nOUuQNyx0Z82wWV5W4Zm5aoZ+WC1BcTUSGREDvGL0B1Hm/qHiXkqsBOmKyt5ZD+exNy6PY9PE7ft1/4LMv5xfk/zNkWlesyeNqpM+ePALBRre7yNbhLQweLtSkG904s81j0w7O22XuIpFfylhHmg2ypm2tn3Uneg8BrWIHeKAQg374vwRCYhUbQsa6dcX4GzpOQUL/bH5GtIhJEI31lLbxH4x/NM8631Uhppuv3wW1xRHSfTSC7H2s1bQL2i0KEIOF095fbfKRlpGxyig+GGdSlkpzR0tVqt6mnpCxNt0phDsxFyTU35uSzfwjx306g6Ou6pNaUdzWJm2oV1YoFRuFrN7G9dCwQ1ef1A9WKMTDrh62sK7JCO+43cqzxnfGvWg8pG5Wa49rUGWWhx8aNeQVln3uK5ugwJccYkx9NS90RhRH4vDuokwEE89E88BYXKhjAU6BEvl7lDgvBnr+oNeX9ENzQpRx4NWbOAFn0vC4se8jRiSpEp9fvpO4v3nIj9Yk6TWaa7TBjOsKkKg7Nb/sk/fRIM6MQsXIp2p7NHgQNYx99zrM="
+  skip_cleanup: true
+  keep-history: true
+  local-dir: dist
+  target-branch: deploy
+  commit-message: "travis CI deploy"
+  on:
+    repo: alejandro2706/momentos
+    branch: master

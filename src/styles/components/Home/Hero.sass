@@ -47,6 +47,13 @@
           &:hover
             background-color: $brand-color-alt
 
+@include media ( desktop-xxl )
+  .Hero
+    height: 48em
+
+@include media ( desktop-xs )
+  .Hero
+    height: 46em
 
 @include media ( desktop-s )
   .Hero
@@ -82,10 +89,22 @@
 
 @include media ( mobile-l )
   .Hero
-    height: 40em
+    height: 43em
     background-position: 87% center
-    &-description button
-      bottom: 2.4em
+    &-description_buttons
+      width: 100%
+      button
+        bottom: 2.4em
+
+@include media ( mobile-m )
+  .Hero-description_buttons
+    width: 90%
+
+@include media ( mobile-s-only )
+  .Hero
+    height: 45em
+    &-description_buttons
+      width: 100%
 
 @include media ( mobile-s )
   .Hero-description
@@ -95,6 +114,3 @@
       bottom: 4em
       left: 5em
 
-@include media ( mobile-m )
-  .Hero-description_buttons
-    width: 90%

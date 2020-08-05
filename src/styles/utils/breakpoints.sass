@@ -5,6 +5,10 @@
     @media only screen and (max-width: 320px) 
       @content
   
+  @else if $breakpoint == mobile-s-only
+    @media only screen and (min-width: 250px) and (max-width: 300px)
+      @content
+  
   @else if $breakpoint == mobile-m
     @media only screen and (max-width: 375px)
       @content
@@ -17,8 +21,12 @@
     @media only screen and (max-width: 600px)
       @content
   
+  @else if $breakpoint == tablet-s-only
+    @media only screen and (min-width: 601px) and (max-width: 700px)
+      @content
+  
   @else if $breakpoint == tablet-m
-    @media only screen and ( max-width: 768px )
+    @media only screen and ( max-width: 770px )
       @content
 
   @else if $breakpoint == tablet-m-only
@@ -27,6 +35,10 @@
 
   @else if $breakpoint == tablet-l
     @media only screen and ( max-width: 850px )
+      @content
+  
+  @else if $breakpoint == tablet-l-only
+    @media only screen and ( min-width: 850px ) and ( max-width: 930px )
       @content
 
   @else if $breakpoint == desktop-s
@@ -39,4 +51,16 @@
 
   @else if $breakpoint == desktop-l
     @media only screen and (max-width: 1440px)
+      @content
+  
+  @else if $breakpoint == desktop-xs
+    @media only screen and (min-width: 1441px) and (max-width: 1700px)
+      @content
+
+  @else if $breakpoint == desktop-xl
+    @media only screen and (min-width: 1701px) and (max-width: 2200px)
+      @content
+  
+  @else if $breakpoint == desktop-xxl
+    @media only screen and (min-width: 2201px) and (max-width: 3000px)
       @content

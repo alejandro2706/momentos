@@ -75,13 +75,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      filename: './index.html',
       minify: {
         removeComments: true,
         removeRedundantAttributes: true,
         collapseWhitespace: true,
         useShortDoctype: true,
       },
-      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name]-[contenthash].css',

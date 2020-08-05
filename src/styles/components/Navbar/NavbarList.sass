@@ -19,6 +19,10 @@
   .Navbar
     grid-column: 2 / 5
 
+@include media ( tablet-s-only )
+  .Navbar-list
+    gap: 0
+
 @include media ( tablet-s )
   .Navbar
     display: none

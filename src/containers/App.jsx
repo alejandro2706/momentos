@@ -27,26 +27,24 @@ function App() {
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
         <Switch>
-          <UserContext.Provider value={user}>
-            <Layout>
-              <Route exact path='/'>
-                <Home />
-              </Route>
-              <Route exact path='/products'>
-                <Products title='Products' />
-              </Route>
-              <Route exact path='/about'>
-                <About />
-              </Route>
-              <Route exact path='/contact'>
-                <Contact />
-              </Route>
-              <Route exact path='/auth'>
-                <Session />
-              </Route>
-            </Layout>
-            <Route><h3>404 Not found</h3></Route>
-          </UserContext.Provider>
+          <Layout>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route exact path='/products'>
+              <Products title='Products' />
+            </Route>
+            <Route exact path='/about'>
+              <About />
+            </Route>
+            <Route exact path='/contact'>
+              <Contact />
+            </Route>
+            <Route exact path='/auth'>
+              <Session />
+            </Route>
+          </Layout>
+          <Route><h3>404 Not found</h3></Route>
         </Switch>
       </Suspense>
     </BrowserRouter>

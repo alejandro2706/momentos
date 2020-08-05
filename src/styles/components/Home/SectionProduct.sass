@@ -2,7 +2,7 @@
 @import '../../utils/breakpoints'
 
 .Section-products
-  width: 80%
+  width: 90%
   margin: 2em auto
   position: relative
   overflow: hidden
@@ -74,6 +74,19 @@
   100%
     opacity: 1
     transform: translateY(0px)
+
+@include media ( desktop-xxl )
+  .Section-products
+    font-size: 1.2em
+    &_button button
+      font-size: .9em
+
+@include media ( desktop-xl )
+  .Section-products
+    &_desc
+      font-size: 1em
+    &_button button
+      font-size: .9em
 
 
 @include media ( desktop-s )

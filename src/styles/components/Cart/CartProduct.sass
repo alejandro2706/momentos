@@ -50,7 +50,25 @@
       img
         width: 100%
 
+@include media ( desktop-xxl )
+  .Cart-product
+    font-size: 1.2em
+    &_delete button
+      width: 2.2em
+    &_desc-buttons
+      button[type="button"]
+        width: 2.2em
+        margin-top: 1.5em
 
+@include media ( desktop-xs )
+  .Cart-product
+    font-size: 1.2em
+    &_delete button
+      width: 2.2em
+    &_desc-buttons
+      button[type="button"]
+        width: 2.4em
+        margin-top: 1.8em
 
 @include media ( desktop-m )
   .Cart-product_desc-buttons span
