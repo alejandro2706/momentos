@@ -73,7 +73,6 @@ class Auth {
             showConfirmButton: false,
             timerProgressBar: true,
           })
-          console.log(user)
         } else {
           this.firebase.auth().signOut()
           Swal.fire({

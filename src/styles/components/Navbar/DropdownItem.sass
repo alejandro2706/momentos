@@ -1,0 +1,19 @@
+@import '../../utils/breakpoints'
+@import '../../utils/Vars'
+
+.UserDropdown-actions
+  border-bottom: 1px solid gray
+  @include flex(center, space-between)
+  padding: 1em
+  cursor: pointer
+  p
+    font-family: $paragraph-font
+    color: black
+    font-size: 1.3em
+  &_img
+    width: 11%
+  &:hover
+    transition: .6s
+    background-color: crimson
+  &:hover .UserDropdown-actions_img
+      filter: invert(1)

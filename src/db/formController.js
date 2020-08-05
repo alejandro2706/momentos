@@ -27,7 +27,7 @@ class Form {
           })
         })
         .catch((err) => {
-          console.log(err)
+          console.error(err)
         })
     }
     return Swal.fire('Por favor llena los campos')
