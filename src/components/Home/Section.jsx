@@ -20,8 +20,8 @@ function Section() {
 
   return (
     <div className='Section'>
-      <h2>Our Products</h2>
-      <p>Each of them for a unique Present!</p>
+      <h2>Productos</h2>
+      <p>Cada uno para un momento especial!</p>
       <div className='Section-grid'>
         <SectionProduct
           image={cupcake}

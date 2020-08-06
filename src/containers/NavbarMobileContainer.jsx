@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 import NavbarMobile from '../components/Navbar/NavbarMobile'
 
 function NavbarMobileContainer({ isOpen, className, closeNav }) {
+  if (!isOpen) {
+    return null
+  }
   return (
     ReactDOM.createPortal(
       <NavbarMobile
-        isOpen={isOpen}
         className={className}
         closeNav={closeNav}
       />

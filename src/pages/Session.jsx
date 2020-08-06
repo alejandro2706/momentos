@@ -1,43 +1,10 @@
-import React, { useState } from 'react'
-import '../styles/components/Session.sass'
-import SignIn from '../components/auth/SignIn'
+import React from 'react'
+import '../styles/components/Session/Session.sass'
+import SessionController from '../components/Session/Session.controller'
 
-function Session() {
-  const [sessionState, setSessionState] = useState({
-    className: 'SignIn',
-    title: 'Iniciar Sesión',
-    register: false,
-    btnTitle: 'Regístrate',
-  })
-
-  const handleSession = () => {
-    if (!sessionState.register) {
-      setSessionState({
-        className: 'SignUp',
-        title: 'Regístrate',
-        register: true,
-        btnTitle: 'Iniciar sesión',
-      })
-    } else {
-      setSessionState({
-        className: 'SignIn',
-        title: 'Iniciar Sesión',
-        register: false,
-        btnTitle: 'Regístrate',
-      })
-    }
-  }
-
+const Session = () => {
   return (
-    <div className='Session'>
-      <button onClick={handleSession} type='button' className='Session-button'>{sessionState.btnTitle}</button>
-      <div className={sessionState.className}>
-        <SignIn
-          title={sessionState.title}
-          register={sessionState.register}
-        />
-      </div>
-    </div>
+    <SessionController />
   )
 }
 

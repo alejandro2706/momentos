@@ -1,7 +1,7 @@
 import React from 'react'
-import ItemLayout from '../components/Products/ItemLayout'
+import ProductLayout from '../components/Products/Products.controller'
 
-const products = [
+const productsData = [
   {
     id: 1,
     name: 'Brownie',
@@ -28,11 +28,11 @@ const products = [
   },
 ]
 
-function Products({ title }) {
+const Products = ({ title }) => {
   return (
-    <ItemLayout
+    <ProductLayout
       title={title}
-      products={products}
+      products={productsData}
     />
   )
 }

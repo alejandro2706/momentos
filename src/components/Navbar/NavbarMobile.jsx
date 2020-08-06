@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom'
 import NavbarItem from './NavbarItem'
 import '../../styles/components/Navbar/NavbarMobile.sass'
 
-function NavbarMobile({ isOpen, className, closeNav }) {
-  if (!isOpen) {
-    return null
-  }
+function NavbarMobile({ className, closeNav }) {
   return (
     <div className={`Mobile ${className}`}>
       <div className='Mobile-user'>

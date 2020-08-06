@@ -53,9 +53,6 @@ function signInEmailPass(user) {
           title: 'Verifica tu correo',
           text: 'Por favor verifica tu correo antes de ingresar',
         })
-          .then(() => {
-            window.location.reload(true)
-          })
       }
     })
     .catch((err) => {

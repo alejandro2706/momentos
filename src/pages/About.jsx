@@ -6,7 +6,7 @@ import historyImage from '../assets/images/history.jpg'
 import missionImage from '../assets/images/mission.jpg'
 import AboutMain from '../components/About/AboutMain'
 
-function About() {
+const About = () => {
   return (
     <div className='About'>
       <div className='About-title'>

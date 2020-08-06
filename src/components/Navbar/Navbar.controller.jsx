@@ -4,7 +4,7 @@ import { Toast } from '../../utils/SwalModals'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
-import Cart from '../../containers/CartContainer'
+import CartContainer from '../../containers/CartContainer'
 import { app } from '../../db/config'
 import BrandContainer from './BrandContainer'
 import UserDropdown from '../Dropdown/UserDropdown'
@@ -15,11 +15,10 @@ function Navbar() {
   const [user, setUser] = useState(null)
   const [transition, setTransition] = useState(null)
   const [openModal, setOpenModal] = useState({ cart: false, navbar: false, dropdown: false })
-
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
       //si coloco solo user da true porque envía un objeto
-      if (user) setUser(user.emailVerified)
+      if (user) setUser(user.photoURL)
       else console.log('no hay usuario')
     })
   })
@@ -73,14 +72,14 @@ function Navbar() {
         <button type='button' onClick={() => onOpenCart()} className='cart'>
           <img src={cartIcon} alt='Cart icon' />
         </button>
-        <Cart
+        <CartContainer
           isOpen={openModal.cart}
           className={transition}
         />
         {user && (
           <>
             <button type='button' className='isUser' onClick={() => onOpenDropdown()}>
-              <img src={user.photoURL || userIcon} alt='user' />
+              <img src={user || userIcon} alt='user' />
             </button>
             <UserDropdown user={user} isActive={openModal.dropdown} signOut={signOut} closeDropdown={onOpenDropdown} />
           </>

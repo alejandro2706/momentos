@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import '../styles/App.sass'
-import Layout from './Layout'
+import Layout from '../components/Layout'
 import Loading from '../components/Loading'
 import { app } from '../db/config'
 
@@ -10,19 +10,18 @@ const Session = lazy(() => import('../pages/Session'))
 const About = lazy(() => import('../pages/About'))
 const Contact = lazy(() => import('../pages/Contact'))
 const Products = lazy(() => import('../pages/Products'))
-const NotFound = lazy(() => import('../components/NotFound'))
+const NotFound = lazy(() => import('../pages/NotFound'))
 
 function App() {
-  const [user, setUser] = useState(null)
-  const UserContext = React.createContext(user)
-  console.log(UserContext)
+  const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
-      if (user) return setUser(user)
+      if (user) return setCurrentUser(user)
       return console.log('No user')
     })
   })
+  console.log(currentUser)
 
   return (
     <BrowserRouter>

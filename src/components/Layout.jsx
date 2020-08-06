@@ -1,8 +1,8 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
+import Navbar from './Navbar/Navbar.controller';
+import Footer from './Footer/Footer';
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
