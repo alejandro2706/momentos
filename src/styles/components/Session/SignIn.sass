@@ -22,13 +22,16 @@
       width: 60%
       div
         @include input(100%, 1.5em)
-    button[type="submit"]
+    button
       @include button(.9em)
       margin-top: .9em
       width: 60%
       height: 1.9em
       font-size: 1em
       cursor: pointer
+      &:disabled
+        background-color: #f3f3f3
+        color: gray
   h4
     margin: 1em 0
     font-size: 1.1em

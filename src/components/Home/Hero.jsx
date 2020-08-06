@@ -1,8 +1,10 @@
-import React from 'react'
-import '../../styles/components/Home/Hero.sass'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from '../../context'
+import '../../styles/components/Home/Hero.sass'
 
 const Hero = () => {
+  const user = useContext(UserContext)
   return (
     <div className='Hero'>
       <div className='Hero-description'>
@@ -15,9 +17,11 @@ const Hero = () => {
           <button type='button' className='btn'>
             <Link to='/products'>Descubre</Link>
           </button>
-          <button type='button' className='btn-alt'>
-            <Link to='/auth'>Inicia Sesión</Link>
-          </button>
+          {!user && (
+            <button type='button' className='btn-alt'>
+              <Link to='/auth'>Inicia Sesión</Link>
+            </button>
+          )}
         </div>
       </div>
     </div>

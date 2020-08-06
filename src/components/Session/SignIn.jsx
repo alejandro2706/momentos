@@ -4,7 +4,7 @@ import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
 
-const SignIn = ({ title, register, onFormChange, onSubmitForm, authWithGoogle, authWithFacebook }) => {
+const SignIn = ({ title, register, onFormChange, onSubmitForm, authWithGoogle, authWithFacebook, form }) => {
   return (
     <>
       <h3>{title}</h3>
@@ -30,7 +30,7 @@ const SignIn = ({ title, register, onFormChange, onSubmitForm, authWithGoogle, a
             type='password'
             title='Contraseña'
           />
-          <button type='submit' onClick={onSubmitForm}>{title}</button>
+          <button type='submit' disabled={!form} onClick={onSubmitForm}>{title}</button>
         </form>
       </div>
       <hr className='hr_sigin' />

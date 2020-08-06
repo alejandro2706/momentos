@@ -62,6 +62,7 @@ function SessionController() {
           onSubmitForm={onSubmitForm}
           authWithFacebook={authWithFacebook}
           authWithGoogle={authWithGoogle}
+          form={form}
         />
       </div>
     </div>

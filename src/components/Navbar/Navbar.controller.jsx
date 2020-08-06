@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Toast } from '../../utils/SwalModals'
 import '../../styles/components/Navbar/Navbar.sass'
+import UserContext from '../../context'
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
 import CartContainer from '../../containers/CartContainer'
@@ -12,16 +13,9 @@ import NavbarMobileContainer from '../../containers/NavbarMobileContainer'
 import NavbarList from './NavbarList'
 
 function Navbar() {
-  const [user, setUser] = useState(null)
+  const user = useContext(UserContext)
   const [transition, setTransition] = useState(null)
   const [openModal, setOpenModal] = useState({ cart: false, navbar: false, dropdown: false })
-  useEffect(() => {
-    app.auth().onAuthStateChanged((user) => {
-      //si coloco solo user da true porque envía un objeto
-      if (user) setUser(user.photoURL)
-      else console.log('no hay usuario')
-    })
-  })
 
   const onOpenCart = () => {
     if (!openModal.cart) {
@@ -79,7 +73,7 @@ function Navbar() {
         {user && (
           <>
             <button type='button' className='isUser' onClick={() => onOpenDropdown()}>
-              <img src={user || userIcon} alt='user' />
+              <img src={user.photoURL || userIcon} alt='user' />
             </button>
             <UserDropdown user={user} isActive={openModal.dropdown} signOut={signOut} closeDropdown={onOpenDropdown} />
           </>
