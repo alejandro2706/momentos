@@ -10,6 +10,7 @@ const Session = lazy(() => import('../pages/Session'))
 const About = lazy(() => import('../pages/About'))
 const Contact = lazy(() => import('../pages/Contact'))
 const Products = lazy(() => import('../pages/Products'))
+const NotFound = lazy(() => import('../components/NotFound'))
 
 function App() {
   const [user, setUser] = useState(null)
@@ -44,7 +45,7 @@ function App() {
               <Session />
             </Route>
           </Layout>
-          <Route><h3>404 Not found</h3></Route>
+          <Route><NotFound /></Route>
         </Switch>
       </Suspense>
     </BrowserRouter>

@@ -18,7 +18,8 @@ function Navbar() {
 
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
-      if (user) setUser(user)
+      //si coloco solo user da true porque envía un objeto
+      if (user) setUser(user.emailVerified)
       else console.log('no hay usuario')
     })
   })
@@ -48,7 +49,7 @@ function Navbar() {
     if (!openModal.dropdown) {
       setOpenModal({ dropdown: true })
     } else {
-      setOpenModal(false)
+      setOpenModal({ dropdown: false })
     }
   }
 
