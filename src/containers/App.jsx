@@ -1,16 +1,29 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Layout from '../components/Layout'
+import '../styles/App.sass'
+import Layout from './Layout'
 import Loading from '../components/Loading'
-import '../styles/components/App.sass'
+import { app } from '../db/config'
 
 const Home = lazy(() => import('../pages/Home'))
 const Session = lazy(() => import('../pages/Session'))
 const About = lazy(() => import('../pages/About'))
 const Contact = lazy(() => import('../pages/Contact'))
 const Products = lazy(() => import('../pages/Products'))
+const NotFound = lazy(() => import('../components/NotFound'))
 
 function App() {
+  const [user, setUser] = useState(null)
+  const UserContext = React.createContext(user)
+  console.log(UserContext)
+
+  useEffect(() => {
+    app.auth().onAuthStateChanged((user) => {
+      if (user) return setUser(user)
+      return console.log('No user')
+    })
+  })
+
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
@@ -32,6 +45,7 @@ function App() {
               <Session />
             </Route>
           </Layout>
+          <Route><NotFound /></Route>
         </Switch>
       </Suspense>
     </BrowserRouter>

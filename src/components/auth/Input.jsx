@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Input = ({ name, type, labelFor, className }) => (
-  <label htmlFor={labelFor} className={className}>
-    {name}
+const Input = ({ name, title, type, className, onchange, reference }) => (
+  <label htmlFor={name} className={className}>
+    {title}
     <div>
-      <input type={type} name={labelFor} autoComplete='on' />
+      <input type={type} name={name} autoComplete='on' onChange={onchange} required ref={reference || null} />
     </div>
   </label>
 )

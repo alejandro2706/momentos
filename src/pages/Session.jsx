@@ -3,33 +3,38 @@ import '../styles/components/Session.sass'
 import SignIn from '../components/auth/SignIn'
 
 function Session() {
-  const [className, setClassName] = useState('SignIn')
-  const [title, setTitle] = useState('Iniciar Sesión')
-  const [register, setRegister] = useState(false)
-  const [btnTitle, setBtnTitle] = useState('Regístrate')
-  function handleSession() {
-    if (className === 'SignIn') {
-      setClassName('SignUp')
-      setTitle('Regístrate')
-      setRegister(true)
-      setBtnTitle('Iniciar sesión')
+  const [sessionState, setSessionState] = useState({
+    className: 'SignIn',
+    title: 'Iniciar Sesión',
+    register: false,
+    btnTitle: 'Regístrate',
+  })
+
+  const handleSession = () => {
+    if (!sessionState.register) {
+      setSessionState({
+        className: 'SignUp',
+        title: 'Regístrate',
+        register: true,
+        btnTitle: 'Iniciar sesión',
+      })
     } else {
-      setClassName('SignIn')
-      setTitle('Iniciar Sesión')
-      setRegister(false)
-      setBtnTitle('Regístrate')
+      setSessionState({
+        className: 'SignIn',
+        title: 'Iniciar Sesión',
+        register: false,
+        btnTitle: 'Regístrate',
+      })
     }
   }
-  //authentication with firebase
 
   return (
     <div className='Session'>
-      <button onClick={handleSession} type='button' className='Session-button'>{btnTitle}</button>
-      <div className={className}>
+      <button onClick={handleSession} type='button' className='Session-button'>{sessionState.btnTitle}</button>
+      <div className={sessionState.className}>
         <SignIn
-          className={className}
-          title={title}
-          register={register}
+          title={sessionState.title}
+          register={sessionState.register}
         />
       </div>
     </div>

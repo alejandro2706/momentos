@@ -1,19 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Toast } from '../../utils/SwalModals'
 import '../../styles/components/Navbar/Navbar.sass'
 import cartIcon from '../../assets/icons/cart.svg'
-import logo from '../../assets/brand/cupcake-logo.png'
-import Cart from '../Cart/CartContainer'
-import NavbarItem from './NavbarItem'
-import NavbarMobile from './NavbarMobile'
+import userIcon from '../../assets/icons/user-default.svg'
+import Cart from '../../containers/CartContainer'
+import { app } from '../../db/config'
+import BrandContainer from './BrandContainer'
+import UserDropdown from '../Dropdown/UserDropdown'
+import NavbarMobileContainer from '../../containers/NavbarMobileContainer'
+import NavbarList from './NavbarList'
 
 function Navbar() {
-  const [openModal, setOpenModal] = useState({
-    cart: false,
-    navbar: false,
-  })
+  const [user, setUser] = useState(null)
   const [transition, setTransition] = useState(null)
-  function handleOpen() {
+  const [openModal, setOpenModal] = useState({ cart: false, navbar: false, dropdown: false })
+
+  useEffect(() => {
+    app.auth().onAuthStateChanged((user) => {
+      //si coloco solo user da true porque envía un objeto
+      if (user) setUser(user.emailVerified)
+      else console.log('no hay usuario')
+    })
+  })
+
+  const onOpenCart = () => {
     if (!openModal.cart) {
       setOpenModal({ cart: true })
       setTransition('is-open')
@@ -25,59 +36,66 @@ function Navbar() {
     }
   }
 
-  function onOpenNav() {
+  const onOpenNav = () => {
     if (!openModal.navbar) {
-      setOpenModal({ navbar: { open: true, transition: 'is-open' } })
+      setOpenModal({ navbar: true })
       setTransition('is-open')
     } else {
       setOpenModal(false)
     }
   }
 
+  const onOpenDropdown = () => {
+    if (!openModal.dropdown) {
+      setOpenModal({ dropdown: true })
+    } else {
+      setOpenModal({ dropdown: false })
+    }
+  }
+
+  const signOut = () => {
+    if (user) {
+      app.auth().signOut()
+        .then(Toast.fire({
+          icon: 'success',
+          title: 'Saliste',
+        }))
+      window.location.reload(true)
+    }
+  }
   return (
     <div className='Navbar-container'>
-      <div className='Navbar-container_brand'>
-        <Link to='/'>
-          <img src={logo} alt='logo' />
-          <span>Momentos</span>
-        </Link>
-      </div>
+      <BrandContainer />
       <nav className='Navbar'>
-        <ul className='Navbar-list'>
-          <NavbarItem
-            title='About'
-            route='about'
-            className='Navbar-list_item'
-          />
-          <NavbarItem
-            title='Products'
-            route='products'
-            className='Navbar-list_item'
-          />
-          <NavbarItem
-            title='Contact'
-            route='contact'
-            className='Navbar-list_item'
-          />
-        </ul>
+        <NavbarList />
       </nav>
       <div className='Navbar-container_tooltips'>
-        <button type='button' onClick={() => handleOpen()} className='cart'>
+        <button type='button' onClick={() => onOpenCart()} className='cart'>
           <img src={cartIcon} alt='Cart icon' />
         </button>
         <Cart
           isOpen={openModal.cart}
           className={transition}
         />
-        <button type='button' className='btn signIn'>
-          <Link to='/auth'>
-            <p>Iniciar Sesión</p>
-          </Link>
-        </button>
+        {user && (
+          <>
+            <button type='button' className='isUser' onClick={() => onOpenDropdown()}>
+              <img src={user.photoURL || userIcon} alt='user' />
+            </button>
+            <UserDropdown user={user} isActive={openModal.dropdown} signOut={signOut} closeDropdown={onOpenDropdown} />
+          </>
+        )}
+        {!user && (
+          <button type='button' className='signIn'>
+            <Link to='/auth'>
+              Iniciar Sesión
+            </Link>
+          </button>
+        )}
         <button type='button' className='menu' onClick={onOpenNav}>
           <div className='menu-icon' />
         </button>
-        <NavbarMobile
+        <NavbarMobileContainer
           isOpen={openModal.navbar}
           className={transition}
           closeNav={onOpenNav}

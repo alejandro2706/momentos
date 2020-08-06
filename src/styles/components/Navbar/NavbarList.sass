@@ -1,0 +1,28 @@
+@import '../../utils/Vars.sass'
+@import '../../utils/breakpoints.sass'
+
+.Navbar
+    grid-column: 3 / 6
+    display: grid
+    align-content: center
+    &-list
+      display: grid
+      grid-template-columns: repeat(3, 1fr)
+      justify-items: center
+      gap: 10%
+      font-family: $title-font
+      text-transform: capitalize
+      font-weight: 600
+      font-size: 1.2em
+
+@include media ( tablet-l )
+  .Navbar
+    grid-column: 2 / 5
+
+@include media ( tablet-s-only )
+  .Navbar-list
+    gap: 0
+
+@include media ( tablet-s )
+  .Navbar
+    display: none

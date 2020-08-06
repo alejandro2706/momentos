@@ -7,8 +7,9 @@ import SectionProduct from './SectionProduct'
 
 function Section() {
   const [className, setClassName] = useState('hidden')
-  function handelAnimation() {
-    if (document.documentElement.scrollTop > 330) {
+
+  const handelAnimation = () => {
+    if (document.documentElement.scrollTop > 325) {
       setClassName('visible')
     }
   }
