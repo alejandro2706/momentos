@@ -1,9 +1,13 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-import Item from './Item'
-import '../../styles/components/Products/ItemLayout.sass'
+import ProductItem from './ProductItem'
+import '../../styles/components/Products/ProductLayout.sass'
 
-const ProductLayout = ({ title, products }) => {
+function ProductLayout({ title, products }) {
+  function onAddToCart() {
+    //añadir al carrito
+    alert('click')
+  }
   return (
     <div className='Layout'>
       <h2>{title}</h2>
@@ -17,11 +21,12 @@ const ProductLayout = ({ title, products }) => {
       </div> */}
       <div className='Layout-grid'>
         {products.map((item) => (
-          <Item
+          <ProductItem
             key={item.id}
             name={item.name}
             image={item.image}
             decorado={item.decorated}
+            onAddToCart={onAddToCart}
           />
         ))}
       </div>

@@ -1,33 +1,10 @@
-import React, { useState } from 'react'
-import '../../styles/components/auth/SignIn.sass'
-import { SwalWithNoButton } from '../../utils/SwalModals'
+import React from 'react'
+import '../../styles/components/Session/SignIn.sass'
 import facebook from '../../assets/icons/facebook.svg'
 import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
-import { signUpEmailPass, signInEmailPass, authWithGoogle, authWithFacebook } from '../../db/authController'
 
-function SignIn({ title, register }) {
-  const [form, setForm] = useState(null)
-  const onFormChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    })
-  }
-  const onSubmitForm = (e) => {
-    e.preventDefault()
-    if (form) {
-      if (register) {
-        if (!form.name) {
-          return SwalWithNoButton.fire('Por favor ingresa tu nombre')
-        }
-        return signUpEmailPass(form)
-      }
-      return signInEmailPass(form)
-    }
-    return SwalWithNoButton.fire('Llena los campos')
-  }
-
+const SignIn = ({ title, register, onFormChange, onSubmitForm, authWithGoogle, authWithFacebook, form }) => {
   return (
     <>
       <h3>{title}</h3>
@@ -53,7 +30,7 @@ function SignIn({ title, register }) {
             type='password'
             title='Contraseña'
           />
-          <button type='submit' onClick={onSubmitForm}>{title}</button>
+          <button type='submit' disabled={!form} onClick={onSubmitForm}>{title}</button>
         </form>
       </div>
       <hr className='hr_sigin' />

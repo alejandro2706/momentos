@@ -11,19 +11,22 @@ const UserDropdown = ({ isActive, signOut, closeDropdown }) => {
   }
   return (
     <div className='UserDropdown'>
-      {/* <DropdownItem
+      <DropdownItem
+        className='UserDropdown-actions'
         title='Settings'
         img={settingsIcon}
-        action='/settings'
+        action='/'
         closeModal={closeDropdown}
-      /> */}
-      {/* <DropdownItem
+      />
+      <DropdownItem
+        className='UserDropdown-actions'
         title='Dashboard'
         img={chartIcon}
-        action='/dashboard'
+        action='/'
         closeModal={closeDropdown}
-      /> */}
+      />
       <DropdownItem
+        className='UserDropdown-actions'
         title='Log Out'
         img={logOutIcon}
         action={() => signOut()}

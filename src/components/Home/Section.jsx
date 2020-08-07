@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import '../../styles/components/Home/Section.sass'
 import cake from '../../assets/images/brownie.svg'
 import cookies from '../../assets/images/cookies.svg'
@@ -7,12 +7,13 @@ import SectionProduct from './SectionProduct'
 
 function Section() {
   const [className, setClassName] = useState('hidden')
-
+  const product = useRef(null)
   const handelAnimation = () => {
     if (document.documentElement.scrollTop > 325) {
       setClassName('visible')
     }
   }
+
   useEffect(() => {
     window.onscroll = () => handelAnimation()
     return () => window.onscroll = null
@@ -20,13 +21,14 @@ function Section() {
 
   return (
     <div className='Section'>
-      <h2>Our Products</h2>
-      <p>Each of them for a unique Present!</p>
+      <h2>Productos</h2>
+      <p>Cada uno para un momento especial!</p>
       <div className='Section-grid'>
         <SectionProduct
           image={cupcake}
           title='Galletas'
           productClass={className}
+          currentRef={product}
         />
         <SectionProduct
           image={cookies}

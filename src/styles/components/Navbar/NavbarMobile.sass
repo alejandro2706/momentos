@@ -2,26 +2,17 @@
 @import '../../utils/breakpoints'
 
 .Mobile
+  overflow: scroll
   position: fixed
   width: 100%
-  top: 5em
-  height: 90vh
+  bottom: 0
+  top: 4.9em
   background-color: black
-  display: grid
-  grid-template-rows: 30% 70%
-  overflow: hidden
-  &-user
-    @include flex(center, center)
-    opacity: 0
-    button
-      @include button(10px)
-      width: 70%
-      height: 30px
-      a
-        color: white
+  padding: 1em 0
   &-list
     margin-top: 1em
     padding: 0 1.4em
+    margin-bottom: 10em
     &_item
       padding: 10px 0
       margin: 1em 0
@@ -32,6 +23,46 @@
       button
         color: white
         font-size: 1.5em
+  &-user
+    @include flex(center, center)
+    opacity: 0
+    color: white
+    margin-top: 1em
+    padding: 0 1.4em
+    .isUser
+      width: 100%
+      &-image
+        width: 50px
+        border-radius: 50%
+        overflow: hidden
+        margin: 0 auto
+        img
+          width: 100%
+          object-fit: cover
+      &-actions
+        display: grid
+        grid-template-rows: repeat(3, 1fr)
+        &_item
+          @include flex(center, space-between)
+          border-bottom: 1px solid gray
+          padding: 10px 0
+          p
+            color: white
+            font-size: 1.5em
+        img
+          filter: invert(1)
+          width: 30px
+      &-name
+        font-size: 1.8em
+        p
+          color: white
+          text-align: center
+    .notUser_button
+      @include button(10px)
+      width: 70%
+      height: 30px
+      a
+        color: white
 
 
 
