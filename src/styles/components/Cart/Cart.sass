@@ -4,7 +4,7 @@
 .Cart
   position: fixed
   background-color: white
-  height: 100vh
+  min-height: 100vh
   top: 4.6em
   right: 0
   width: 45%
@@ -13,9 +13,8 @@
   h3
     font-size: 2em
     padding: .9em
-    margin-bottom: .8em
   &-products
-    padding: 1em
+    padding: 1.3em
 
 .hr_cart
   margin-bottom: 1em
@@ -23,6 +22,8 @@
 .Cart.is-open
   animation: showCart .6s ease forwards
   transform-origin: right
+  overflow-y: scroll
+
 
 .Cart.is-closing
   animation: hideCart .6s ease forwards
