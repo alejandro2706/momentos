@@ -2,8 +2,8 @@ import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import '../styles/App.sass'
 import UserProvider from '../Providers/UserProvider'
-import Layout from '../components/Layout'
 import Loading from '../components/Loading'
+import Layout from '../components/Layout'
 
 const Home = lazy(() => import('../pages/Home'))
 const Session = lazy(() => import('../pages/Session'))
@@ -16,8 +16,8 @@ function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
-        <Switch>
-          <UserProvider>
+        <UserProvider>
+          <Switch>
             <Layout>
               <Route exact path='/'>
                 <Home />
@@ -35,9 +35,11 @@ function App() {
                 <Session />
               </Route>
             </Layout>
-            <Route><NotFound /></Route>
-          </UserProvider>
-        </Switch>
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </UserProvider>
       </Suspense>
     </BrowserRouter>
   )

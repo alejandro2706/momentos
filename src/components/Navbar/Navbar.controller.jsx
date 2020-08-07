@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Toast } from '../../utils/SwalModals'
 import '../../styles/components/Navbar/Navbar.sass'
+import { app } from '../../db/config'
 import UserContext from '../../context'
 import cartIcon from '../../assets/icons/cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
 import CartContainer from '../../containers/CartContainer'
-import { app } from '../../db/config'
 import BrandContainer from './BrandContainer'
 import UserDropdown from '../Dropdown/UserDropdown'
 import NavbarMobileContainer from '../../containers/NavbarMobileContainer'
@@ -75,7 +75,12 @@ function Navbar() {
             <button type='button' className='isUser' onClick={() => onOpenDropdown()}>
               <img src={user.photoURL || userIcon} alt='user' />
             </button>
-            <UserDropdown user={user} isActive={openModal.dropdown} signOut={signOut} closeDropdown={onOpenDropdown} />
+            <UserDropdown
+              user={user}
+              isActive={openModal.dropdown}
+              signOut={signOut}
+              closeDropdown={onOpenDropdown}
+            />
           </>
         )}
         {!user && (
@@ -92,6 +97,7 @@ function Navbar() {
           isOpen={openModal.navbar}
           className={transition}
           closeNav={onOpenNav}
+          signOut={signOut}
         />
       </div>
     </div>

@@ -1,31 +1,26 @@
 import React from 'react'
-import '../../styles/components/Dropdown/DropdownItem.sass'
 import { Link } from 'react-router-dom'
 
-const DropdownItem = ({ title, img, action, closeModal }) => {
+const DropdownItem = ({ title, img, action, closeModal, className }) => {
   if (typeof (action) === 'function') {
     return (
-      <button type='button' onClick={action}>
-        <div className='UserDropdown-actions'>
-          <p>{title}</p>
-          <div className='UserDropdown-actions_img'>
-            <img src={img} alt='icon' />
-          </div>
+      <button type='button' className={className} onClick={action}>
+        <p>{title}</p>
+        <div className={`${className}_img`}>
+          <img src={img} alt='icon' />
         </div>
       </button>
     )
   }
   return (
-    <button type='button' onClick={closeModal}>
-      <Link to={action}>
-        <div className='UserDropdown-actions'>
-          <p>{title}</p>
-          <div className='UserDropdown-actions_img'>
-            <img src={img} alt='icon' />
-          </div>
+    <Link to={action} onClick={closeModal}>
+      <div className={className}>
+        <p>{title}</p>
+        <div className={`${className}_img`}>
+          <img src={img} alt='icon' />
         </div>
-      </Link>
-    </button>
+      </div>
+    </Link>
   )
 }
 

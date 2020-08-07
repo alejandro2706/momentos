@@ -24,6 +24,7 @@ const About = () => {
         </AboutItem>
       </div>
     </div>
+
   )
 }
 

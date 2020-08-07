@@ -5,17 +5,26 @@
   display: grid
   grid-template-columns: repeat(2, 1fr)
   margin-top: 4.3em
+  height: 90vh
   &-button
     @include button(10px)
     width: 9em
     height: 2em
     position: absolute
     top: 150px
-    left: 43%
+    left: 0
+    right: 0
+    margin: 0 auto
     font-size: 1.1em
     cursor: pointer
     &:hover
       background-color: $brand-color-alt
+
+@include media ( desktop-xxl )
+  .Session
+    height: 91vh
+    &-button
+      top: 200px
 
 
 @include media ( tablet-l )
@@ -26,9 +35,6 @@
   .Session
     display: block
     &-button
-      left: 0
-      right: 0
-      margin: 0 auto
       width: 13em
       height: 2.4em
 
