@@ -10,13 +10,13 @@ class Form {
   }
 
   createForm(data) {
-    if (data.name && data.surname && data.email && data.phone && data.message) {
+    if (data.name && data.email && data.message) {
       return this.db.collection('formularios')
         .add({
           name: data.name,
-          surname: data.surname,
+          surname: data.surname || null,
           email: data.email,
-          phone: data.phone,
+          phone: data.phone || null,
           message: data.message,
           date: new Date(),
         })

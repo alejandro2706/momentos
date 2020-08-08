@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
+const FaviconWebpackPlugin = require('favicons-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   entry: {
@@ -73,6 +75,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new FaviconWebpackPlugin('./src/assets/brand/cupcake-logo.png'),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
@@ -89,6 +92,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['***'],
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: true,
     }),
   ],
 };

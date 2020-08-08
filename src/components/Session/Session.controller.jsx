@@ -4,7 +4,7 @@ import { SwalWithNoButton } from '../../utils/SwalModals'
 import { signUpEmailPass, signInEmailPass, authWithGoogle, authWithFacebook } from '../../db/authController'
 
 function SessionController() {
-  const [form, setForm] = useState(null)
+  const [form, setForm] = useState('')
   const [sessionState, setSessionState] = useState({
     className: 'SignIn',
     title: 'Iniciar Sesión',
@@ -36,7 +36,6 @@ function SessionController() {
       [e.target.name]: e.target.value,
     })
   }
-
   const onSubmitForm = (e) => {
     e.preventDefault()
     if (form) {

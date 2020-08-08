@@ -5,6 +5,7 @@ import google from '../../assets/icons/google-icon.svg'
 import Input from './Input'
 
 const SignIn = ({ title, register, onFormChange, onSubmitForm, authWithGoogle, authWithFacebook, form }) => {
+  const { name, password, email } = form
   return (
     <>
       <h3>{title}</h3>
@@ -30,7 +31,7 @@ const SignIn = ({ title, register, onFormChange, onSubmitForm, authWithGoogle, a
             type='password'
             title='Contraseña'
           />
-          <button type='submit' disabled={!form} onClick={onSubmitForm}>{title}</button>
+          <button type='submit' disabled={(!name, !email, !password)} onClick={onSubmitForm}>{title}</button>
         </form>
       </div>
       <hr className='hr_sigin' />
