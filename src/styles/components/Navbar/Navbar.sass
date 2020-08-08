@@ -52,12 +52,50 @@
         color: white
       &:hover
         background-color: $brand-color-alt
+  
+.menu-icon.is-active::before
+  animation: before-open 1s forwards
 
-  @keyframes show
-    0%
-      opacity: 0
-    100%
-      opacity: 1
+.menu-icon.is-active::after
+  animation: after-open 1s forwards
+
+
+.menu-icon.is-close::before
+  animation: before-closing 1s forwards
+
+.menu-icon.is-close::after
+  animation: after-closing 1s forwards
+
+
+@keyframes after-open
+  0%
+    transform: rotate(0deg) translate(0px)
+  100%
+    transform: translateY(-6px) rotate(45deg)
+
+@keyframes after-closing
+  0%
+    transform: translateY(-6px) rotate(45deg)
+  100%
+    transform: rotate(0deg) translate(0px)
+
+@keyframes before-open
+  0%
+    transform: rotate(0deg) translate(0px)
+  100%
+    transform: translateY(6px) rotate(-45deg)
+
+@keyframes before-closing
+  0%
+    transform: translateY(6px) rotate(-45deg)
+  100%
+    transform: rotate(0deg) translate(0px)
+
+@keyframes show
+  0%
+    opacity: 0
+  100%
+    opacity: 1
 
 @include media ( desktop-xxl )
   .Navbar-container
@@ -124,19 +162,26 @@
             display: block
             background-color: white
             width: 30px
-            height: 3px
+            height: 2px
             margin-bottom: 10px
+            border-radius: 2em
           &::after
             content:  ''
             display: block
             background-color: white
             width: 30px
-            height: 3px
+            height: 2px
+            border-radius: 2em
       .signIn, .isUser
         display: none
         img
           display: inline-block
           width: 60%
+
+@include media ( mobile-l )
+  .Navbar-container_tooltips
+    .cart
+      width: 34px
 
 @include media ( mobile-m )
   .Navbar-container

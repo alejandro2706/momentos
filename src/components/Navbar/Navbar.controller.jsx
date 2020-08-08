@@ -32,9 +32,10 @@ function Navbar() {
   const onOpenNav = () => {
     if (!openModal.navbar) {
       setOpenModal({ navbar: true })
-      setTransition('is-open')
+      setTransition('is-active')
     } else {
       setOpenModal(false)
+      setTransition('is-close')
     }
   }
 
@@ -91,7 +92,7 @@ function Navbar() {
           </button>
         )}
         <button type='button' className='menu' onClick={onOpenNav}>
-          <div className='menu-icon' />
+          <div className={`menu-icon ${transition}`} />
         </button>
         <NavbarMobileContainer
           isOpen={openModal.navbar}
