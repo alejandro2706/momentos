@@ -19,7 +19,7 @@ function UserElement({ user, closeNav, signOut }) {
   return (
     <div className='isUser'>
       <div className='isUser-image'>
-        <img src={user.photoURl || userDefaultIcon} alt='user' />
+        <img src={user.photoURL || userDefaultIcon} alt='user' />
       </div>
       <div className='isUser-name'>
         <p>
