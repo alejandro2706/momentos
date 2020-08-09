@@ -25,9 +25,12 @@
     font-size: .9em
 
 @include media ( tablet-s )
-  .About-history
-    grid-template-columns: 1fr
-    grid-template-rows: 1fr .6fr 1fr .6fr
-    &_section:first-of-type
-      grid-row-start: 2
+  .About
+    &-title
+      height: 13em
+    &-history
+      grid-template-columns: 1fr
+      grid-template-rows: 1fr .6fr 1fr .6fr
+      &_section:first-of-type
+        grid-row-start: 2
 
