@@ -8,10 +8,10 @@ const GetInTouch = () => (
   <div className='Footer-git'>
     <h2>Get In touch!</h2>
     <div className='Footer-git_items'>
-      <h3>Llamanos</h3>
+      <h3>Horarios</h3>
       <img src={phone} alt='phone' />
       <span>
-        000000000
+        lun-vie 10am - 6pm
       </span>
     </div>
     <div className='Footer-git_items'>

@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../../styles/components/Navbar/NavbarItem.sass'
 
 const NavbarItem = ({ title, route, className, closeModal }) => (
   <li className={className}>
-    <Link to={`/${route}`}>
+    <NavLink to={`/${route}`} activeClassName='navbar-active'>
       <button type='button' onClick={closeModal}>
         {title}
       </button>
-    </Link>
+    </NavLink>
   </li>
 )
 

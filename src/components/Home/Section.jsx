@@ -13,27 +13,33 @@ function Section() {
       <div className='Section-grid'>
         <SectionProduct
           image={cupcake}
-          title='Galletas'
+          title='Cupcakes'
+          route='cupcakes'
         />
         <SectionProduct
           image={cookies}
-          title='Cupcakes'
+          title='Galletas'
+          route='cookies'
         />
         <SectionProduct
           image={cake}
-          title='Brownies'
+          title='Mantecadas'
+          route='cakes'
         />
         <SectionProduct
           image={cupcake}
-          title='Antojos'
+          title='Cupcakes'
+          route='cupcakes'
         />
         <SectionProduct
           image={cake}
-          title='Brownies'
+          title='Mantecadas'
+          route='cakes'
         />
         <SectionProduct
           image={cookies}
-          title='Brownies'
+          title='Galletas'
+          route='cookies'
         />
       </div>
     </div>
