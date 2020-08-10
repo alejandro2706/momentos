@@ -25,6 +25,34 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'all',
+      minSize: 20000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          chunks: 'all',
+          name: 'react-vendor',
+        },
+        firebase: {
+          test: /[\\/]node_modules[\\/](firebase|@firebase)[\\/]/,
+          chunks: 'all',
+          name: 'firebase-vendor',
+        },
+        sweetalert: {
+          test: /[\\/]node_modules[\\/](sweetalert2)[\\/]/,
+          chunks: 'all',
+          name: 'sweetalert-vendor',
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
     },
   },
   resolve: {

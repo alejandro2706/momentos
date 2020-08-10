@@ -6,11 +6,13 @@ import { app } from '../../db/config'
 import UserContext from '../../context'
 import cartIcon from '../../assets/icons/shopping-cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
-import CartContainer from '../../containers/CartContainer'
 import BrandContainer from './BrandContainer'
 import UserDropdown from '../Dropdown/UserDropdown'
-import NavbarMobileContainer from '../../containers/NavbarMobileContainer'
 import NavbarList from './NavbarList'
+import Loading from '../Loading'
+
+const CartContainer = React.lazy(() => import('../../containers/CartContainer'))
+const NavbarMobileContainer = React.lazy(() => import('../../containers/NavbarMobileContainer'))
 
 function Navbar() {
   const user = useContext(UserContext)
@@ -67,10 +69,12 @@ function Navbar() {
         <button type='button' onClick={() => onOpenCart()} className='cart'>
           <img src={cartIcon} alt='Cart icon' />
         </button>
-        <CartContainer
-          isOpen={openModal.cart}
-          className={transition}
-        />
+        <React.Suspense fallback={<Loading />}>
+          <CartContainer
+            isOpen={openModal.cart}
+            className={transition}
+          />
+        </React.Suspense>
         {user && (
           <>
             <button type='button' className='isUser' onClick={() => onOpenDropdown()}>
