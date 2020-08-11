@@ -71,6 +71,12 @@
     &-description h1
       font-size: 4.8em
 
+@include media ( tablet-s-only )
+  .Hero
+    height: 38em
+    &-description h1
+
+
 @include media ( tablet-s )
   .Hero
     height: 40em
@@ -80,7 +86,6 @@
         width: 90%
         margin-top: 1em
       button
-        left: 2em
         padding: .5em
         height: auto
 

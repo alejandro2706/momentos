@@ -4,6 +4,7 @@ import ProductItem from './ProductItem'
 import '../../styles/components/Products/ProductLayout.sass'
 
 function ProductLayout({ title, products }) {
+
   function onAddToCart() {
     //añadir al carrito
     alert('click')

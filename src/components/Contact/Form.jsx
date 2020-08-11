@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import '../../styles/components/Contact/Form.sass'
-import formController from '../../db/formController'
+import { createForm } from '../../db/formController'
 import { SwalWithNoButton } from '../../utils/SwalModals'
 import Input from '../Session/Input'
 
@@ -19,7 +19,7 @@ function Form() {
     e.preventDefault()
     if (formState) {
       if (!emailFormRef.current.validationMessage) {
-        return formController.createForm(formState)
+        return createForm(formState)
       }
       return SwalWithNoButton.fire({
         title: 'Correo invalido',

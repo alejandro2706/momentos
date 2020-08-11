@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import userDefaultIcon from '../../assets/icons/user-default.svg'
 import gearIcon from '../../assets/icons/gear.svg'
 import chartIcon from '../../assets/icons/chart.svg'
@@ -7,15 +6,6 @@ import logOutIcon from '../../assets/icons/log-out.svg'
 import DropdownItem from '../Dropdown/DropdownItem'
 
 function UserElement({ user, closeNav, signOut }) {
-  if (!user) {
-    return (
-      <button type='button' className='notUser_button' onClick={closeNav}>
-        <Link to='/auth'>
-          Iniciar Sesión
-        </Link>
-      </button>
-    )
-  }
   return (
     <div className='isUser'>
       <div className='isUser-image'>

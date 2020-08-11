@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import NavbarItem from './NavbarItem'
 import '../../styles/components/Navbar/NavbarMobile.sass'
 import UserContext from '../../context'
@@ -9,7 +10,15 @@ function NavbarMobile({ className, closeNav, signOut }) {
   return (
     <div className={`Mobile ${className}`}>
       <div className='Mobile-user'>
-        <UserElement user={user} closeNav={closeNav} signOut={signOut} />
+        {user ? (
+          <UserElement user={user} closeNav={closeNav} signOut={signOut} />
+        ) : (
+          <button type='button' className='notUser_button' onClick={closeNav}>
+            <Link to='/auth'>
+              Iniciar Sesión
+            </Link>
+          </button>
+        )}
       </div>
       <ul className='Mobile-list'>
         <NavbarItem

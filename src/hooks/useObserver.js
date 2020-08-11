@@ -7,7 +7,6 @@ function useObserver(entries, view) {
   useEffect(() => {
     setItem(entries)
     observer.observe(item)
-    return observer.disconnect()
   })
 }
 

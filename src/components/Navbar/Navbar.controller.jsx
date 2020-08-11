@@ -75,7 +75,7 @@ function Navbar() {
             className={transition}
           />
         </React.Suspense>
-        {user && (
+        {user ? (
           <>
             <button type='button' className='isUser' onClick={() => onOpenDropdown()}>
               <img src={user.photoURL || userIcon} alt='user' />
@@ -87,8 +87,7 @@ function Navbar() {
               closeDropdown={onOpenDropdown}
             />
           </>
-        )}
-        {!user && (
+        ) : (
           <button type='button' className='signIn'>
             <Link to='/auth'>
               Iniciar Sesión

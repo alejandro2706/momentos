@@ -2,37 +2,30 @@ import { SwalWithNoButton } from '../utils/SwalModals'
 import { app } from './config'
 import 'firebase/firebase-firestore'
 
-class Form {
-  constructor() {
-    this.firebase = app
-    this.db = this.firebase.firestore()
-    this.db.settings({})
-  }
+const db = app.firestore()
 
-  createForm(data) {
-    if (data.name && data.email && data.message) {
-      return this.db.collection('formularios')
-        .add({
-          name: data.name,
-          surname: data.surname || null,
-          email: data.email,
-          phone: data.phone || null,
-          message: data.message,
-          date: new Date(),
+function createForm(data) {
+  if (data.name && data.email && data.message) {
+    return db.collection('formularios')
+      .add({
+        name: data.name,
+        surname: data.surname || null,
+        email: data.email,
+        phone: data.phone || null,
+        message: data.message,
+        date: new Date(),
+      })
+      .then(() => {
+        SwalWithNoButton.fire({
+          icon: 'success',
+          title: 'Tu mensaje fue enviado correctamente',
         })
-        .then(() => {
-          SwalWithNoButton.fire({
-            icon: 'success',
-            title: 'Tu mensaje fue enviado correctamente',
-          })
-        })
-        .catch((err) => {
-          console.error(err)
-        })
-    }
-    return SwalWithNoButton.fire('Por favor llena los campos')
+      })
+      .catch((err) => {
+        console.error(err)
+      })
   }
+  return SwalWithNoButton.fire('Por favor llena los campos')
 }
 
-const formController = new Form()
-export default formController
+export { createForm, db }

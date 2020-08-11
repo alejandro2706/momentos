@@ -79,6 +79,18 @@ function App() {
                   productsData={productsData}
                 />
               </Route>
+              <Route exact path='/pizzalleta'>
+                <Products
+                  title='Pizzalleta'
+                  productsData={productsData}
+                />
+              </Route>
+              <Route exact path='/special'>
+                <Products
+                  title='Especiales'
+                  productsData={productsData}
+                />
+              </Route>
               <Route exact path='/about'>
                 <About />
               </Route>
