@@ -6,7 +6,7 @@ import '../../styles/components/Footer/GetInTouch.sass'
 
 const GetInTouch = () => (
   <div className='Footer-git'>
-    <h2>Get In touch!</h2>
+    <h2>Más información</h2>
     <div className='Footer-git_items'>
       <h3>Horarios</h3>
       <img src={phone} alt='phone' />
@@ -22,10 +22,10 @@ const GetInTouch = () => (
       </span>
     </div>
     <div className='Footer-git_items'>
-      <h3>Visítanos</h3>
+      <h3>Agradecimientos</h3>
       <img src={location} alt='location icon' />
       <span>
-        Cra 111A # 11a - 11
+        <a href='https://www.flaticon.com/home' target='_blank' rel='noreferrer'>Flaticons</a>
       </span>
     </div>
   </div>

@@ -1,10 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
-import Navbar from './Navbar/Navbar.controller';
+import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 
 const Layout = ({ children, location }) => {
-  // console.log('Location Layout', location)
   const isSessionComponent = location.pathname === '/auth'
   return (
     <>

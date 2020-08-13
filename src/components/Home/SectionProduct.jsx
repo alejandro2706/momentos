@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import '../../styles/components/Home/SectionProduct.sass'
 import { Link } from 'react-router-dom'
 

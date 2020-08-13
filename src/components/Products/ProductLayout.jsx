@@ -25,7 +25,7 @@ function ProductLayout({ title, products }) {
           <ProductItem
             key={item.id}
             name={item.data().title}
-            image={item.image || 'https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
+            image={item.data().image || 'https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}
             onAddToCart={onAddToCart}
           />
         )) : <h1>Loading</h1>}

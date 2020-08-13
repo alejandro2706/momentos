@@ -1,10 +1,9 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import '../styles/App.sass'
 import UserProvider from '../Providers/UserProvider'
 import Loading from '../components/Loading'
 import Layout from '../components/Layout'
-import { db } from '../db/formController'
 import useGetProducts from '../hooks/useGetProducts'
 
 const Home = lazy(() => import('../pages/Home'))
@@ -22,19 +21,6 @@ function App() {
   const specials = useGetProducts({ id: 'iZwYhkhZWiQJxY2DFHYv', collection: 'especiales' })
 
   const cakes = useGetProducts({ id: 'rkrPWYw2u5enTDjeW6zT', collection: 'cakes' })
-  const [docs, setDocs] = useState()
-  useEffect(() => {
-    db.collection('Productos').onSnapshot((querySnapshot) => {
-      setDocs(querySnapshot.docs)
-    })
-  }, [])
-
-  if (docs) {
-    docs.forEach((doc) => {
-      console.log('doc', doc)
-    });
-  }
-  // console.log(docs)
 
   return (
     <BrowserRouter>
@@ -48,7 +34,7 @@ function App() {
               <Route exact path='/products'>
                 <Products
                   title='Products'
-                  productsData={cakes}
+                  productsData={specials}
                 />
               </Route>
               <Route exact path='/cookies'>
