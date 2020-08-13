@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductLayout from '../components/Products/Products.controller'
+import ProductLayout from '../components/Products/ProductLayout'
 
 const Products = ({ title, productsData }) => {
   return (

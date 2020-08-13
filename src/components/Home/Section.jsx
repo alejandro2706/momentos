@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import '../../styles/components/Home/Section.sass'
-import cake from '../../assets/images/brownie.svg'
-import cookies from '../../assets/images/cookies.svg'
+// import cake from '../../assets/images/brownie.svg'
+// import cookies from '../../assets/images/cookies.svg'
 import cupcake from '../../assets/images/cupcake.svg'
 import SectionProduct from './SectionProduct'
 import { db } from '../../db/formController'
+import Loading from '../Loading'
 
 function Section() {
   const [products, setProducts] = useState()
@@ -30,7 +31,7 @@ function Section() {
               description={product.data().description}
             />
           ))
-        ) : <h1>cargando productos</h1>}
+        ) : <Loading className='Loading-products' />}
       </div>
     </div>
   )

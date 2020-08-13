@@ -1,9 +1,11 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import '../styles/App.sass'
 import UserProvider from '../Providers/UserProvider'
 import Loading from '../components/Loading'
 import Layout from '../components/Layout'
+import { db } from '../db/formController'
+import useGetProducts from '../hooks/useGetProducts'
 
 const Home = lazy(() => import('../pages/Home'))
 const Session = lazy(() => import('../pages/Session'))
@@ -12,34 +14,28 @@ const Contact = lazy(() => import('../pages/Contact'))
 const Products = lazy(() => import('../pages/Products'))
 const NotFound = lazy(() => import('../pages/NotFound'))
 
-const productsData = [
-  {
-    id: 1,
-    name: 'Brownie',
-    image: 'https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    decorated: false,
-  },
-  {
-    id: 2,
-    name: 'Galletas',
-    image: 'https://images.pexels.com/photos/268364/pexels-photo-268364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    decorated: true,
-  },
-  {
-    id: 3,
-    name: 'Antojos',
-    image: 'https://images.pexels.com/photos/268364/pexels-photo-268364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    decorated: true,
-  },
-  {
-    id: 4,
-    name: 'Merienda',
-    image: 'https://images.pexels.com/photos/890577/pexels-photo-890577.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    decorated: false,
-  },
-]
-
 function App() {
+  const brownies = useGetProducts({ id: 'B09hgGr8leFQR6TYUbVF', collection: 'brownies' })
+  const cookies = useGetProducts({ id: 'DCukWAbGfZtPzxP65HAW', collection: 'galletas' })
+  const pizzalleta = useGetProducts({ id: 'GUrDjclnG2thHhrKt4tM', collection: 'pizzalleta' })
+  const cupcakes = useGetProducts({ id: 'I68Zz3Xc0u7UggdxtNJP', collection: 'cupcakes' })
+  const specials = useGetProducts({ id: 'iZwYhkhZWiQJxY2DFHYv', collection: 'especiales' })
+
+  const cakes = useGetProducts({ id: 'rkrPWYw2u5enTDjeW6zT', collection: 'cakes' })
+  const [docs, setDocs] = useState()
+  useEffect(() => {
+    db.collection('Productos').onSnapshot((querySnapshot) => {
+      setDocs(querySnapshot.docs)
+    })
+  }, [])
+
+  if (docs) {
+    docs.forEach((doc) => {
+      console.log('doc', doc)
+    });
+  }
+  // console.log(docs)
+
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
@@ -52,43 +48,43 @@ function App() {
               <Route exact path='/products'>
                 <Products
                   title='Products'
-                  productsData={productsData}
+                  productsData={cakes}
                 />
               </Route>
               <Route exact path='/cookies'>
                 <Products
                   title='Galletas'
-                  productsData={productsData}
+                  productsData={cookies}
                 />
               </Route>
               <Route exact path='/cupcakes'>
                 <Products
                   title='Cupcakes'
-                  productsData={productsData}
+                  productsData={cupcakes}
                 />
               </Route>
               <Route exact path='/brownies'>
                 <Products
                   title='Brownies'
-                  productsData={productsData}
+                  productsData={brownies}
                 />
               </Route>
               <Route exact path='/cakes'>
                 <Products
                   title='Mantecadas'
-                  productsData={productsData}
+                  productsData={cakes}
                 />
               </Route>
               <Route exact path='/pizzalleta'>
                 <Products
                   title='Pizzalleta'
-                  productsData={productsData}
+                  productsData={pizzalleta}
                 />
               </Route>
               <Route exact path='/special'>
                 <Products
                   title='Especiales'
-                  productsData={productsData}
+                  productsData={specials}
                 />
               </Route>
               <Route exact path='/about'>

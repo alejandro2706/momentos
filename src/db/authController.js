@@ -6,8 +6,7 @@ function signUpEmailPass(user) {
     .then((result) => {
       result.user.updateProfile({ displayName: user.name })
       result.user.sendEmailVerification({ url: 'https://momentos-30bd0.web.app/' })
-        .catch((err) => {
-          console.error(err)
+        .catch(() => {
           return SwalWithBtn.fire({
             icon: 'error',
             title: 'Error al enviar el correo de verificación',
@@ -76,9 +75,8 @@ function signInEmailPass(user) {
 function authWithGoogle() {
   const provider = GoogleProvider
   app.auth().signInWithPopup(provider)
-    .catch((err) => {
+    .catch(() => {
       SwalWithNoButton.fire('Error al autenticarse con Google')
-      console.error(err)
     })
     .then((result) => {
       SwalWithNoButton.fire({
@@ -99,7 +97,6 @@ function authWithFacebook() {
       }
     })
     .then((result) => {
-      console.log(result.user)
       SwalWithNoButton.fire({
         icon: 'success',
         title: `Bienvenido ${result.user.displayName}`,

@@ -21,8 +21,11 @@ function createForm(data) {
           title: 'Tu mensaje fue enviado correctamente',
         })
       })
-      .catch((err) => {
-        console.error(err)
+      .catch(() => {
+        SwalWithNoButton.fire({
+          icon: 'error',
+          title: 'Error al enviar tu formulario',
+        })
       })
   }
   return SwalWithNoButton.fire('Por favor llena los campos')
