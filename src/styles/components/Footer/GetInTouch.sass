@@ -30,8 +30,19 @@
       grid-column: auto
       h3
         font-size: 1.6em
-      img
-        display: none
+      // img
+      //   display: none
       span
-        margin-left: 0
         font-size: 1.1em
+
+@include media ( mobile-l )
+  .Footer-git
+    grid-template-columns: 1fr
+    grid-template-rows: repeat(4, 1fr)
+    h2
+      text-align: center
+    &_items
+      grid-column: span 2
+      justify-self: center
+      text-align: center
+      font-size: 1.3em
