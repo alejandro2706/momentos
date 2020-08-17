@@ -19,6 +19,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserJSPlugin({}),
       new OptimizeCssAssetsPlugin({}),
@@ -90,7 +91,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
+      {
+        test: /\.jpg|png|gif|woff|eot|ttf|mp4|webm$/,
         use: {
           loader: 'url-loader',
           options: {
