@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import './Navbar.sass'
 import { Toast } from '../../utils/SwalModals'
-import '../../styles/components/Navbar/Navbar.sass'
 import { app } from '../../db/config'
 import UserContext from '../../context'
 import cartIcon from '../../assets/icons/shopping-cart.svg'
 import userIcon from '../../assets/icons/user-default.svg'
-import BrandContainer from './BrandContainer'
-import UserDropdown from '../Dropdown/UserDropdown'
-import NavbarList from './NavbarList'
+import BrandContainer from '../BrandContainer'
+import UserDropdown from '../UserDropdown'
+import NavbarList from '../NavbarList'
 import Loading from '../Loading'
 
 const CartContainer = React.lazy(() => import('../../containers/CartContainer'))

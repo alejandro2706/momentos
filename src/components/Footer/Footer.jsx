@@ -1,10 +1,10 @@
 import React from 'react'
-import '../../styles/components/Footer/Footer.sass'
+import './Footer.sass'
 import logo from '../../assets/brand/white-logo.png'
-import Social from './Social'
-import GetInTouch from './GetInTouch'
+import Social from '../Social'
+import GetInTouch from '../GetInTouch'
 
-const Footer = () => {
+function Footer() {
   return (
     <div className='Footer'>
       <div className='Footer-main'>

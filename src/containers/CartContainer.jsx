@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import '../styles/components/Cart/CartContainer.sass'
-import Cart from '../components/Cart/Cart.controller'
+import '../sass/CartContainer.sass'
+import Cart from '../components/Cart/Cart'
 
 const CartContainer = ({ isOpen, className }) => {
   if (!isOpen) {

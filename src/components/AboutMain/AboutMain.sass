@@ -1,0 +1,57 @@
+@import '../../sass/utils/breakpoints'
+@import '../../sass/utils/Vars'
+
+.About-main
+  background-color: $white-color
+  width: 45%
+  position: relative
+  margin: 0 auto
+  top: -6em
+  text-align: center
+  padding: 1em 2em
+  box-shadow: 0px 8px 8px -5px gray
+  border-radius: .9em
+  h3
+    font-size: 2.2em
+    margin-bottom: .7em
+  p
+    font-size: 1.4em
+    text-align: left
+  button
+    @include button(15px)
+    width: 30%
+    height: 3em
+    margin: 1.5em auto
+    position: relative
+    bottom: 0
+    a
+      color: white
+
+
+@include media ( desktop-xs )
+  .About-main
+    width: 48%
+    font-size: 1.1em
+
+@include media ( desktop-m )
+  .About-main
+    width: 48%
+
+@include media ( desktop-s )
+  .About-main
+    width: 53%
+
+@include media ( tablet-l )
+  .About-main
+    width: 55%
+
+@include media ( tablet-s )
+  .About-main
+    width: 85%
+    font-size: 1.4em
+    button
+      width: 55%
+
+@include media ( mobile-l )
+  .About-main button
+    width: 60%

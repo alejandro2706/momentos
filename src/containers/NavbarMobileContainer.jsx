@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NavbarMobile from '../components/Navbar/NavbarMobile'
+import NavbarMobile from '../components/NavbarMobile'
 
 function NavbarMobileContainer({ isOpen, className, closeNav, signOut }) {
   if (!isOpen) {

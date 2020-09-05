@@ -1,0 +1,22 @@
+@import 'utils/Vars'
+@import 'utils/breakpoints'
+
+.overlay
+  position: fixed
+  top: 4.6em
+  bottom: 0
+  right: 0
+  left: 0
+  background-color: transparentize(black, 0.5)
+
+@include media ( desktop-s )
+  .overlay
+    top: 4.7em
+
+@include media ( mobile-l )
+  .overlay
+    top: 5.1em
+
+@include media ( mobile-m )
+  .overlay
+    top: 5.4em

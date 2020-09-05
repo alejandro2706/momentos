@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import '../styles/App.sass'
+import '../sass/App.sass'
 import UserProvider from '../Providers/UserProvider'
 import Loading from '../components/Loading'
 import Layout from '../components/Layout'
