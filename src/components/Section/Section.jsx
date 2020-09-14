@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Section.sass'
 import SectionProduct from '../SectionProduct'
 import { db } from '../../db/formController'
-import Loading from '../Loading'
+import ProductsLoader from '../ProductsLoader'
 
 function Section() {
   const [products, setProducts] = useState()
@@ -22,13 +22,13 @@ function Section() {
           products.map((product) => (
             <SectionProduct
               key={product.id}
-              image={product.data().image || cupcake}
+              image={product.data().image}
               title={product.data().title}
               route={product.data().route}
               description={product.data().description}
             />
           ))
-        ) : <Loading className='Loading-products' />}
+        ) : [1, 2, 3, 4].map((index) => <ProductsLoader key={index} />)}
       </div>
     </div>
   )

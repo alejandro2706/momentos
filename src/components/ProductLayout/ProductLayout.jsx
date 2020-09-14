@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductItem from '../ProductItem'
+import ProductsLoader from '../ProductsLoader'
 import './ProductLayout.sass'
 
 function ProductLayout({ title, products }) {
@@ -8,13 +9,6 @@ function ProductLayout({ title, products }) {
     <div className='Layout'>
       <h2>{title}</h2>
       <p>You will love It!</p>
-      <div className='Toggle-products'>
-        {/* <button type='button'>
-          <Link to='/products/decorados'>
-            Decorados
-          </Link>
-        </button> */}
-      </div>
       <div className='Layout-grid'>
         {products ? products.map((item) => (
           <ProductItem
@@ -23,7 +17,7 @@ function ProductLayout({ title, products }) {
             title={item.data().title}
             image={item.data().image}
           />
-        )) : <h1>Loading</h1>}
+        )) : [1, 2, 3, 4].map((index) => <ProductsLoader key={index} />)}
       </div>
     </div>
   )

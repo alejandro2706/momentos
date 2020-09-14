@@ -91,11 +91,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader',
-      },
-      {
-        test: /\.jpg|png|gif|woff|eot|ttf|mp4|webm$/,
+        test: /\.jpg|png|gif|woff|eot|ttf|mp4|svg|webm$/,
         use: {
           loader: 'url-loader',
           options: {

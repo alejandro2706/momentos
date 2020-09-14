@@ -1,23 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import './SectionProduct.sass'
 import { Link } from 'react-router-dom'
+import useNearScreen from '../../hooks/useNearScreen'
 
 const SectionProduct = ({ image, title, route, description }) => {
-  const [className, setClassName] = useState('hidden')
-  const product = useRef(null)
-  useEffect(() => {
-    const options = {
-      threshold: 0.60,
-    }
-    function onViewInWindow(entries) {
-      const entry = entries[0]
-      if (entry.intersectionRatio > options.threshold) {
-        setClassName('visible')
-      }
-    }
-    const observer = new IntersectionObserver(onViewInWindow, options)
-    observer.observe(product.current)
-  }, [])
+  const { className, product } = useNearScreen()
 
   return (
     <div className={`Section-products ${className}`} ref={product}>
