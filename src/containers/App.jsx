@@ -14,12 +14,12 @@ const Products = lazy(() => import('../pages/Products'))
 const NotFound = lazy(() => import('../pages/NotFound'))
 
 function App() {
+
   const brownies = useGetProducts({ id: 'B09hgGr8leFQR6TYUbVF', collection: 'brownies' })
   const cookies = useGetProducts({ id: 'DCukWAbGfZtPzxP65HAW', collection: 'galletas' })
   const pizzalleta = useGetProducts({ id: 'GUrDjclnG2thHhrKt4tM', collection: 'pizzalleta' })
   const cupcakes = useGetProducts({ id: 'I68Zz3Xc0u7UggdxtNJP', collection: 'cupcakes' })
   const specials = useGetProducts({ id: 'iZwYhkhZWiQJxY2DFHYv', collection: 'especiales' })
-
   const cakes = useGetProducts({ id: 'rkrPWYw2u5enTDjeW6zT', collection: 'cakes' })
 
   return (
