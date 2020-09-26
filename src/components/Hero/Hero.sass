@@ -44,6 +44,28 @@
           &:hover
             background-color: $brand-color-alt
 
+.increase
+  animation: .5s increase ease forwards
+
+.decrease
+  animation: .5s decrease ease forwards
+
+@keyframes increase
+  0%
+    transform: perspective(800px) translate3d(0px, 0px, 0px)
+  50%
+    transform: perspective(800px) translate3d(0px, 0px, 50px)
+  100%
+    transform: perspective(800px) translate3d(0px, 0px, 30px)
+
+@keyframes decrease
+  0%
+    transform: perspective(800px) translate3d(0px, 0px, 30px)
+  50%
+    transform: perspective(800px) translate3d(0px, 0px, 50px)
+  100%
+    transform: perspective(800px) translate3d(0px, 0px, 0px)
+
 @include media ( desktop-xxl )
   .Hero
     height: 48em
