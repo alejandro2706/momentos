@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "momentos-30bd0"
+  },
+  "targets": {
+    "momentos-30bd0": {
+      "hosting": {
+        "app": [
+          "momentos-app"
+        ]
+      }
+    }
   }
 }
