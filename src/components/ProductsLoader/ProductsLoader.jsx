@@ -5,7 +5,7 @@ const ProductsLoader = () => (
   <ContentLoader
     speed={2}
     width={400}
-    height={460}
+    height={350}
     viewBox='0 0 400 460'
     backgroundColor='#ebebe3'
     foregroundColor='#eeeeee'

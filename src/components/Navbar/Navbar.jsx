@@ -56,7 +56,7 @@ function Navbar() {
           icon: 'success',
           title: 'Saliste',
         }))
-      window.location.reload(true)
+      window.location.reload()
     }
   }
   return (
