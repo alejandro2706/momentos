@@ -1,40 +1,26 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import NavbarItem from '../NavbarItem'
 import './NavbarMobile.sass'
-import UserContext from '../../context'
-import UserElement from '../UserElement'
 
-function NavbarMobile({ className, closeNav, signOut }) {
-  const user = useContext(UserContext)
+function NavbarMobile({ className, closeNav }) {
+
   return (
     <div className={`Mobile ${className}`}>
-      <div className='Mobile-user'>
-        {user ? (
-          <UserElement user={user} closeNav={closeNav} signOut={signOut} />
-        ) : (
-          <button type='button' className='notUser_button' onClick={closeNav}>
-            <Link to='/auth'>
-              Iniciar Sesión
-            </Link>
-          </button>
-        )}
-      </div>
       <ul className='Mobile-list'>
         <NavbarItem
-          title='About'
+          title='Nosotros'
           route='about'
           className='Mobile-list_item'
           closeModal={closeNav}
         />
         <NavbarItem
-          title='Contact'
+          title='Contáctanos'
           route='contact'
           className='Mobile-list_item'
           closeModal={closeNav}
         />
         <NavbarItem
-          title='Products'
+          title='Productos'
           route='products'
           className='Mobile-list_item'
           closeModal={closeNav}

@@ -1,5 +1,5 @@
 import { SwalWithNoButton } from '../utils/SwalModals'
-import { app } from './config'
+import app from './config'
 import 'firebase/firebase-firestore'
 
 const db = app.firestore()
