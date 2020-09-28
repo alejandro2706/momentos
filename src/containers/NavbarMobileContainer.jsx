@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import NavbarMobile from '../components/NavbarMobile'
 
-function NavbarMobileContainer({ isOpen, className, closeNav, signOut }) {
+function NavbarMobileContainer({ isOpen, className, closeNav }) {
   if (!isOpen) {
     return null
   }
@@ -11,7 +11,6 @@ function NavbarMobileContainer({ isOpen, className, closeNav, signOut }) {
       <NavbarMobile
         className={className}
         closeNav={closeNav}
-        signOut={signOut}
       />
       , document.getElementById('Modal'),
     )

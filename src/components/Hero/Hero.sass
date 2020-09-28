@@ -30,19 +30,18 @@
       width: 70%
       @include flex(center, center)
       button
-        @include button(10px, $brand-color)
         width: 8em
         height: 2em
         font-size: 1.4em
         margin: 0 1em
         text-transform: capitalize
+        cursor: pointer
+        border: 1px solid $brand-color-alt
+        @include button(10px, transparent)
         a
           color: white
-        &:last-of-type
-          @include button(10px, transparent)
-          border: 1px solid $brand-color-alt
-          &:hover
-            background-color: $brand-color-alt
+        &:hover
+          background-color: $brand-color-alt
 
 .increase
   animation: .5s increase ease forwards

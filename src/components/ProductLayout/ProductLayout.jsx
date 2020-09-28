@@ -13,7 +13,6 @@ function ProductLayout({ title, products }) {
         {products ? products.map((item) => (
           <ProductItem
             key={item.id}
-            id={item.id}
             title={item.data().title}
             image={item.data().image}
           />

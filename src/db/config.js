@@ -1,5 +1,4 @@
-import * as firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from 'firebase/app'
 
 const app = firebase.initializeApp({
   apiKey: 'AIzaSyBNIhgEg-FYbh0sWWuz-cBgOpyD5rkT8xQ',
@@ -12,11 +11,4 @@ const app = firebase.initializeApp({
   measurementId: 'G-7H4QYFYTR4',
 })
 
-const GoogleProvider = new firebase.auth.GoogleAuthProvider()
-const FacebookProvider = new firebase.auth.FacebookAuthProvider()
-
-export {
-  app,
-  GoogleProvider,
-  FacebookProvider,
-}
+export default app
