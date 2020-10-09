@@ -3,7 +3,7 @@ import './SectionProduct.sass'
 import { Link } from 'react-router-dom'
 import useNearScreen from '../../hooks/useNearScreen'
 
-const SectionProduct = ({ image, title, route, description }) => {
+const SectionProduct = ({ image, title, id, description }) => {
   const { className, product } = useNearScreen()
 
   return (
@@ -15,8 +15,8 @@ const SectionProduct = ({ image, title, route, description }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <div className='Section-products_button'>
-          <Link to={`/${route}`}>
-            <button type='button' className='btn'>
+          <Link to={`p/${id}?t=${title}`}>
+            <button type='button'>
               Ver más
             </button>
           </Link>

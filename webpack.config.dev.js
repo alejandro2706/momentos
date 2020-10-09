@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: './scripts/[name].js',
+    publicPath: '/',
   },
   mode: 'development',
   devtool: 'inline-source-map',

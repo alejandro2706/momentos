@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import './Form.sass'
 import { createForm } from '../../db/formController'
 import Input from '../Input'
@@ -9,7 +9,6 @@ function Form() {
   const [surname, setSurname] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const emailFormRef = useRef(null)
 
   const onSubmitForm = (e) => {
     e.preventDefault()
@@ -56,7 +55,6 @@ function Form() {
           type='Email'
           labelFor='email'
           title='Correo Electrónico'
-          reference={emailFormRef}
           required
           value={email}
           onchange={(e) => setEmail(e.target.value)}

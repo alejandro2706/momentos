@@ -3,15 +3,12 @@ import { withRouter } from 'react-router-dom'
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 
-const Layout = ({ children, location }) => {
-  const isSessionComponent = location.pathname === '/auth'
+const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
       {children}
-      {!isSessionComponent && (
-        <Footer />
-      )}
+      <Footer />
     </>
   )
 }

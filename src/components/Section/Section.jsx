@@ -7,10 +7,8 @@ import ProductsLoader from '../ProductsLoader'
 function Section() {
   const [products, setProducts] = useState()
   useEffect(() => {
-    db.collection('Productos')
-      .onSnapshot((querySnapshot) => {
-        setProducts(querySnapshot.docs)
-      })
+    db.collection('Productos').get()
+      .then(({ docs }) => setProducts(docs))
   }, [])
 
   return (
@@ -24,7 +22,7 @@ function Section() {
               key={product.id}
               image={product.data().image}
               title={product.data().title}
-              route={product.data().route}
+              id={product.id}
               description={product.data().description}
             />
           ))

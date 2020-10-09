@@ -8,7 +8,7 @@ const NavbarMobileContainer = React.lazy(() => import('../../containers/NavbarMo
 function Navbar() {
 
   const [transition, setTransition] = useState(null)
-  const [openModal, setOpenModal] = useState({ cart: false, navbar: false, dropdown: false })
+  const [openModal, setOpenModal] = useState({ navbar: false })
 
   const onOpenNav = () => {
     if (!openModal.navbar) {

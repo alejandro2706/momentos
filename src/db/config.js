@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
+import 'firebase/firestore'
 
-const app = firebase.initializeApp({
+export const app = firebase.initializeApp({
   apiKey: 'AIzaSyBNIhgEg-FYbh0sWWuz-cBgOpyD5rkT8xQ',
   authDomain: 'momentos-30bd0.firebaseapp.com',
   databaseURL: 'https://momentos-30bd0.firebaseio.com',
@@ -11,4 +12,4 @@ const app = firebase.initializeApp({
   measurementId: 'G-7H4QYFYTR4',
 })
 
-export default app
+export const db = app.firestore()

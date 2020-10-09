@@ -43,11 +43,6 @@ module.exports = {
           chunks: 'all',
           name: 'firebase-vendor',
         },
-        sweetalert: {
-          test: /[\\/]node_modules[\\/](sweetalert2)[\\/]/,
-          chunks: 'all',
-          name: 'sweetalert-vendor',
-        },
         default: {
           minChunks: 2,
           priority: -20,
