@@ -17,6 +17,7 @@ module.exports = {
     filename: './scripts/[name].[contenthash].js',
     chunkFilename: './scripts/[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   optimization: {
     minimize: true,
