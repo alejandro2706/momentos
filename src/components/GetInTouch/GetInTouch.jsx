@@ -14,7 +14,7 @@ const GetInTouch = () => (
       <h3>Escríbenos</h3>
       <img src={phoneIcon} alt='phone' />
       <span>
-        <a href={`https://wa.me/${phone}`} target='_blank' rel='noreferrer'>
+        <a href={`https://wa.me/+57${phone}`} target='_blank' rel='noreferrer'>
           ir a WhatsApp
         </a>
       </span>

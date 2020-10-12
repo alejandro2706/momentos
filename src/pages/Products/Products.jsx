@@ -9,12 +9,19 @@ const Products = () => {
 
   const [products, setProducts] = useState()
   const location = useLocation()
-  const collectionId = location.pathname.replace('/p/', '')
-  const title = location.search.replace('?t=', '').toLocaleLowerCase()
+  const [title, setTitle] = useState(null)
+  const [collectionId, setCollectionId] = useState(null)
 
   useEffect(() => {
-    getSubProduct(collectionId, title)
-      .then(setProducts)
+    setTitle(location.pathname.replace('/p/', '').toLocaleLowerCase())
+    setCollectionId(location.state.id)
+  }, [location.pathname, location.state, title])
+
+  useEffect(() => {
+    if (collectionId && title) {
+      getSubProduct(collectionId, title)
+        .then(setProducts)
+    }
   }, [collectionId, location, title])
 
   return (

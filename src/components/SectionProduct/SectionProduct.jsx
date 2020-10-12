@@ -15,7 +15,11 @@ const SectionProduct = ({ image, title, id, description }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <div className='Section-products_button'>
-          <Link to={`p/${id}?t=${title}`}>
+          <Link to={{
+            pathname: `p/${title}`,
+            state: { id },
+          }}
+          >
             <button type='button'>
               Ver más
             </button>
