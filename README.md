@@ -1,7 +1,7 @@
 # Momentos web app
 
 An awesome Bakery single page app made with React JS and others cool tools.
-Also has its own Content manage system for manage al the data, products & forms that this app contains.
+Also has its own Content manage system for manage all the data, products & forms that this app contains.
 
 ## Demo
 
