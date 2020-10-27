@@ -14,7 +14,7 @@ const Hero = () => {
           especial
         </h1>
         <div className='Hero-description_buttons'>
-          <Link to='/products'>
+          <Link to='/'>
             <button
               type='button'
               className={className}

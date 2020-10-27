@@ -14,12 +14,12 @@ const About = () => {
       </div>
       <AboutMain />
       <div className='About-history'>
-        <AboutItem title='Nuestra Historia'>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis vitae quod voluptatem illo odit labore a sequi, cumque illum aliquam veritatis totam nostrum animi explicabo corporis natus, ab numquam quia?
+        <AboutItem title='Misión'>
+          Momentos galletas y cupcakes es una empresa familiar inspirada en el sentimiento único de compartir ocasiones inolvidables con las personas que forman parte de tu vida. Nuestros productos tienen la finalidad de poder llevar sonrisas y sorprender a las personas que amas.
         </AboutItem>
         <AboutImage image={historyImage} />
         <AboutImage image={missionImage} />
-        <AboutItem title='Mision'>
+        <AboutItem title='Nuestra Historia'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolores quas molestiae recusandae numquam! Distinctio pariatur animi beatae tempora autem dolorem illum delectus vel necessitatibus. Alias iste laborum doloremque accusantium.
         </AboutItem>
       </div>
