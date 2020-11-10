@@ -10,11 +10,6 @@ const NavbarList = () => (
       className='Navbar-list_item'
     />
     <NavbarItem
-      title='Productos'
-      route='products'
-      className='Navbar-list_item'
-    />
-    <NavbarItem
       title='Contacto'
       route='contact'
       className='Navbar-list_item'

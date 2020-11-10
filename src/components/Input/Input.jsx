@@ -3,6 +3,8 @@ import React from 'react'
 const Input = ({ name, title, type, className, onchange, required = false, value }) => (
   <label htmlFor={name} className={className}>
     {title}
+    {' '}
+    {required && '*'}
     <div>
       <input
         type={type}

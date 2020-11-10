@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Form.sass'
+import swal from 'sweetalert2'
 import { createForm } from '../../db/formController'
 import Input from '../Input'
 
@@ -10,21 +11,27 @@ function Form() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault()
-    const formState = {
+    await createForm({
       name,
       phone,
       surname,
       email,
       message,
-    }
-    createForm(formState)
-    setName('')
-    setPhone('')
-    setSurname('')
-    setEmail('')
-    setMessage('')
+    })
+      .then(() => {
+        swal.fire('Gracias por contactarnos!', '', 'success')
+        setName('')
+        setPhone('')
+        setSurname('')
+        setEmail('')
+        setMessage('')
+      })
+      .catch(() => {
+        swal.fire('Hubo un error al guardar tus datos')
+      })
+
   }
 
   return (
@@ -74,7 +81,7 @@ function Form() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button type='submit'>Enviar</button>
+        <button type='submit' disabled={!email || !name}>Enviar</button>
       </form>
     </div>
   )

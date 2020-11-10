@@ -7,7 +7,7 @@ import maps from '../../assets/icons/google-maps.svg'
 function Social() {
   return (
     <div className='Footer-social'>
-      <h2>Social Media</h2>
+      <h2>Redes Sociales</h2>
       <div className='Footer-social_icons'>
         <a href='https://www.facebook.com/momentos.ocasion' target='_blank' rel='noreferrer'>
           <img src={facebook} alt='facebook' />

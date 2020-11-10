@@ -26,11 +26,15 @@
       @include input(100%, 2.1em)
   button
     @include button(.8em)
+    cursor: pointer
     height: 2.2em
     grid-column: span 2
     font-size: 1.1em
     &:disabled
       background-color: $white-color
+      color: $black-color
+      border: 1px solid grey
+      cursor: initial
 
 
 @include media ( desktop-xxl )
