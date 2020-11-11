@@ -1,14 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Modal from '../components/Modal/Modal'
 
-function ModalContainer({ isOpen, closeModal, product }) {
+function ModalContainer({ isOpen, children, closeModal }) {
   if (!isOpen) return null
   return (
     ReactDOM.createPortal(
       <>
-        <div className='overlay' />
-        <Modal closeModal={() => closeModal(false)} product={product} />
+        <div className='overlay' onClick={closeModal} role='presentation' />
+        {children}
       </>,
       document.getElementById('Modal'),
     )

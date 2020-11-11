@@ -1,11 +1,14 @@
 import React from 'react'
 import './Modal.sass'
 
-function Modal({ closeModal, product }) {
+function Modal({ product }) {
   return (
-    <div className='Modal' onClick={closeModal} role='presentation'>
+    <div className='Modal'>
       <div className='Modal--container'>
         {product.title}
+      </div>
+      <div className='Modal--image'>
+        <img src={product.image} alt='Product' />
       </div>
     </div>
   )

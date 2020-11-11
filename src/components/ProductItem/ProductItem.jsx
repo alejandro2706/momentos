@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './ProductItem.sass'
 import addButton from '../../assets/icons/add-white.svg'
 import ModalContainer from '../../containers/ModalContainer'
+import Modal from '../Modal'
 
 const ProductItem = ({ title, image }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +21,9 @@ const ProductItem = ({ title, image }) => {
           </button>
         </div>
       </div>
-      <ModalContainer isOpen={isOpen} closeModal={setIsOpen} product={{ title, image }} />
+      <ModalContainer isOpen={isOpen} closeModal={() => setIsOpen(false)}>
+        <Modal product={{ title, image }} />
+      </ModalContainer>
     </>
   )
 }
