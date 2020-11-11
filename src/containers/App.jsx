@@ -15,15 +15,15 @@ function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<Loading />}>
-        <Switch>
-          <Layout>
+        <Layout>
+          <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Route exact path='/p/:id' component={Products} />
             <Route exact path='/contact' component={Contact} />
             <Route component={NotFound} />
-          </Layout>
-        </Switch>
+          </Switch>
+        </Layout>
       </Suspense>
     </BrowserRouter>
   )

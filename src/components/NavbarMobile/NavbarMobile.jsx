@@ -19,12 +19,6 @@ function NavbarMobile({ className, closeNav }) {
           className='Mobile-list_item'
           closeModal={closeNav}
         />
-        <NavbarItem
-          title='Productos'
-          route='products'
-          className='Mobile-list_item'
-          closeModal={closeNav}
-        />
       </ul>
     </div>
   )
