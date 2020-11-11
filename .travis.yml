@@ -23,5 +23,5 @@ deploy:
   skip_cleanup: true
   keep-history: true
   on:
-    repo: alejandro2706/momentos
+    repo: dalejandro06/momentos
     branch: master
